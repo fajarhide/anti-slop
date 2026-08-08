@@ -7,7 +7,7 @@
 
 ![banner](./assets/banner.png)
 
-> Aturan desain untuk menghentikan AI coding agent menghasilkan UI generik ("AI slop"). Berisi 38 rules wajib dan delivery gate mandatori.
+> Aturan desain untuk menghentikan AI coding agent menghasilkan UI generik ("AI slop") tanpa menjadi steril. Berisi 38 rules dalam tiga tingkat, Liveliness Toolkit, dan delivery gate mandatori.
 
 ---
 
@@ -15,15 +15,16 @@
 
 `ANTISLOP.md` adalah dokumen rules spesialis untuk pekerjaan desain UI/UX, yang dirancang **dibaca on-demand** oleh AI coding agent, bukan didorong paksa ke setiap sesi kerja apapun task-nya. File ini berisi:
 
-- **Bagian 1:** Ciri-ciri AI slop yang mudah dikenali (gradient biru-ungu, glassmorphism berlebihan, buzzword marketing, dsb.)
-- **Bagian 2:** 38 rules wajib (R-01 s/d R-38) yang harus diikuti agent saat membuat desain
+- **Bagian 1:** Tanda-tanda peringatan AI slop (gradient biru-ungu generik, glassmorphism berlebihan, buzzword marketing, dsb.); pemindaian diagnostik, bukan daftar larangan
+- **Bagian 2:** 38 rules wajib (R-01 s/d R-38) yang dikelompokkan ke dalam tiga tingkat: Hard Gate (mutlak), Purpose-Gate (teknik diperbolehkan, alasan wajib), Quality Locks (konsistensi)
+- **Bagian 3:** Liveliness Toolkit dengan tiga dial (ENERGI / RITME / GERAK), tuas positif, dan Pembacaan Desain untuk menetapkan arah sebelum generate
 - **Standar Craftsmanship:** lima kriteria kualitas yang netral terhadap selera (intentionality, kelengkapan fungsional, komposisi berbasis konten, ketahanan, bukti di atas klaim)
 - **Pola Fungsional:** makna konkret dari "tombol yang berfungsi" untuk landing page statis
-- **Checklist:** Delivery Gate mandatori (satu pertanyaan verifikasi per rule) yang dilaporkan sebagai status PASS/FAIL dengan bukti konkret per item, dijalankan sebelum menyerahkan hasil
+- **Checklist:** Delivery Gate mandatori dalam empat blok (Hard / Purpose-Gate / Liveliness / Craftsmanship & Quality Locks) yang dilaporkan sebagai status PASS/FAIL dengan bukti konkret per item, dijalankan sebelum menyerahkan hasil
 
-> `ANTISLOP.md` adalah **filter, bukan style guide**. Dokumen ini tidak memaksakan aesthetic: tidak ada warna, font, atau layout yang ditentukan. Preferensi desain dan arah brand milik kamu. Dokumen ini hanya (1) mendaftar pola generik AI yang harus dihindari dan (2) menahan hasil pada bar craftsmanship (intentional, fungsional, lengkap, berbasis bukti).
+> `ANTISLOP.md` adalah **filter, bukan style guide**. Ia tidak memaksakan aesthetic: tidak ada warna, font, atau layout yang ditentukan. Ia tidak melarang teknik visual; ia menolak teknik tanpa tujuan dan menuntut liveliness (Bagian 3). Preferensi desain dan arah brand milik kamu.
 >
-> `ANTISLOP.md` adalah **filter** dalam setup 3 file: `DESIGN.md` (milikmu) menyediakan arah dan membuat hasil terasa hidup, `AGENTS.md` (milikmu) merutekan agent untuk membaca keduanya. File ini sendiri hanya mencegah slop, tidak bisa membuat desain cantik; hasil steril berarti desain tidak punya arah, bukan filter yang gagal.
+> `ANTISLOP.md` adalah **filter** dalam setup 3 file: `DESIGN.md` (milikmu) menyediakan arah dan membuat hasil terasa hidup, `AGENTS.md` (milikmu) merutekan agent untuk membaca keduanya. File ini sendiri hanya mencegah slop, tidak bisa menciptakan arah; hasil steril berarti arahnya hilang atau liveliness tidak ditambahkan, bukan filter yang gagal.
 
 ---
 
@@ -55,6 +56,10 @@ Kenapa pola ini lebih baik daripada digabung langsung:
 - **Hemat context:** rules desain sepanjang ratusan baris ini hanya di-load kalau memang relevan, tidak ikut menumpuk di task backend/non-UI
 - **Gampang dirawat:** update `ANTISLOP.md` atau `DESIGN.md` tidak perlu mengubah file entry point project
 - **Portable:** file `ANTISLOP.md` yang sama bisa dipakai lintas project cukup dengan menyalin filenya dan menambah 1 blok pointer
+
+### Arah dan liveliness
+
+`DESIGN.md` menetapkan arah; Bagian 3 dari `ANTISLOP.md` menetapkan target liveliness. Kamu boleh menyertakan baris dial di `DESIGN.md`, misalnya `Dial: ENERGI 2 / RITME 3 / GERAK 1`, dan agent akan mendesain sesuai itu. Tanpa baris dial, agent menyimpulkan dial dari brief kamu dan mengajukan satu pertanyaan jika arahnya ambigu.
 
 Pola ini **generik dan tool-agnostic**. Blok pointer di atas itu instruksi bahasa natural biasa yang dieksekusi agent lewat file-read tool-nya masing-masing, jadi berlaku sama persis di Claude Code, Codex, Cursor, Windsurf, atau agent manapun selama agent-nya bisa membaca file lain yang direferensikan.
 
@@ -88,18 +93,19 @@ Lalu taruh file tersebut di lokasi yang sama dengan rules file agent lainnya di 
 
 ```
 Project root/
-├── AGENTS.md (atau CLAUDE.md, GEMINI.md, dsb.)    # router — milikmu
-├── DESIGN.md                                      # arah — milikmu
-└── ANTISLOP.md                                    # filter — dari repo ini
+├── AGENTS.md (atau CLAUDE.md, GEMINI.md, dsb.)    # router: milikmu
+├── DESIGN.md                                      # arah: milikmu
+└── ANTISLOP.md                                    # filter: dari repo ini
 
 Isi ANTISLOP.md:
-├── Apa Ini                     # filter, bagian dari setup 3 file
-├── Prinsip Utama               # pertanyaan inti: "kalau logo diganti, masih unik?"
-├── Standar Craftsmanship       # 5 kriteria kualitas (C-1..C-5)
-├── Bagian 1: Ciri-Ciri Slop    # referensi pola-pola AI slop
-├── Bagian 2: Rules Wajib       # R-01 s/d R-38, aturan detail per topik
-├── Pola Fungsional             # apa arti "berfungsi" untuk elemen interaktif
-└── Delivery Gate               # laporan PASS/FAIL wajib, 1:1 dengan tiap rule
+├── Apa Ini                      # filter, bagian dari setup 3 file
+├── Prinsip Utama                # uji tujuan: teknik tanpa tujuan ditolak
+├── Standar Craftsmanship        # 5 kriteria kualitas (C-1..C-5)
+├── Bagian 1: Ciri-Ciri Slop     # tanda peringatan (pemindaian diagnostik, bukan daftar larangan)
+├── Bagian 2: Rules Wajib        # R-01 s/d R-38, dalam 3 tingkat (Hard / Purpose-Gate / Quality)
+├── Bagian 3: Liveliness Toolkit # dial, tuas, Pembacaan Desain
+├── Pola Fungsional              # apa arti "berfungsi" untuk elemen interaktif
+└── Delivery Gate                # laporan PASS/FAIL wajib, 4 blok
 ```
 
 ---
@@ -112,4 +118,4 @@ Pull request terbuka untuk menambah pola AI slop baru, memperjelas rule yang amb
 
 ## License
 
-MIT — [LICENSE](LICENSE)
+MIT: [LICENSE](LICENSE)

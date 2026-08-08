@@ -7,7 +7,7 @@
 
 ![banner](./assets/banner.png)
 
-> Design rules to stop AI coding agents from generating generic UI ("AI slop"). Includes 38 enforceable rules and a mandatory delivery gate.
+> Design rules to stop AI coding agents from generating generic UI ("AI slop") without becoming sterile. Includes 38 rules across three tiers, a Liveliness Toolkit, and a mandatory delivery gate.
 
 ---
 
@@ -15,15 +15,16 @@
 
 `ANTISLOP.md` is a specialist rules document for UI/UX design work, designed to be **read on-demand** by AI coding agents, not force-loaded into every session regardless of the task. The file contains:
 
-- **Part 1:** Recognizable AI slop patterns (generic blue-purple gradients, excessive glassmorphism, marketing buzzwords, etc.)
-- **Part 2:** 38 mandatory rules (R-01 to R-38) the agent must follow when producing a design
+- **Part 1:** Warning signs of AI slop (generic blue-purple gradients, excessive glassmorphism, marketing buzzwords, etc.); a diagnostic scan, not a ban list
+- **Part 2:** 38 mandatory rules (R-01 to R-38) grouped into three tiers: Hard Gate (absolute), Purpose-Gate (technique allowed, reason required), Quality Locks (consistency)
+- **Part 3:** Liveliness Toolkit with three dials (ENERGY / RHYTHM / MOTION), positive levers, and a Design Read to set direction before generating
 - **Craftsmanship Standard:** five preference-agnostic quality criteria (intentionality, functional completeness, content-driven composition, resilience, evidence over claims)
 - **Functional Patterns:** concrete meanings of "a working button" for static landing pages
-- **Checklist:** a mandatory Delivery Gate (one verification question per rule) reported as a PASS/FAIL status with concrete evidence per item, run before delivering
+- **Checklist:** a mandatory Delivery Gate in four blocks (Hard / Purpose-Gate / Liveliness / Craftsmanship & Quality Locks) reported as a PASS/FAIL status with concrete evidence per item, run before delivering
 
-> `ANTISLOP.md` is a **filter, not a style guide**. It does not impose an aesthetic: no prescribed colors, fonts, or layouts. Design preferences and brand direction are yours. The document only (1) lists generic AI patterns to avoid and (2) holds results to a craftsmanship bar (intentional, functional, complete, evidence-based).
+> `ANTISLOP.md` is a **filter, not a style guide**. It does not impose an aesthetic: no prescribed colors, fonts, or layouts. It does not ban visual techniques; it rejects technique without purpose and requires liveliness (Part 3). Design preferences and brand direction are yours.
 >
-> `ANTISLOP.md` is the **filter** in a 3-file setup: `DESIGN.md` (yours) supplies direction and makes results feel alive, `AGENTS.md` (yours) routes the agent to read both. This file alone prevents slop but cannot make a design beautiful; a sterile result means the design had no direction, not that the filter failed.
+> `ANTISLOP.md` is the **filter** in a 3-file setup: `DESIGN.md` (yours) supplies direction and makes results feel alive, `AGENTS.md` (yours) routes the agent to read both. This file alone prevents slop but cannot invent direction; a sterile result means the direction was missing or liveliness was not added, not that the filter failed.
 
 ---
 
@@ -55,6 +56,10 @@ Why this pattern beats merging everything in:
 - **Saves context:** hundreds of lines of design rules only get loaded when actually relevant, instead of bloating every non-UI/backend task
 - **Easier to maintain:** updating `ANTISLOP.md` or `DESIGN.md` never requires touching the project's entry-point file
 - **Portable:** the same `ANTISLOP.md` can be reused across projects by just copying the file and adding one pointer block
+
+### Direction and liveliness
+
+`DESIGN.md` sets the direction; Part 3 of `ANTISLOP.md` sets the liveliness target. You can optionally include a dial line in `DESIGN.md`, for example `Dial: ENERGY 2 / RHYTHM 3 / MOTION 1`, and the agent will design to it. Without a dial line, the agent infers the dials from your brief and asks one question if the direction is ambiguous.
 
 This pattern is **generic and tool-agnostic**. The pointer block above is a plain natural-language instruction that the agent executes using its own file-read tool, so it works identically in Claude Code, Codex, Cursor, Windsurf, or any other agent capable of reading a referenced file.
 
@@ -88,18 +93,19 @@ Then place the file wherever your other agent rules files live. To use the 3-fil
 
 ```
 Project root/
-├── AGENTS.md (or CLAUDE.md, GEMINI.md, etc.)    # router — yours
-├── DESIGN.md                                    # direction — yours
-└── ANTISLOP.md                                  # filter — from this repo
+├── AGENTS.md (or CLAUDE.md, GEMINI.md, etc.)    # router: yours
+├── DESIGN.md                                    # direction: yours
+└── ANTISLOP.md                                  # filter: from this repo
 
 ANTISLOP.md internals:
 ├── What This Is               # a filter, part of a 3-file setup
-├── Core Principle             # key question: "swap the logo, is it still unique?"
+├── Core Principle             # purpose test: technique without purpose is rejected
 ├── Craftsmanship Standard     # 5 quality criteria (C-1..C-5)
-├── Part 1: Slop Patterns      # reference list of AI slop patterns
-├── Part 2: Mandatory Rules    # R-01 to R-38, detailed rules per topic
+├── Part 1: Slop Patterns      # warning signs (diagnostic scan, not a ban list)
+├── Part 2: Mandatory Rules    # R-01 to R-38, in 3 tiers (Hard / Purpose-Gate / Quality)
+├── Part 3: Liveliness Toolkit # dials, levers, Design Read
 ├── Functional Patterns        # what "works" means for interactive elements
-└── Delivery Gate              # mandatory PASS/FAIL report, 1:1 with each rule
+└── Delivery Gate              # mandatory PASS/FAIL report, 4 blocks
 ```
 
 ---
@@ -112,4 +118,4 @@ PRs are welcome for adding new AI slop patterns, clarifying ambiguous rules, or 
 
 ## License
 
-MIT — [LICENSE](LICENSE)
+MIT: [LICENSE](LICENSE)
