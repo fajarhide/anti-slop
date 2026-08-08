@@ -460,8 +460,8 @@ If none of these applies to an element, the element should not exist.
 
 ## Delivery Gate (Mandatory)
 
-Run this gate BEFORE delivering. Output its status with your deliverable.
-If any answer is **yes**, do not deliver: fix it first, then re-run.
+Run this gate BEFORE delivering. Output its status with your deliverable as a **PASS/FAIL report**: one line per item, and every `PASS` backed by concrete evidence (e.g. "R-26 PASS: every button has a real `href` or `onClick`; no dead controls").
+If any item is **FAIL** (or any answer is **yes**), do not deliver: fix it first, then re-run. A report containing a FAIL must never be shipped.
 
 ### Craftsmanship Standard
 
@@ -511,5 +511,7 @@ Before declaring the design done, answer every question below. All answers must 
 - [ ] If a theme toggle exists, does one mode (light or dark) break styles, fonts, or layout? *(R-34)*
 - [ ] Was the app run/built and every interactive element exercised before delivery? *(R-35)*
 - [ ] Are there any fabricated security, compliance, performance, or customer claims? *(R-36)*
+- [ ] Was the design built without a style direction (`DESIGN.md` / user brand guidance), or did it silently fall to a neutral default because no direction existed? *(R-37)*
+- [ ] Is there any realistically-styled content that was fabricated (testimonials, features, statistics, ghost links, fictional team) without a real source? *(R-38)*
 
 If even one answer is **yes**, do not deliver. Fix it, re-run the gate, and only then ship. Delivery without a clean gate is a failure.
