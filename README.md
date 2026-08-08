@@ -62,7 +62,7 @@ This pattern is **generic and tool-agnostic**. The pointer block above is a plai
 
 Don't want to set up any file? Copy the full contents of `ANTISLOP.md` and paste it at the start of your prompt before asking the agent to design something.
 
-> **Warning:** This approach is less reliable than the router pattern. When a long block of rules is pasted into a chat rather than loaded as a native context file, agents are more likely to partially ignore or hallucinate past the instructions, especially as the conversation grows longer. Use it as a quick fallback, not a primary setup.
+> **Warning:** This approach is less reliable than the 3-file setup. When a long block of rules is pasted into a chat rather than loaded as a native context file, agents are more likely to partially ignore or hallucinate past the instructions, especially as the conversation grows longer. Use it as a quick fallback, not a primary setup.
 
 ---
 
@@ -88,7 +88,7 @@ Then place the file wherever your other agent rules files live.
 
 ```
 Project root/
-├── AGENTS.md (or CLAUDE.md, GEMINI.md, etc.)   # router — yours
+├── AGENTS.md (or CLAUDE.md, GEMINI.md, etc.)    # router — yours
 ├── DESIGN.md                                    # direction — yours
 └── ANTISLOP.md                                  # filter — from this repo
 
