@@ -66,7 +66,7 @@ Apa pun yang disajikan sebagai fakta (testimonial, statistik, klaim keamanan) ha
 
 ## Bagian 1: Ciri-Ciri AI Slop (Tanda Peringatan)
 
-Ini adalah pola-pola yang paling sering ditemukan pada desain hasil AI. Gunakan tabel ini untuk **mengaudit** output kamu: pindai kemunculan berkelompok, lalu tanya setiap pola "ini melayani apa?" Satu pola dari daftar ini tidak masalah jika ia melayani tujuan. Yang membuat desain menjadi slop adalah banyaknya pola ini muncul bersamaan tanpa alasan. Ini adalah **pemindaian diagnostik, bukan daftar larangan**: teknik di sini tidak dilarang, ia adalah tanda peringatan bahwa uji tujuan (Bagian 2, grup Purpose-Gate) harus dilalui.
+Ini adalah pola-pola yang paling sering ditemukan pada desain hasil AI. Gunakan tabel ini untuk **mengaudit** output kamu: pindai kemunculan berkelompok, lalu tanya setiap pola "ini melayani apa?" Satu pola dari daftar ini tidak masalah jika ia melayani tujuan, kecuali pola yang dilarang rule **Hard Gate** di Bagian 2 (R-02, R-17, R-18, R-23 s.d. R-28, R-32 s.d. R-38). Yang membuat desain menjadi slop adalah banyaknya pola ini muncul bersamaan tanpa alasan. Ini adalah **pemindaian diagnostik, bukan daftar larangan**: Bagian 1 sendiri tidak melarang apa pun, tetapi rule Hard Gate di Bagian 2 bersifat mutlak, dan semua pola lain harus melewati uji tujuan (Bagian 2, grup Purpose-Gate).
 
 ### Visual & Warna
 
@@ -464,9 +464,9 @@ Setiap desain harus menetapkan tiga dial secara eksplisit, diturunkan dari `DESI
 
 | Dial | 1 (Tenang) | 2 (Seimbang) | 3 (Berani) | Yang dijawabnya |
 |---|---|---|---|---|
-| **ENERGI (ENERGY)** | Linear, GOV.UK | Stripe, Vercel | Awwwards, portfolio agency | Seberapa keras desain ini menyapa? |
-| **RITME (RHYTHM)** | Grid seragam, bisa diprediksi | Konsisten dengan sedikit jeda | Asimetris, komposisi campuran | Seberapa besar section berbeda satu sama lain? |
-| **GERAK (MOTION)** | Hanya hover state | Scroll-reveal, transisi | Parallax, pin, koreografi | Seberapa banyak gerakan, dan mengapa? |
+| **ENERGI** | Linear, GOV.UK | Stripe, Vercel | Awwwards, portfolio agency | Seberapa keras desain ini menyapa? |
+| **RITME** | Grid seragam, bisa diprediksi | Konsisten dengan sedikit jeda | Asimetris, komposisi campuran | Seberapa besar section berbeda satu sama lain? |
+| **GERAK** | Hanya hover state | Scroll-reveal, transisi | Parallax, pin, koreografi | Seberapa banyak gerakan, dan mengapa? |
 
 Anchor (Linear, GOV.UK, Stripe, Vercel, Awwwards) adalah referensi selera untuk menilai suatu nilai, bukan hal untuk ditiru.
 

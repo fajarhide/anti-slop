@@ -66,7 +66,7 @@ Anything presented as fact (testimonials, statistics, security claims) is real a
 
 ## Part 1: AI Slop Patterns (Warning Signs)
 
-These are the most common patterns found in AI-generated designs. Use this table to **audit** your output: scan for clusters, then ask each one "what does this serve?" A single pattern from this list is fine if it serves a purpose. What makes a design slop is many of these appearing together with no reason. This is a **diagnostic scan, not a ban list**: a technique here is not forbidden, it is a warning sign that the purpose test (Part 2, Purpose-Gate group) must be passed.
+These are the most common patterns found in AI-generated designs. Use this table to **audit** your output: scan for clusters, then ask each one "what does this serve?" A single pattern from this list is fine if it serves a purpose, unless a **Hard Gate** rule in Part 2 forbids it (R-02, R-17, R-18, R-23 to R-28, R-32 to R-38). What makes a design slop is many of these appearing together with no reason. This is a **diagnostic scan, not a ban list**: Part 1 itself bans nothing, but the Hard Gate rules in Part 2 are absolute, and every other pattern must pass the purpose test (Part 2, Purpose-Gate group).
 
 ### Visual & Color
 
