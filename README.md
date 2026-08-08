@@ -7,7 +7,7 @@
 
 ![banner](./assets/banner.png)
 
-> Design rules to stop AI coding agents from generating generic UI ("AI slop"). Includes 36 enforceable rules and a mandatory delivery gate.
+> Design rules to stop AI coding agents from generating generic UI ("AI slop"). Includes 38 enforceable rules and a mandatory delivery gate.
 
 ---
 
@@ -16,12 +16,14 @@
 `ANTISLOP.md` is a specialist rules document for UI/UX design work, designed to be **read on-demand** by AI coding agents, not force-loaded into every session regardless of the task. The file contains:
 
 - **Part 1:** Recognizable AI slop patterns (generic blue-purple gradients, excessive glassmorphism, marketing buzzwords, etc.)
-- **Part 2:** 36 mandatory rules (R-01 to R-36) the agent must follow when producing a design
+- **Part 2:** 38 mandatory rules (R-01 to R-38) the agent must follow when producing a design
 - **Craftsmanship Standard:** five preference-agnostic quality criteria (intentionality, functional completeness, content-driven composition, resilience, evidence over claims)
 - **Functional Patterns:** concrete meanings of "a working button" for static landing pages
-- **Checklist:** a mandatory Delivery Gate, one verification question per rule, the agent must run and report before delivering
+- **Checklist:** a mandatory Delivery Gate (one verification question per rule) reported as a PASS/FAIL status with concrete evidence per item, run before delivering
 
 > `ANTISLOP.md` is a **filter, not a style guide**. It does not impose an aesthetic: no prescribed colors, fonts, or layouts. Design preferences and brand direction are yours. The document only (1) lists generic AI patterns to avoid and (2) holds results to a craftsmanship bar (intentional, functional, complete, evidence-based).
+>
+> `ANTISLOP.md` is the **filter** in a 3-file setup: `DESIGN.md` (yours) supplies direction and makes results feel alive, `AGENTS.md` (yours) routes the agent to read both. This file alone prevents slop but cannot make a design beautiful; a sterile result means the design had no direction, not that the filter failed.
 
 ---
 
