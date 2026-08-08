@@ -27,25 +27,36 @@
 
 ---
 
-## Setup: The Router Pattern
+## Setup: The 3-File System
 
-Most projects using an AI coding agent already have an entry-point file (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, etc.) that the agent **always** reads at the start of a session. That file usually holds general project info: stack, conventions, build/test commands.
+`ANTISLOP.md` works together with two files that you own:
 
-`ANTISLOP.md` is **not** meant to be merged or copy-pasted into that entry-point file. Instead, keep `ANTISLOP.md` wherever your other rules files live (project root, `.agent/`, `.ai/`, or any similar directory), and add a **single pointer line** to your existing entry-point file (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, etc.):
+```
+Project root/
+├── AGENTS.md (or CLAUDE.md, GEMINI.md, etc.)   # router: tells the agent what to read
+├── DESIGN.md                                    # direction: the soul of your UI (yours)
+└── ANTISLOP.md                                  # filter: this repo
+```
+
+- **`AGENTS.md`** (or `CLAUDE.md`, `GEMINI.md`, etc.) is the entry-point file the agent **always** reads at the start of a session. It routes the agent to the files it needs per task.
+- **`DESIGN.md`** is your style direction: identity, personality, palette, typography, mood. It is what makes a result feel alive and specific. How you fill it is your business: write it yourself, or build it from visual references you find online, whatever matches your style and taste.
+- **`ANTISLOP.md`** is the filter. It stops the slop patterns on top of whatever direction `DESIGN.md` sets. It does not add beauty on its own. A sterile result means the direction was missing, not that the filter failed.
+
+Keep `ANTISLOP.md` wherever your other rules files live (project root, `.agent/`, `.ai/`, etc.), and add a **single pointer block** to your entry-point file (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, etc.):
 
 ```md
 ## Design & UI
-If the task involves building or editing UI/UX, read `ANTISLOP.md`
-first before generating anything.
+If the task involves building or editing UI/UX, read `DESIGN.md`
+(style direction) then `ANTISLOP.md` (filter) before generating anything.
 ```
 
 Why this pattern beats merging everything in:
 
 - **Saves context:** hundreds of lines of design rules only get loaded when actually relevant, instead of bloating every non-UI/backend task
-- **Easier to maintain:** updating `ANTISLOP.md` never requires touching the project's entry-point file
-- **Portable:** the same `ANTISLOP.md` can be reused across projects by just copying the file and adding one pointer line
+- **Easier to maintain:** updating `ANTISLOP.md` or `DESIGN.md` never requires touching the project's entry-point file
+- **Portable:** the same `ANTISLOP.md` can be reused across projects by just copying the file and adding one pointer block
 
-This pattern is **generic and tool-agnostic**. The pointer line above is a plain natural-language instruction that the agent executes using its own file-read tool, so it works identically in Claude Code, Codex, Cursor, Windsurf, or any other agent capable of reading a referenced file.
+This pattern is **generic and tool-agnostic**. The pointer block above is a plain natural-language instruction that the agent executes using its own file-read tool, so it works identically in Claude Code, Codex, Cursor, Windsurf, or any other agent capable of reading a referenced file.
 
 ### Manual / one-off prompt
 
