@@ -82,6 +82,8 @@ These are the most common patterns found in AI-generated designs. Use as a refer
 | **Dark Mode Default for No Reason** | Entire page is dark just because it looks "tech", with no branding consideration |
 | **Too Many Colors in Palette** | Using 5-7 different colors on one page without a clear design system |
 | **Excessive Accent Color** | One accent color on buttons, icons, badges, links, lines, backgrounds, and glows |
+| **Sterile Default** | Flat white/near-white, thin grey borders, small radius, no texture, generic font, no identity. The "safe result" of over-filtering without direction |
+| **Skeleton Preview as Product Shot** | Grey placeholder bars / skeleton blocks used as the "product screenshot" in the hero or feature areas |
 
 ### Layout & Components
 
@@ -96,6 +98,8 @@ These are the most common patterns found in AI-generated designs. Use as a refer
 | **"Trusted By" Logo Bar** | Row of generic company logos placed directly below the hero |
 | **"Most Popular" Pricing Card** | Middle tier always highlighted with a capsule badge |
 | **4-Column Template Footer** | Product / Company / Resources / Legal columns with no variation |
+| **Uniform Section Rhythm** | Every section is the same composition: centered title + subtitle + identical card grid, with no variation between sections |
+| **Alternating Background Only** | The only variation between sections is flipping the background color every other section |
 
 ### Copywriting & Content
 
