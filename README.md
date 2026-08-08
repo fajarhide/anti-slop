@@ -87,14 +87,19 @@ Then place the file wherever your other agent rules files live.
 ## File Structure
 
 ```
-ANTISLOP.md
-├── What This Is               # it's a filter, not a style guide
+Project root/
+├── AGENTS.md (or CLAUDE.md, GEMINI.md, etc.)   # router — yours
+├── DESIGN.md                                    # direction — yours
+└── ANTISLOP.md                                  # filter — from this repo
+
+ANTISLOP.md internals:
+├── What This Is               # a filter, part of a 3-file setup
 ├── Core Principle             # key question: "swap the logo, is it still unique?"
 ├── Craftsmanship Standard     # 5 quality criteria (C-1..C-5)
 ├── Part 1: Slop Patterns      # reference list of AI slop patterns
-├── Part 2: Mandatory Rules    # R-01 to R-36, detailed rules per topic
+├── Part 2: Mandatory Rules    # R-01 to R-38, detailed rules per topic
 ├── Functional Patterns        # what "works" means for interactive elements
-└── Delivery Gate              # mandatory checklist, 1:1 with each rule
+└── Delivery Gate              # mandatory PASS/FAIL report, 1:1 with each rule
 ```
 
 ---
