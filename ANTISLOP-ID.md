@@ -15,6 +15,14 @@
   1. Mendaftar pola generik AI yang harus dihindari.
   2. Menahan hasil pada standar craftsmanship: intentional, fungsional, lengkap, berbasis bukti.
 
+`ANTISLOP.md` adalah satu dari tiga file, dan ia adalah **filter, bukan sumber arah**:
+
+- `DESIGN.md` (atau arah brand/style kamu) memberikan desain **jiwa**: identitas, personality, palette, typography, mood. Inilah yang membuat hasil terasa hidup dan spesifik. Cara mengisinya urusan kamu: tulis sendiri, atau bangun dari referensi visual yang kamu suka.
+- `AGENTS.md` (atau `CLAUDE.md`, `GEMINI.md`, dsb.) menjadi router: "untuk pekerjaan UI, baca `DESIGN.md` untuk arah, lalu `ANTISLOP.md` sebagai filter."
+- `ANTISLOP.md` hanya mencegah slop. Ia **tidak bisa** membuat desain cantik atau hidup.
+
+Hasil yang steril dan tidak hidup **bukan bug filter ini**. Itu tanda desain dibangun tanpa arah. Jika hasilnya terlihat seperti "default AI yang slop-nya dibuang", yang hilang adalah arah `DESIGN.md`, bukan filter-nya.
+
 ## Prinsip Utama
 
 Setiap keputusan visual harus memiliki **alasan yang jelas**, meningkatkan pengalaman pengguna, dan membangun identitas produk yang unik.
@@ -74,6 +82,8 @@ Berikut adalah pola-pola yang paling sering muncul pada desain hasil AI. Gunakan
 | **Dark Mode Default Tanpa Alasan** | Seluruh halaman gelap hanya karena terlihat "tech", tanpa pertimbangan branding |
 | **Terlalu Banyak Warna dalam Palette** | Memakai 5-7 warna berbeda dalam satu halaman tanpa design system yang jelas |
 | **Warna Aksen Berlebihan** | Satu warna aksen di tombol, icon, badge, link, garis, background, glow |
+| **Sterile Default** | Putih/near-white polos, border abu tipis, radius kecil, tanpa tekstur, font generik, tanpa identitas. "Hasil aman" dari over-filter tanpa arah |
+| **Skeleton Preview sebagai Screenshot Produk** | Bar placeholder abu-abu / blok skeleton dipakai sebagai "screenshot produk" di hero atau area fitur |
 
 ### Layout & Komponen
 
@@ -88,6 +98,8 @@ Berikut adalah pola-pola yang paling sering muncul pada desain hasil AI. Gunakan
 | **"Trusted By" Logo Bar** | Deretan logo perusahaan generik langsung di bawah hero |
 | **Pricing Card "Most Popular"** | Tier tengah selalu di-highlight dengan badge kapsul |
 | **Footer 4 Kolom Template** | Kolom Product / Company / Resources / Legal tanpa variasi |
+| **Irama Section Seragam** | Setiap section memakai komposisi yang sama: judul center + subtitle + grid kartu identik, tanpa variasi antar section |
+| **Variasi Cuma Ganti Background** | Satu-satunya variasi antar section cuma flip warna background tiap section bergantian |
 
 ### Copywriting & Konten
 
@@ -176,6 +188,7 @@ Berikut adalah pola-pola yang paling sering muncul pada desain hasil AI. Gunakan
 - **DILARANG**: "How It Works" selalu 3 langkah dengan icon bulat dan angka
 - **DILARANG**: "Trusted By" logo bar generik langsung di bawah hero
 - **DILARANG**: footer 4 kolom template Product / Company / Resources / Legal tanpa variasi
+- **DILARANG**: setiap section memakai pola layout internal yang sama (judul center + subtitle + grid kartu identik); lihat "Irama Section Seragam". Variasi komposisi datang dari `DESIGN.md`, bukan dari template
 - Setiap halaman harus memiliki struktur yang dibuat berdasarkan **kebutuhan konten nyata**
 - Urutan section harus mengikuti alur narasi produk, bukan urutan default AI (lihat Standar Craftsmanship C-3)
 
@@ -413,6 +426,21 @@ Jika tidak ada alasan yang bisa dijelaskan, keputusan tersebut belum valid dan h
 - **DILARANG**: testimonial palsu, statistik palsu, nama palsu (lihat R-17, R-18)
 - Jika tidak ada data nyata, jangan tampilkan klaim apa pun
 
+### R-37 — Arah Desain Wajib Ada
+
+- Sebelum membangun UI, muat arah style: `DESIGN.md` atau arahan brand eksplisit dari user
+- Jika tidak ada arah, tanya user, atau nyatakan jelas bahwa desain dibuat **tanpa arah** dan hasilnya adalah **draf**, bukan deliverable
+- **DILARANG**: mendesain tanpa arah lalu diam-diam jatuh ke default yang netral dan steril
+- Arah style adalah identitas milik pemilik produk, bukan pola slop; filter ini hanya bekerja di atasnya
+- Desain yang dibangun tanpa arah adalah draf, bukan hasil yang layak dikirim
+
+### R-38 — Konten Nyata atau Placeholder Jujur
+
+- Setiap klaim, fitur, testimoni, statistik, item nav, atau elemen visual harus berasal dari informasi nyata ATAU placeholder yang diberi label eksplisit
+- **DILARANG**: mengarang konten yang terlihat realistis (testimoni palsu, fitur karangan, statistik palsu, link hantu, orang/tim fiktif)
+- Placeholder ditulis sebagai apa adanya: `[DATA ASLI]`, "Coming soon", tidak pernah disamarkan sebagai final (lihat R-23)
+- Section kosong lebih baik daripada section yang dikarang
+
 ---
 
 ## Pola Fungsional
@@ -432,8 +460,8 @@ Jika tidak ada satu pun yang berlaku untuk sebuah elemen, elemen itu seharusnya 
 
 ## Delivery Gate (Wajib)
 
-Jalankan gate ini SEBELUM menyerahkan. Sertakan statusnya bersama hasil kirimanmu.
-Jika salah satu jawaban **ya**, jangan serahkan: perbaiki dulu, lalu jalankan ulang.
+Jalankan gate ini SEBELUM menyerahkan. Sertakan statusnya bersama hasil kirimanmu sebagai **laporan PASS/FAIL**: satu baris per item, dan setiap `PASS` didukung bukti konkret (mis. "R-26 PASS: semua tombol punya `href`/`onClick` nyata; tidak ada kontrol mati").
+Jika ada item **FAIL** (atau jawaban **ya**), jangan serahkan: perbaiki dulu, lalu jalankan ulang. Laporan yang mengandung FAIL tidak boleh dikirim.
 
 ### Standar Craftsmanship
 
@@ -483,5 +511,7 @@ Sebelum menyatakan desain selesai, jawab semua pertanyaan di bawah ini. Semua ja
 - [ ] Jika ada theme toggle, apakah salah satu mode (light atau dark) merusak styles, font, atau layout? *(R-34)*
 - [ ] Apakah app dijalankan/di-build dan setiap elemen interaktif diuji sebelum diserahkan? *(R-35)*
 - [ ] Apakah ada klaim keamanan, kepatuhan, performa, atau pelanggan yang dikarang? *(R-36)*
+- [ ] Apakah desain dibangun tanpa arah style (`DESIGN.md`/arahan brand user), atau diam-diam jatuh ke default netral karena tidak ada arah? *(R-37)*
+- [ ] Apakah ada konten bergaya realistis yang dikarang (testimoni, fitur, statistik, link hantu, tim fiktif) tanpa sumber nyata? *(R-38)*
 
 Jika satu saja jawaban **ya**, jangan serahkan. Perbaiki, jalankan ulang gate, dan baru kemudian kirim. Penyerahan tanpa gate yang bersih adalah kegagalan.
