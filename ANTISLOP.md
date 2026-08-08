@@ -188,6 +188,7 @@ These are the most common patterns found in AI-generated designs. Use as a refer
 - **FORBIDDEN**: "How It Works" always in 3 steps with round icons and numbers
 - **FORBIDDEN**: generic "Trusted By" logo bar directly below the hero
 - **FORBIDDEN**: 4-column template footer with Product / Company / Resources / Legal and no variation
+- **FORBIDDEN**: every section using the same internal layout pattern (centered title + subtitle + identical card grid); see "Uniform Section Rhythm". Composition variety comes from `DESIGN.md`, not from a template
 - Every page must have a structure built around **actual content needs**
 - Section order must follow the product's narrative flow, not the AI default order (see Craftsmanship Standard C-3)
 
