@@ -64,9 +64,9 @@ Anything presented as fact (testimonials, statistics, security claims) is real a
 
 ---
 
-## Part 1: AI Slop Patterns (Recognize & Avoid)
+## Part 1: AI Slop Patterns (Warning Signs)
 
-These are the most common patterns found in AI-generated designs. Use as a reference. **The more of these appear together, the more likely the design is AI slop.** There is no fixed threshold; context and the reasoning behind each choice is what matters.
+These are the most common patterns found in AI-generated designs. Use this table to **audit** your output: scan for clusters, then ask each one "what does this serve?" A single pattern from this list is fine if it serves a purpose. What makes a design slop is many of these appearing together with no reason. This is a **diagnostic scan, not a ban list**: a technique here is not forbidden, it is a warning sign that the purpose test (Part 2, Purpose-Gate group) must be passed.
 
 ### Visual & Color
 
