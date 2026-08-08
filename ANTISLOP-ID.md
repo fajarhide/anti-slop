@@ -569,7 +569,7 @@ Semua jawaban harus **ya**:
 - [ ] Apakah ada motif identitas (satu pola, gerakan, atau suara tipografis yang spesifik dan diulang)?
 - [ ] Apakah Pembacaan Desain dinyatakan sebelum generate?
 
-### Blok 4: Standar Craftsmanship
+### Blok 4: Craftsmanship & Quality Locks
 
 Semua jawaban harus **tidak**:
 

@@ -41,7 +41,7 @@ Project root/
 
 - **`AGENTS.md`** (or `CLAUDE.md`, `GEMINI.md`, etc.) is the entry-point file the agent **always** reads at the start of a session. It routes the agent to the files it needs per task.
 - **`DESIGN.md`** is your style direction: identity, personality, palette, typography, mood. It is what makes a result feel alive and specific. How you fill it is your business: write it yourself, or build it from visual references you find online, whatever matches your style and taste.
-- **`ANTISLOP.md`** is the filter. It stops the slop patterns on top of whatever direction `DESIGN.md` sets. It does not add beauty on its own. A sterile result means the direction was missing, not that the filter failed.
+- **`ANTISLOP.md`** is the filter. It stops the slop patterns on top of whatever direction `DESIGN.md` sets. It cannot invent direction on its own; a sterile result means the direction was missing or liveliness was not added, not that the filter failed.
 
 Keep `ANTISLOP.md` wherever your other rules files live (project root, `.agent/`, `.ai/`, etc.), and add a **single pointer block** to your entry-point file (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, etc.):
 

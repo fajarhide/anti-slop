@@ -41,7 +41,7 @@ Project root/
 
 - **`AGENTS.md`** (atau `CLAUDE.md`, `GEMINI.md`, dsb.) adalah file entry point yang **selalu** dibaca agent di awal sesi. Ia merutekan agent ke file yang dibutuhkan sesuai task.
 - **`DESIGN.md`** adalah arah style kamu: identitas, personality, palette, typography, mood. Ia yang membuat hasil terasa hidup dan spesifik. Cara mengisinya urusan kamu: tulis sendiri, atau bangun dari referensi visual yang kamu temukan di internet, sesuaikan dengan style dan selera masing-masing.
-- **`ANTISLOP.md`** adalah filter. Ia menghentikan pola slop di atas arah apa pun yang ditetapkan `DESIGN.md`. Ia tidak menambah keindahan dengan sendirinya. Hasil steril berarti arahnya hilang, bukan filter yang gagal.
+- **`ANTISLOP.md`** adalah filter. Ia menghentikan pola slop di atas arah apa pun yang ditetapkan `DESIGN.md`. Ia tidak bisa menciptakan arah dengan sendirinya; hasil steril berarti arahnya hilang atau liveliness tidak ditambahkan, bukan filter yang gagal.
 
 Taruh `ANTISLOP.md` di lokasi yang sama dengan rules file lain di project kamu (root, `.agent/`, `.ai/`, atau direktori serupa), lalu tambahkan **satu blok pointer** di file entry point yang sudah ada (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, dsb.):
 
