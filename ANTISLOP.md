@@ -426,6 +426,21 @@ If no reason can be articulated, the decision is not yet valid and must be revis
 - **FORBIDDEN**: fake testimonials, fake statistics, fake names (see R-17, R-18)
 - If there is no real data, show no claim
 
+### R-37 — Design Direction Required
+
+- Before building a UI, load the style direction: `DESIGN.md` or explicit brand guidance from the user
+- If no direction exists, ask the user, or state clearly that the design was built **without direction** and is a **draft**, not a deliverable
+- **FORBIDDEN**: designing without direction and silently falling into a neutral, sterile default
+- Style direction is the product owner's identity, not a slop pattern; this filter only applies on top of it
+- A design built without direction is a draft, not a shippable result
+
+### R-38 — Real Content or Honest Placeholder
+
+- Every claim, feature, testimonial, statistic, nav item, or visual element must come from real information OR be an explicitly labeled placeholder
+- **FORBIDDEN**: fabricating content that looks realistic (fake testimonials, invented features, fake statistics, ghost links, fictional team or people)
+- Placeholders are written as what they are: `[REAL DATA]`, "Coming soon", never disguised as final (see R-23)
+- An empty section is better than a fabricated one
+
 ---
 
 ## Functional Patterns
