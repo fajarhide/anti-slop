@@ -479,7 +479,7 @@ Sebelum menyatakan desain selesai, jawab semua pertanyaan di bawah ini. Semua ja
 - [ ] Apakah ada em dash (`—`) dalam teks? *(R-02)*
 - [ ] Apakah ada overflow horizontal, teks keluar container, atau layout rusak di mobile? *(R-03)*
 - [ ] Apakah ada ikon generik (sparkle, star, magic, lightning, diamond, robot, orb) atau ikon yang tidak relevan dengan kontennya? *(R-04)*
-- [ ] Apakah layout mengikuti template AI: Hero+card generik, "How It Works" selalu 3 langkah, "Trusted By" logo bar, atau footer 4 kolom tanpa variasi? *(R-05)*
+- [ ] Apakah layout mengikuti template AI: Hero+card generik, "How It Works" selalu 3 langkah, "Trusted By" logo bar, footer 4 kolom tanpa variasi, atau setiap section memakai layout internal yang sama (irama section seragam)? *(R-05)*
 - [ ] Apakah ada font monospace besar, label uppercase tracking lebar, atau typeface yang dipilih tanpa alasan karakter brand? *(R-06)*
 - [ ] Apakah ada background grid, blueprint, atau graph paper tanpa fungsi identitas visual? *(R-07)*
 - [ ] Apakah arrow (`→` / `↗`) dipasang di hampir semua tombol sekadar sebagai dekorasi? *(R-08)*

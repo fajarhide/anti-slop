@@ -33,7 +33,7 @@
 
 ```
 Project root/
-├── AGENTS.md (atau CLAUDE.md, GEMINI.md, dsb.)   # router: memberitahu agent apa yang harus dibaca
+├── AGENTS.md (atau CLAUDE.md, GEMINI.md, dsb.)    # router: memberitahu agent apa yang harus dibaca
 ├── DESIGN.md                                      # arah: jiwa UI kamu (milikmu)
 └── ANTISLOP.md                                    # filter: dari repo ini
 ```
@@ -80,7 +80,7 @@ Atau download versi Bahasa Indonesia:
 curl -o ANTISLOP-ID.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/ANTISLOP-ID.md
 ```
 
-Lalu taruh file tersebut di lokasi yang sama dengan rules file agent lainnya di project kamu.
+Lalu taruh file tersebut di lokasi yang sama dengan rules file agent lainnya di project kamu. Untuk memakai setup 3 file, buat juga `DESIGN.md` berisi arah style kamu sendiri; isinya sepenuhnya urusan kamu untuk menentukan.
 
 ---
 
@@ -88,7 +88,7 @@ Lalu taruh file tersebut di lokasi yang sama dengan rules file agent lainnya di 
 
 ```
 Project root/
-├── AGENTS.md (atau CLAUDE.md, GEMINI.md, dsb.)   # router — milikmu
+├── AGENTS.md (atau CLAUDE.md, GEMINI.md, dsb.)    # router — milikmu
 ├── DESIGN.md                                      # arah — milikmu
 └── ANTISLOP.md                                    # filter — dari repo ini
 

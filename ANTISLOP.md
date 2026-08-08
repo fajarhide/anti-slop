@@ -479,7 +479,7 @@ Before declaring the design done, answer every question below. All answers must 
 - [ ] Is there an em dash (`—`) anywhere in the text? *(R-02)*
 - [ ] Is there any horizontal overflow, text escaping its container, or broken layout on mobile? *(R-03)*
 - [ ] Are there any generic icons (sparkle, star, magic, lightning, diamond, robot, orb) or icons that are irrelevant to their content? *(R-04)*
-- [ ] Does the layout follow an AI template: generic Hero+cards, "How It Works" always 3 steps, "Trusted By" logo bar, or 4-column footer with no variation? *(R-05)*
+- [ ] Does the layout follow an AI template: generic Hero+cards, "How It Works" always 3 steps, "Trusted By" logo bar, 4-column footer with no variation, or every section using the same internal layout (uniform section rhythm)? *(R-05)*
 - [ ] Is there a large monospace font, uppercase label with wide tracking, or a typeface chosen without a brand character reason? *(R-06)*
 - [ ] Is there a background grid, blueprint, or graph paper without a visual identity purpose? *(R-07)*
 - [ ] Are arrows (`→` / `↗`) placed on almost every button purely as decoration? *(R-08)*

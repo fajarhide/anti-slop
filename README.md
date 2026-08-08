@@ -33,7 +33,7 @@
 
 ```
 Project root/
-├── AGENTS.md (or CLAUDE.md, GEMINI.md, etc.)   # router: tells the agent what to read
+├── AGENTS.md (or CLAUDE.md, GEMINI.md, etc.)    # router: tells the agent what to read
 ├── DESIGN.md                                    # direction: the soul of your UI (yours)
 └── ANTISLOP.md                                  # filter: this repo
 ```
@@ -80,7 +80,7 @@ Or download the Indonesian version:
 curl -o ANTISLOP-ID.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/ANTISLOP-ID.md
 ```
 
-Then place the file wherever your other agent rules files live.
+Then place the file wherever your other agent rules files live. To use the 3-file setup, also create a `DESIGN.md` with your own style direction; its contents are entirely yours to define.
 
 ---
 
