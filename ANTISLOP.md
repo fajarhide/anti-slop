@@ -15,6 +15,14 @@
   1. Lists generic AI patterns to avoid.
   2. Holds the result to a craftsmanship bar: intentional, functional, complete, evidence-based.
 
+`ANTISLOP.md` is one of three files, and it is a **filter, not a source of direction**:
+
+- `DESIGN.md` (or your brand/style direction) gives the design its **soul**: identity, personality, palette, typography, mood. This is what makes a result feel alive and specific. How you fill it is your business: write it yourself, or build it from visual references you like.
+- `AGENTS.md` (or `CLAUDE.md`, `GEMINI.md`, etc.) routes the agent: "for UI work, read `DESIGN.md` for direction, then `ANTISLOP.md` as the filter."
+- `ANTISLOP.md` only prevents slop. It **cannot** make a design beautiful or alive.
+
+A sterile, lifeless result is **not a bug in this filter**. It is a sign the design was built with no direction. If the output looks like "default AI with the slop removed", the `DESIGN.md` direction is missing, not the filter.
+
 ## Core Principle
 
 Every visual decision must have a **clear reason**, improve the user experience, and build a unique product identity.
