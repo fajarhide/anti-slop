@@ -7,25 +7,25 @@
 
 ## What This Is (and What It Isn't)
 
-`ANTISLOP.md` is a **filter**, not a style guide. It stops AI coding agents from producing generic, recognizable "AI slop" UI.
+`ANTISLOP.md` is a **filter**, not a style guide. It stops AI coding agents from producing generic, recognizable "AI slop" UI, without falling into the opposite failure: a sterile, lifeless default.
 
 - This document does **not** impose an aesthetic: no prescribed colors, fonts, layouts, or "house style".
-- Design preferences, brand direction, and visual taste are yours.
+- This document does **not** ban visual techniques (gradients, glassmorphism, badges, card grids). Those are tools. What it rejects is **technique without purpose**.
 - This document does two things only:
-  1. Lists generic AI patterns to avoid.
-  2. Holds the result to a craftsmanship bar: intentional, functional, complete, evidence-based.
+  1. Holds every visual decision to a **purpose test**: what does this technique serve? Write the reason down.
+  2. Holds the result to a **liveliness bar**: the output must be alive and specific, not just "clean". See Part 3.
 
 `ANTISLOP.md` is one of three files, and it is a **filter, not a source of direction**:
 
 - `DESIGN.md` (or your brand/style direction) gives the design its **soul**: identity, personality, palette, typography, mood. This is what makes a result feel alive and specific. How you fill it is your business: write it yourself, or build it from visual references you like.
 - `AGENTS.md` (or `CLAUDE.md`, `GEMINI.md`, etc.) routes the agent: "for UI work, read `DESIGN.md` for direction, then `ANTISLOP.md` as the filter."
-- `ANTISLOP.md` only prevents slop. It **cannot** make a design beautiful or alive.
+- `ANTISLOP.md` rejects slop and requires liveliness. It does not invent direction; the Design Read (Part 3) turns a brief into dials.
 
-A sterile, lifeless result is **not a bug in this filter**. It is a sign the design was built with no direction. If the output looks like "default AI with the slop removed", the `DESIGN.md` direction is missing, not the filter.
+Removing slop does not reveal good design; it leaves a void. Liveliness must be **added**, not assumed. A sterile result means either direction was missing or liveliness was not added, and both are failures to fix. The fix is never "add more bans"; it is "state the purpose and raise the liveliness bar".
 
 ## Core Principle
 
-Every visual decision must have a **clear reason**, improve the user experience, and build a unique product identity.
+The filter rejects technique without purpose, not technique itself. Before using any visual technique, answer: **what does this serve?** If the only answer is "it looks AI" or "it looks safe", the technique must go or be reworked. If the answer names a hierarchy, identity, or readability goal, it stays, and the reason is written down.
 
 The question to answer before calling anything done:
 
@@ -34,8 +34,8 @@ The question to answer before calling anything done:
 If the answer is **no**, the design is too generic. Start over.
 
 A design is **done** only when all three are true:
-1. It avoids the slop patterns in this document.
-2. It has its own identity and character.
+1. Every technique passes the purpose test (see the Purpose-Gate group in Part 2).
+2. It has its own identity and character (see Part 3: Liveliness Toolkit).
 3. It actually works (see The Craftsmanship Standard).
 
 ## The Craftsmanship Standard
