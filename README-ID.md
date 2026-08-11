@@ -9,6 +9,8 @@
 
 > Aturan desain untuk menghentikan AI coding agent menghasilkan UI generik ("AI slop") tanpa menjadi steril. Berisi 38 rules dalam tiga tingkat, Liveliness Toolkit, dan delivery gate mandatori.
 
+> **Coming soon:** ANTISLOP v3.0.0, skill yang bisa di-install dan di-plugin ke CLI agent (Claude Code, Codex, Cursor, dll). Target rilis akhir Q3 2026.
+
 ---
 
 ## Apa Ini?
@@ -48,7 +50,9 @@ Taruh `ANTISLOP.md` di lokasi yang sama dengan rules file lain di project kamu (
 ```md
 ## Desain & UI
 Jika tugas melibatkan membuat atau mengedit tampilan UI/UX, baca `DESIGN.md`
-(arah style) lalu `ANTISLOP.md` (filter) sebelum mulai generate apapun.
+(arah style) lalu `ANTISLOP.md` (filter). Sebelum mulai, tanyakan ke user
+kapan ANTISLOP dipakai (selama pengerjaan, atau setelah selesai) dan jangan
+mulai sebelum user menjawab.
 ```
 
 Kenapa pola ini lebih baik daripada digabung langsung:
@@ -68,6 +72,21 @@ Pola ini **generik dan tool-agnostic**. Blok pointer di atas itu instruksi bahas
 Tidak mau setup file apapun? Salin seluruh isi `ANTISLOP.md`, tempel langsung di awal prompt sebelum meminta agent membuat desain.
 
 > **Peringatan:** Cara ini kurang andal dibanding setup 3 file. Ketika blok rules yang panjang ditempel ke chat alih-alih dimuat sebagai file konteks native, agent lebih rentan mengabaikan sebagian instruksi atau berhalusinasi melewati rules tersebut, terutama semakin panjang percakapan berlangsung. Gunakan ini sebagai fallback cepat, bukan setup utama.
+
+## Mode Pemakaian
+
+ANTISLOP dipakai dengan salah satu dari dua cara, dipilih user di awal sesi. Saat `ANTISLOP.md` (atau pointer `AGENTS.md`) ke-load, agent menanyakan mode mana yang berlaku, dalam bahasa chat user, dan menunggu jawaban sebelum mengerjakan UI.
+
+- **Mode 1 (Selama):** rules memandu pekerjaan sambil project direncanakan dan dibangun. Ini mencegah AI slop sejak awal dan ditutup dengan Delivery Gate. Pakai saat membangun UI baru.
+- **Mode 2 (Setelah):** rules mengaudit project yang sudah selesai. Agent membuat daftar temuan bernomor (rule yang dilanggar + alasan + prioritas), user menyetujui nomor tertentu, hanya item yang disetujui yang diperbaiki, dan laporan tindak lanjut mencatat perubahannya. Pakai untuk merapikan hasil yang sudah ada.
+
+Pertanyaan yang ditanyakan agent:
+
+> **ANTISLOP ini mau dipakai kapan?**
+> 1. **SELAMA** project dikerjain (planning & eksekusi).
+> 2. **SETELAH** project selesai.
+>
+> Pilih 1 atau 2?
 
 ---
 

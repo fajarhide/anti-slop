@@ -2,8 +2,22 @@
 
 > Panduan ini wajib diikuti ketika menghasilkan atau membuat tampilan desain website, web app, atau antarmuka apapun.
 > Tujuannya: desain terasa **dirancang oleh desainer**, bukan di-generate oleh AI.
+> Sebelum pekerjaan UI apa pun, tanyakan ke user (dalam bahasa chat-nya) kapan ANTISLOP dipakai: selama pengerjaan, atau setelah selesai. Jangan mulai sebelum user menjawab.
 
 ---
+
+## Dua Mode Pemakaian
+
+ANTISLOP dipakai dengan salah satu dari dua cara. Di awal sesi, tanyakan ke user mana yang berlaku, dalam bahasa chat user (bukan bahasa file ini). Jangan mulai pekerjaan UI sebelum user menjawab.
+
+> **ANTISLOP ini mau dipakai kapan?**
+> 1. **SELAMA** project dikerjain (planning & eksekusi). Aturannya gua terapkan sambil nulis, biar slop AI nggak muncul dari awal.
+> 2. **SETELAH** project selesai. Gua audit hasil yang udah jadi: temuan bernomor + prioritas, kamu pilih nomor yang mau diberesin, baru gua eksekusi + lapor.
+>
+> Pilih 1 atau 2?
+
+- **Mode 1 (Selama):** patuh rules sambil generate. Ini mencegah slop sejak awal dan ditutup dengan Delivery Gate. Pakai saat membangun UI baru.
+- **Mode 2 (Setelah):** audit project yang sudah selesai. Buat daftar temuan bernomor di `anti-slop/audit-001-YYYY-MM-DD.md` (nomor terus naik). Setiap temuan menyebut rule yang dilanggar (R-XX) dan alasan satu baris. Prioritas mengikuti tier rule: Hard Gate = HIGH, Purpose-Gate = MEDIUM, Quality Locks = LOW. Jangan mengubah apa pun sampai user menyetujui nomor tertentu; nomor yang tidak disebut tidak disentuh. Lalu perbaiki item yang disetujui dan tulis laporan tindak lanjut.
 
 ## Apa Ini (dan Bukan Apa Ini)
 

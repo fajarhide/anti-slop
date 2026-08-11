@@ -9,6 +9,8 @@
 
 > Design rules to stop AI coding agents from generating generic UI ("AI slop") without becoming sterile. Includes 38 rules across three tiers, a Liveliness Toolkit, and a mandatory delivery gate.
 
+> **Coming soon:** ANTISLOP v3.0.0, an installable skill/plugin for your agent CLI (Claude Code, Codex, Cursor, etc.). Target release: end of Q3 2026.
+
 ---
 
 ## What Is This?
@@ -48,7 +50,9 @@ Keep `ANTISLOP.md` wherever your other rules files live (project root, `.agent/`
 ```md
 ## Design & UI
 If the task involves building or editing UI/UX, read `DESIGN.md`
-(style direction) then `ANTISLOP.md` (filter) before generating anything.
+(style direction) then `ANTISLOP.md` (filter). Before starting,
+ask the user when ANTISLOP applies (during the work, or after it
+is done) and do not start until they answer.
 ```
 
 Why this pattern beats merging everything in:
@@ -68,6 +72,21 @@ This pattern is **generic and tool-agnostic**. The pointer block above is a plai
 Don't want to set up any file? Copy the full contents of `ANTISLOP.md` and paste it at the start of your prompt before asking the agent to design something.
 
 > **Warning:** This approach is less reliable than the 3-file setup. When a long block of rules is pasted into a chat rather than loaded as a native context file, agents are more likely to partially ignore or hallucinate past the instructions, especially as the conversation grows longer. Use it as a quick fallback, not a primary setup.
+
+## Usage Modes
+
+ANTISLOP is used in one of two ways, chosen by the user at the start of a session. When `ANTISLOP.md` (or the `AGENTS.md` pointer) loads, the agent asks which mode applies, in the user's chat language, and waits for an answer before doing UI work.
+
+- **Mode 1 (During):** the rules guide the work while the project is being planned and built. This prevents AI slop from the start and ends with the Delivery Gate. Use it when building new UI.
+- **Mode 2 (After):** the rules audit a project that is already finished. The agent produces a numbered findings list (violated rule + reason + priority), the user approves specific numbers, only the approved items are fixed, and a follow-up report records the changes. Use it to clean up existing output.
+
+The question the agent asks:
+
+> **When do you want to use ANTISLOP?**
+> 1. **DURING** the project, while working (planning & execution).
+> 2. **AFTER** the project is finished.
+>
+> Which one, 1 or 2?
 
 ---
 
