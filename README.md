@@ -1,12 +1,10 @@
 <p align="center">
-  <img src="./assets/banner.png" alt="antislop" width="100%" />
+  <img src="./assets/antislop-banner.png" alt="antislop" width="100%" />
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f" alt="License: MIT"></a>
-  <a href="https://github.com/miqdadbadjuber/anti-slop/releases"><img src="https://img.shields.io/github/v/release/miqdadbadjuber/anti-slop" alt="Version"></a>
-  <a href="https://github.com/miqdadbadjuber/anti-slop/stargazers"><img src="https://img.shields.io/github/stars/miqdadbadjuber/anti-slop" alt="Stars"></a>
-  <a href="./antislop.md"><img src="https://img.shields.io/badge/38%20rules-3%20tiers-lightgrey" alt="38 rules in 3 tiers"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f?style=for-the-badge" alt="License: MIT"></a>
+  <a href="https://github.com/miqdadbadjuber/anti-slop/releases"><img src="https://img.shields.io/github/v/release/miqdadbadjuber/anti-slop?label=version&style=for-the-badge&color=1f6feb" alt="Version"></a>
 </p>
 
 # antislop
