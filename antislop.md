@@ -8,6 +8,47 @@
 
 ---
 
+## First-Run Install Wizard
+
+antislop is a family: this core file plus optional **skill files**, one per concern (`antislop-ui`, `antislop-copywriting`, and so on, shipping one per version). This section installs them once. It is an **offer, not a requirement**: if the user prefers, this file alone remains a complete filter.
+
+**Skip this section** if the project's entry file (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, or the equivalent the running tool reads at session start) already contains an antislop pointer block. That means antislop is already installed. Come back only when the user asks to add or remove a skill.
+
+If no antislop pointer exists and this file is being read for the first time, run the wizard:
+
+1. **Declare the setup before doing anything.** Tell the user you will (a) download the skill file(s) they choose into the same folder as this file, and (b) append an antislop pointer block at the end of the project's entry file. Get approval. Never modify the entry file silently.
+2. **Ask which skills to install** (multi-select, in the user's chat language). List only the skills that exist in this version of antislop:
+   - **1. All** (recommended): install every available skill
+   - **2. `antislop-ui`** (UI / visual)
+   - New skills appear here as they ship; never offer a skill that does not exist in this version.
+
+   If the user declines or says "core only", stop here and use this file alone as the filter. Do not install anything.
+3. **Resolve direction** (only if a UI skill was selected). Check for `DESIGN.md` or explicit brand/style direction. If none exists, be honest that antislop is a **filter, not a beautifier**: without direction the output tends toward monotonous. Recommend having a `DESIGN.md`, then offer these paths:
+   - **1. The user supplies direction (recommended).** They write their own `DESIGN.md`, or answer a few direction questions (identity, personality, palette, typography, mood) and the agent transcribes their answers into `DESIGN.md`. The user is the author; the agent only formats. Never invent example content for `DESIGN.md`.
+   - **2. The agent supplies direction, with an honest warning.** The agent writes the direction itself, stating explicitly that agent-generated style tends toward default AI taste, which is the slop antislop filters, so the result is likely monotonous. If chosen, still ask a minimal brief (product, audience, mood) before building.
+   - **3. The user skips direction for now.** Proceed without a `DESIGN.md`. Any UI built this way must be labeled *"draft without direction"* with dials ENERGY 1 / RHYTHM 1 / MOTION 1 (R-37), and is not a shippable deliverable.
+4. **Download the chosen skill file(s)** into the same folder as this file, level with it (never inside nested folders), pinned to the release tag that matches this version so a newer skill never mixes with an older core:
+   ```bash
+   curl -o antislop-ui.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.2.0/antislop-ui.md
+   ```
+5. **Append the pointer block at the END of the project's entry file** (the file the running tool reads at session start: `CLAUDE.md` for Claude Code, `AGENTS.md` for Codex, `GEMINI.md` for Gemini CLI, and so on). If that file does not exist, create it. Never modify existing content:
+   ```md
+   <!-- antislop: auto-managed block, do not edit -->
+   ## antislop
+   For UI/design work, read `antislop.md` (core) and then the skill for the task:
+   - UI / visual: `antislop-ui.md`
+   Before starting, ask the user when antislop applies: during the work, or after it is done.
+   ```
+   If an older antislop block exists (even without the marker), replace just that block instead of appending a duplicate.
+6. **Ask the usage-mode question** (see "Two Usage Modes"), then proceed with the work.
+
+Notes:
+- The entry file is read at the start of a session, so a newly written pointer takes effect from the **next** session.
+- The wizard needs download and file-write access for steps 4 and 5; the user approves once.
+- The pointer block is the source of truth for which skills are installed. To add or remove a skill later, update the block to match (add or remove the file and its line).
+
+---
+
 ## Two Usage Modes
 
 antislop is used one of two ways. At the start of a session, ask the user which applies, in the user's chat language (not the language of this file). Do not start UI work until they answer.
