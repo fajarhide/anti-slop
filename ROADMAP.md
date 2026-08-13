@@ -24,9 +24,10 @@ This keeps the filter pull-only-what-you-need, and it makes the v3 packaging mec
 |---------|-------|---------|
 | v2.2.0 | `antislop-ui` | UI / visual: layout, color, components, decoration, motion, structure |
 | v2.3.0 | `antislop-copywriting` | Copy and text: headlines, CTAs, tone, fake stats, markdown hygiene |
-| v2.4.0 | `antislop-a11y` | Accessibility: contrast, keyboard, focus states (home of the contrast checker) |
-| v2.5.0 | `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials |
-| v2.6.0 | `antislop-identity` | Identity and naming: product names, taglines, brand voice |
+| v2.4.0 | `antislop-human` | Human: contrast, keyboard, focus, states (home of the contrast checker) |
+| v2.5.0 | `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets |
+| v2.6.0 | `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials |
+| v2.7.0 | `antislop-identity` | Identity and naming: product names, taglines, brand voice |
 
 ### v3.0.0: the skill/plugin
 
@@ -43,9 +44,10 @@ Target release: end of Q3 2026.
 - [x] v2.1.1 - English only; Indonesian mirrors removed
 - [x] v2.2.0 - core + First-Run Install Wizard + `antislop-ui` skill
 - [x] v2.3.0 - `antislop-copywriting` skill
-- [ ] v2.4.0 - `antislop-a11y`
-- [ ] v2.5.0 - `antislop-docs`
-- [ ] v2.6.0 - `antislop-identity`
+- [ ] v2.4.0 - `antislop-human`
+- [ ] v2.5.0 - `antislop-layoutmobile`
+- [ ] v2.6.0 - `antislop-docs`
+- [ ] v2.7.0 - `antislop-identity`
 - [ ] v3.0.0 - skill/plugin packaging
 
 ## Not in scope

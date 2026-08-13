@@ -38,14 +38,14 @@ That's it. The pointer block is the source of truth: every later session loads t
 Project root/
 ├── AGENTS.md (or CLAUDE.md, GEMINI.md, etc.)    # router: tells the agent what to read
 ├── DESIGN.md                                    # direction: the soul of your UI (yours)
-└── antislop.md + the skill files you want       # filter: from this repo
+└── antislop.md                                  # filter: from this repo
 ```
 
 ```bash
 curl -o antislop.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/antislop.md
-curl -o antislop-ui.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/antislop-ui.md
-curl -o antislop-copywriting.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/antislop-copywriting.md
 ```
+
+`antislop.md` alone is a complete filter. Skills add depth for one concern at a time; the wizard installs them, or download any you want the same way (`curl -o <skill-name>.md`).
 
 Then add a pointer block to your entry file, listing exactly the skills you installed:
 
@@ -65,9 +65,10 @@ You can optionally put a dial line in `DESIGN.md` (`Dial: ENERGY 2 / RHYTHM 3 / 
 |-------|----------------|----------|
 | `antislop-ui` | UI / visual: layout, color, components, decoration, motion, structure | v2.2.0 |
 | `antislop-copywriting` | Copy & text: headlines, CTAs, tone, fake stats, anti-AI-writing patterns, markdown hygiene | v2.3.0 |
-| `antislop-a11y` | Accessibility: contrast, keyboard, focus states | v2.4.0 (planned) |
-| `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials | v2.5.0 (planned) |
-| `antislop-identity` | Identity & naming: product names, taglines, brand voice | v2.6.0 (planned) |
+| `antislop-human` | Human: contrast, keyboard, focus, states | v2.4.0 (planned) |
+| `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets | v2.5.0 (planned) |
+| `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials | v2.6.0 (planned) |
+| `antislop-identity` | Identity & naming: product names, taglines, brand voice | v2.7.0 (planned) |
 
 Pick what matches the work: UI work → `antislop-ui`, copy work → `antislop-copywriting`, both → "All", or none (the core alone is a complete filter).
 

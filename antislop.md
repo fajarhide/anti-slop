@@ -18,9 +18,10 @@ If no antislop pointer exists and this file is being read for the first time, ru
 
 1. **Declare the setup before doing anything.** Tell the user you will (a) download the skill file(s) they choose into the same folder as this file, and (b) append an antislop pointer block at the end of the project's entry file. Get approval. Never modify the entry file silently.
 2. **Ask which skills to install** (multi-select, in the user's chat language). List only the skills that exist in this version of antislop:
-   - **1. All** (recommended): install every available skill. Choose this when the work spans both UI and copy.
+   - **1. All** (recommended): install every available skill. Choose this when the work spans UI, copy, or people.
    - **2. `antislop-ui`** (UI / visual): pick this for building or editing a website, web app, or interface: color, layout, components, decoration, motion.
    - **3. `antislop-copywriting`** (copy & text): pick this for writing or editing copy: headlines, CTAs, value propositions, tone, landing-page text, product prose.
+   - **4. `antislop-human`** (people): pick this for making sure a UI works for people with different eyes, hands, and setups: contrast, keyboard, focus, states.
    - New skills appear here as they ship; never offer a skill that does not exist in this version.
 
    If the user declines or says "core only", stop here and use this file alone as the filter. Do not install anything.
@@ -28,18 +29,22 @@ If no antislop pointer exists and this file is being read for the first time, ru
    - **1. The user supplies direction (recommended).** They write their own `DESIGN.md`, or answer a few direction questions (identity, personality, palette, typography, mood) and the agent transcribes their answers into `DESIGN.md`. The user is the author; the agent only formats. Never invent example content for `DESIGN.md`.
    - **2. The agent supplies direction, with an honest warning.** The agent writes the direction itself, stating explicitly that agent-generated style tends toward default AI taste, which is the slop antislop filters, so the result is likely monotonous. If chosen, still ask a minimal brief (product, audience, mood) before building.
    - **3. The user skips direction for now.** Proceed without a `DESIGN.md`. Any UI built this way must be labeled *"draft without direction"* with dials ENERGY 1 / RHYTHM 1 / MOTION 1 (R-37), and is not a shippable deliverable.
-4. **Download the chosen skill file(s)** into the same folder as this file, level with it (never inside nested folders), pinned to the release tag that matches this version so a newer skill never mixes with an older core:
+4. **Download the chosen skill file(s)** into the same folder as this file, level with it, pinned to the release tag that matches this version so a newer skill never mixes with an older core. When `antislop-human` is chosen, also download its contrast-check script into a `scripts/` subfolder:
    ```bash
-   curl -o antislop-ui.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.3.0/antislop-ui.md
-   curl -o antislop-copywriting.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.3.0/antislop-copywriting.md
+   curl -o antislop-ui.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.0/antislop-ui.md
+   curl -o antislop-copywriting.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.0/antislop-copywriting.md
+   curl -o antislop-human.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.0/antislop-human.md
+   mkdir -p scripts
+   curl -o scripts/contrast-check.py https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.0/scripts/contrast-check.py
    ```
 5. **Append the pointer block at the END of the project's entry file** (the file the running tool reads at session start: `CLAUDE.md` for Claude Code, `AGENTS.md` for Codex, `GEMINI.md` for Gemini CLI, and so on). If that file does not exist, create it. Never modify existing content:
    ```md
    <!-- antislop: auto-managed block, do not edit -->
    ## antislop
-   For UI or copy work, read `antislop.md` (core) and then the skill for the task:
+   For UI, copy, or people work, read `antislop.md` (core) and then the skill for the task:
    - UI / visual: `antislop-ui.md`
    - Copy & text: `antislop-copywriting.md`
+   - People: `antislop-human.md`
    Before starting, ask the user when antislop applies: during the work, or after it is done.
    ```
    If an older antislop block exists (even without the marker), replace just that block instead of appending a duplicate.
