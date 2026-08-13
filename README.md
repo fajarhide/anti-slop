@@ -19,7 +19,7 @@
 
 `antislop.md` is a specialist rules document for UI/UX design work, designed to be **read on-demand** by AI coding agents, not force-loaded into every session regardless of the task.
 
-antislop is a **family**: a lean, always-loaded **core** plus optional **skill files**, one per concern. The core holds everything you need to filter AI slop:
+antislop is a **system**: a lean, always-loaded **core** plus optional **skill files**, one per concern. The core holds everything you need to filter AI slop:
 
 - **Part 1:** Warning signs of AI slop (generic blue-purple gradients, excessive glassmorphism, marketing buzzwords, etc.); a diagnostic scan, not a ban list
 - **Part 2:** 38 mandatory rules (R-01 to R-38) grouped into three tiers: Hard Gate (absolute), Purpose-Gate (technique allowed, reason required), Quality Locks (consistency)
@@ -133,7 +133,7 @@ The question the agent asks:
 
 ---
 
-## The Skills (antislop family)
+## The Skills
 
 Each skill is optional and additive: install only the ones you need, or "All" for everything. One skill ships per version.
 
@@ -159,7 +159,7 @@ Project root/
 
 antislop.md internals:
 ├── First-Run Install Wizard   # one-time setup: pick skills, download, set pointer
-├── What This Is               # a filter, part of the core + skills family
+├── What This Is               # a filter, part of the core + skills system
 ├── Core Principle             # purpose test: technique without purpose is rejected
 ├── Craftsmanship Standard     # 5 quality criteria (C-1..C-5)
 ├── Part 1: Slop Patterns      # warning signs (diagnostic scan, not a ban list)
@@ -173,7 +173,7 @@ antislop.md internals:
 
 ## Roadmap
 
-antislop is heading to **v3.0.0**: the whole family packaged as an installable skill/plugin for any agent CLI (Claude Code, Codex, Cursor, etc.), with a `/antislop` router. One skill ships per version until then. See [ROADMAP.md](ROADMAP.md).
+antislop is heading to **v3.0.0**: the entire system packaged as an installable skill/plugin for any agent CLI (Claude Code, Codex, Cursor, etc.), with a `/antislop` router. One skill ships per version until then. See [ROADMAP.md](ROADMAP.md).
 
 ---
 

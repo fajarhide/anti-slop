@@ -10,7 +10,7 @@
 
 ## First-Run Install Wizard
 
-antislop is a family: this core file plus optional **skill files**, one per concern (`antislop-ui`, `antislop-copywriting`, and so on, shipping one per version). This section installs them once. It is an **offer, not a requirement**: if the user prefers, this file alone remains a complete filter.
+antislop is a system: this core file plus optional **skill files**, one per concern (`antislop-ui`, `antislop-copywriting`, and so on, shipping one per version). This section installs them once. It is an **offer, not a requirement**: if the user prefers, this file alone remains a complete filter.
 
 **Skip this section** if the project's entry file (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, or the equivalent the running tool reads at session start) already contains an antislop pointer block. That means antislop is already installed. Come back only when the user asks to add or remove a skill.
 

@@ -4,7 +4,7 @@
 
 ## Where we are
 
-The latest release is **v2.2.0**. antislop is now a **family**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus the first **skill** (`antislop-ui`).
+The latest release is **v2.2.0**. antislop is now a **system**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus the first **skill** (`antislop-ui`).
 
 This version also introduces the **First-Run Install Wizard**. The install flow changed from "download several files and wire them together yourself" to: download `antislop.md` once, tell your agent to read it, and the agent walks you through choosing skills, downloads them into the same folder, and sets up the pointer for you. It is an offer, not a requirement: `antislop.md` alone remains a complete filter.
 
