@@ -4,9 +4,9 @@
 
 ## Where we are
 
-The latest release is **v2.2.0**. antislop is now a **system**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus the first **skill** (`antislop-ui`).
+The latest release is **v2.3.0**. antislop is now a **system**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus two **skills**: `antislop-ui` (UI / visual) and `antislop-copywriting` (copy & text).
 
-This version also introduces the **First-Run Install Wizard**. The install flow changed from "download several files and wire them together yourself" to: download `antislop.md` once, tell your agent to read it, and the agent walks you through choosing skills, downloads them into the same folder, and sets up the pointer for you. It is an offer, not a requirement: `antislop.md` alone remains a complete filter.
+The **First-Run Install Wizard** is still the install path: download `antislop.md` once, tell your agent to read it, and the agent walks you through choosing skills, downloads them into the same folder, and sets up the pointer for you. It is an offer, not a requirement: `antislop.md` alone remains a complete filter.
 
 The core still contains 38 rules across three tiers (Hard Gate, Purpose-Gate, Quality Locks), a Liveliness Toolkit, a mandatory Delivery Gate, and the two usage modes (During / After). None of that changed.
 
@@ -42,7 +42,7 @@ Target release: end of Q3 2026.
 - [x] v2.1.0 - usage modes (During / After) and v3.0.0 banner
 - [x] v2.1.1 - English only; Indonesian mirrors removed
 - [x] v2.2.0 - core + First-Run Install Wizard + `antislop-ui` skill
-- [ ] v2.3.0 - `antislop-copywriting`
+- [x] v2.3.0 - `antislop-copywriting` skill
 - [ ] v2.4.0 - `antislop-a11y`
 - [ ] v2.5.0 - `antislop-docs`
 - [ ] v2.6.0 - `antislop-identity`

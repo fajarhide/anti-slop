@@ -9,30 +9,58 @@
 
 # antislop
 
-> **Anti AI Slop: Design & Copy Rules.** Design rules to stop AI coding agents from generating generic UI ("AI slop") without becoming sterile. Includes a mandatory rules core (R-01 to R-38), a Liveliness Toolkit, a delivery gate, and additive skills per concern.
+> **Anti AI Slop: Design & Copy Rules.**
+
+antislop is a rules file for AI coding agents. It stops them from generating generic "AI slop" UI and copy, without letting the result turn sterile. It is a **filter, not a style guide**: no prescribed colors, fonts, or layouts. Direction stays yours.
 
 > **Coming soon:** antislop v3.0.0, an installable skill/plugin for your agent CLI (Claude Code, Codex, Cursor, etc.). Target release: end of Q3 2026.
 
 ---
 
-## What Is This?
+## Table of Contents
 
-`antislop.md` is a specialist rules document for UI/UX design work, designed to be **read on-demand** by AI coding agents, not force-loaded into every session regardless of the task.
+- [What Is This](#what-is-this)
+- [Which skill do I need?](#which-skill-do-i-need)
+- [Install: The Easy Way (Wizard)](#install-the-easy-way-wizard)
+- [Install: Manual (The 3-File System)](#install-manual-the-3-file-system)
+- [Usage Modes](#usage-modes)
+- [The Skills](#the-skills)
+- [File Structure](#file-structure)
+- [Roadmap](#roadmap)
+- [FAQ](#faq)
+- [Contributing](#contributing)
+- [License](#license)
 
-antislop is a **system**: a lean, always-loaded **core** plus optional **skill files**, one per concern. The core holds everything you need to filter AI slop:
+---
 
-- **Part 1:** Warning signs of AI slop (generic blue-purple gradients, excessive glassmorphism, marketing buzzwords, etc.); a diagnostic scan, not a ban list
-- **Part 2:** 38 mandatory rules (R-01 to R-38) grouped into three tiers: Hard Gate (absolute), Purpose-Gate (technique allowed, reason required), Quality Locks (consistency)
-- **Part 3:** Liveliness Toolkit with three dials (ENERGY / RHYTHM / MOTION), positive levers, and a Design Read to set direction before generating
-- **Craftsmanship Standard:** five preference-agnostic quality criteria (intentionality, functional completeness, content-driven composition, resilience, evidence over claims)
-- **Functional Patterns:** concrete meanings of "a working button" for static landing pages
-- **Delivery Gate:** a mandatory PASS/FAIL report in four blocks, run before delivering
+## What Is This
 
-Skills are **additive files** that go deeper into one concern and reference the core rules, never duplicating them. The first skill, `antislop-ui`, ships in v2.2.0; more follow one per version. See [ROADMAP.md](ROADMAP.md).
+`antislop.md` is a specialist rules document for design and copy work, **read on-demand** by AI coding agents instead of force-loaded into every session. Read it in 30 seconds:
 
-> `antislop.md` is a **filter, not a style guide**. It does not impose an aesthetic: no prescribed colors, fonts, or layouts. It does not ban visual techniques; it rejects technique without purpose and requires liveliness (Part 3). Design preferences and brand direction are yours.
->
-> `antislop.md` is the **filter** in a 3-file setup: `DESIGN.md` (yours) supplies direction, the entry file (`AGENTS.md` / `CLAUDE.md` / etc.) routes the agent, `antislop.md` filters. This file alone prevents slop but cannot invent direction; a sterile result means the direction was missing or liveliness was not added, not that the filter failed.
+- **A core filter** with 38 mandatory rules (R-01 to R-38) in three tiers: Hard Gate (absolute), Purpose-Gate (technique allowed, reason required), Quality Locks (consistency)
+- **A Liveliness Toolkit** with three dials (ENERGY / RHYTHM / MOTION) and a Design Read, so the result is alive and specific, not just "clean"
+- **A Delivery Gate**: a mandatory PASS/FAIL report in four blocks, run before anything ships
+- **Additive skills**, one per concern, so an agent only loads what a task needs
+
+What the filter looks like in practice:
+
+| Before (AI slop) | After (filter applied) |
+|---|---|
+| Unlock the power of seamless collaboration to elevate your team's journey to the next level. | Work with your team in one shared space. |
+| Blue-to-purple gradient hero, frosted navbar, glowing feature cards, template layout. | Palette and layout pulled from the product's own `DESIGN.md`, one focal point per screen. |
+
+`antislop.md` is the **filter** in a 3-file setup: `DESIGN.md` (yours) supplies direction, the entry file (`AGENTS.md` / `CLAUDE.md` / etc.) routes the agent, `antislop.md` filters. This file alone prevents slop but cannot invent direction; a sterile result means the direction was missing or liveliness was not added, not that the filter failed.
+
+---
+
+## Which skill do I need?
+
+Skills are optional. The core alone is a complete filter. Add a skill only when the work calls for it:
+
+- **Building or editing a website, web app, or interface** (color, layout, components, decoration, motion): add `antislop-ui`
+- **Writing or editing copy** (headlines, CTAs, tone, landing-page text, product prose): add `antislop-copywriting`
+- **Both, or not sure yet**: install "All" in the wizard
+- **Core only**: say so in the wizard and skip skills entirely
 
 ---
 
@@ -50,7 +78,7 @@ curl -o antislop.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/m
 
 > "Read `antislop.md` and follow its install instructions. I want the UI skill."
 
-For a permanent setup that works every session, instead add one line to your entry file (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, etc.): "For UI/design work, read `antislop.md`."
+For a permanent setup that works every session, instead add one line to your entry file (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, etc.): "For UI or copy work, read `antislop.md`."
 
 **3. Let the wizard run.** On first read, `antislop.md` walks the agent through:
 
@@ -85,14 +113,16 @@ Get the files:
 ```bash
 curl -o antislop.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/antislop.md
 curl -o antislop-ui.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/antislop-ui.md
+curl -o antislop-copywriting.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/antislop-copywriting.md
 ```
 
 Add a pointer block to your entry file, listing exactly the skills you installed:
 
 ```md
 ## antislop
-For UI/design work, read `antislop.md` (core) and then the skill for the task:
+For UI or copy work, read `antislop.md` (core) and then the skill for the task:
 - UI / visual: `antislop-ui.md`
+- Copy & text: `antislop-copywriting.md`
 Before starting, ask the user when antislop applies: during the work, or after it is done.
 ```
 
@@ -135,15 +165,15 @@ The question the agent asks:
 
 ## The Skills
 
-Each skill is optional and additive: install only the ones you need, or "All" for everything. One skill ships per version.
+Each skill is optional and additive: install only the ones you need, or "All" for everything. One skill ships per version. Every skill is a plain Markdown file that references the core rules by number and never duplicates them.
 
-| Skill | Concern | Ships in |
-|-------|---------|----------|
+| Skill | What it covers | Ships in |
+|-------|----------------|----------|
 | `antislop-ui` | UI / visual: layout, color, components, decoration, motion, structure | v2.2.0 |
-| `antislop-copywriting` | Copy and text: headlines, CTAs, tone, fake stats, markdown hygiene | v2.3.0 (planned) |
+| `antislop-copywriting` | Copy & text: headlines, CTAs, tone, fake stats, anti-AI-writing patterns, markdown hygiene | v2.3.0 |
 | `antislop-a11y` | Accessibility: contrast, keyboard, focus states | v2.4.0 (planned) |
 | `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials | v2.5.0 (planned) |
-| `antislop-identity` | Identity and naming: product names, taglines, brand voice | v2.6.0 (planned) |
+| `antislop-identity` | Identity & naming: product names, taglines, brand voice | v2.6.0 (planned) |
 
 ---
 
@@ -155,6 +185,7 @@ Project root/
 ├── DESIGN.md                                    # direction: yours
 ├── antislop.md                                  # core filter: from this repo
 ├── antislop-ui.md                               # skill: from this repo (v2.2.0)
+├── antislop-copywriting.md                      # skill: from this repo (v2.3.0)
 └── ...                                          # other skills you install
 
 antislop.md internals:
@@ -174,6 +205,28 @@ antislop.md internals:
 ## Roadmap
 
 antislop is heading to **v3.0.0**: the entire system packaged as an installable skill/plugin for any agent CLI (Claude Code, Codex, Cursor, etc.), with a `/antislop` router. One skill ships per version until then. See [ROADMAP.md](ROADMAP.md).
+
+---
+
+## FAQ
+
+**Is antislop a style guide?**
+No. It is a filter. It does not prescribe colors, fonts, layouts, or aesthetics. It rejects technique without purpose and requires liveliness; direction is yours.
+
+**Which agents does it work with?**
+Any agent that reads plain Markdown: Claude Code, Codex, Cursor, Gemini CLI, and others. No plugin or special packaging is needed in v2.x; v3.0.0 adds installable skill/plugin packaging.
+
+**What is a "skill"?**
+An additive file that goes deeper into one concern (UI, copywriting, accessibility, and so on). It references the core rules by number and never duplicates them, so adding a skill does not change the core.
+
+**Do I need all the skills?**
+No. Install only what the work needs, or nothing and use the core alone. The wizard never installs anything you do not choose.
+
+**What is the wizard?**
+A first-run setup inside `antislop.md`. It asks which skills to install, downloads them, and writes a managed pointer block in your entry file. It runs once and then stays out of the way.
+
+**What do DURING and AFTER mean?**
+DURING applies the rules while the work is being built. AFTER audits finished work with a numbered findings list. You pick one at the start of a session.
 
 ---
 
