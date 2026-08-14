@@ -190,7 +190,7 @@
 
 ## UI Skill Checklist
 
-Run these alongside the core Delivery Gate when the task is UI work. Any **yes** on a must-be-no item, or **no** on a must-be-yes item, is a FAIL:
+Run these alongside the core Delivery Gate when the task is UI work. All answers must be **yes**:
 
 - [ ] Is the palette derived from `DESIGN.md` or a written brand identity, not the default gradient set? (R-01, R-29)
 - [ ] Is the accent used at the key moment only, not spread across every element? (core Part 3, one deliberate accent)
