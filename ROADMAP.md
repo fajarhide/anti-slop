@@ -1,10 +1,10 @@
 # antislop: Roadmap to v3.0.0
 
-> How antislop grows from a single rules file into an installable, cross-agent skill/plugin. See [README.md](README.md) for the product itself.
+> How antislop grows from a single rules file into an installable, cross-agent skill/plugin. New to antislop? Read the [guide](guide.md) first. See [README.md](README.md) for the product.
 
 ## Where we are
 
-The latest release is **v2.3.0**. antislop is now a **system**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus two **skills**: `antislop-ui` (UI / visual) and `antislop-copywriting` (copy & text).
+The latest release is **v2.4.1**. antislop is now a **system**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus three **skills**: `antislop-ui` (UI / visual), `antislop-copywriting` (copy & text), and `antislop-human` (human / accessibility). v2.4.1 adds a plain-English `guide.md` and fixes the gate items, contrast table, and dangling references found in issues #1, #2, #3, #6, #7.
 
 The **First-Run Install Wizard** is still the install path: download `antislop.md` once, tell your agent to read it, and the agent walks you through choosing skills, downloads them into the same folder, and sets up the pointer for you. It is an offer, not a requirement: `antislop.md` alone remains a complete filter.
 
@@ -16,7 +16,7 @@ antislop grows toward v3.0.0 by adding one concern per version, each as a separa
 
 > Each +0.1 version ships exactly one new skill.
 
-This keeps the filter pull-only-what-you-need, and it makes the v3 packaging mechanical rather than a rewrite.
+This keeps the filter pull-only-what-you-need, and it makes the v3 packaging mechanical rather than a rewrite. Occasional +0.1 patches ship something that is not a skill, like v2.4.1's plain-English `guide.md`; those do not change the skill plan.
 
 ### The skill plan
 
@@ -44,7 +44,8 @@ Target release: end of Q3 2026.
 - [x] v2.1.1 - English only; Indonesian mirrors removed
 - [x] v2.2.0 - core + First-Run Install Wizard + `antislop-ui` skill
 - [x] v2.3.0 - `antislop-copywriting` skill
-- [ ] v2.4.0 - `antislop-human`
+- [x] v2.4.0 - `antislop-human`
+- [ ] v2.4.1 - `guide.md`: plain-English guide for people new to antislop (not a skill); fixes for issues #1, #2, #3, #6, #7
 - [ ] v2.5.0 - `antislop-layoutmobile`
 - [ ] v2.6.0 - `antislop-docs`
 - [ ] v2.7.0 - `antislop-identity`
@@ -52,4 +53,4 @@ Target release: end of Q3 2026.
 
 ## Not in scope
 
-antislop stays a **filter, not a style guide**: no prescribed aesthetics, no per-framework recipes, no trend bans. UX and motion are folded into `antislop-ui` rather than separate skills, and data-integrity rules already live in the core.
+antislop stays a **filter, not a style guide**: no prescribed aesthetics, no per-framework recipes, no trend bans. It never beautifies on its own; direction and beauty are yours, in `DESIGN.md`. It is not limited to building pages: the same filter writes and audits copy (`antislop-copywriting`). UX and motion are folded into `antislop-ui` rather than separate skills, and data-integrity rules already live in the core.

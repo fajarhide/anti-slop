@@ -2,7 +2,7 @@
 
 > Anti AI Slop: Design & Copy Rules. Human skill
 
-> Part of the antislop system. Read together with `antislop.md` (the core). This skill deep-dives the human concern: the UI must stay usable by people with different eyes, hands, and setups. Contrast, keyboard, focus, states, and the mobile details that exclude people. The layout mechanics behind mobile (breakpoints, grids, overflow, tap targets) live in `antislop-layoutmobile`.
+> Part of the antislop system. Read together with `antislop.md` (the core). This skill deep-dives the human concern: the UI must stay usable by people with different eyes, hands, and setups. Contrast, keyboard, focus, states, and the mobile details that exclude people.
 
 ## How to use this skill
 
@@ -10,7 +10,7 @@
 - Every entry has the same shape: **Tell** (the pattern), **Why** (who it excludes, and why it reads as unfinished), **Fix** (what to do instead), with the governing core rule cited as R-XX.
 - Accessibility is not a checklist of extras bolted on at the end. It is part of the core promise that "the UI holds up" (C-4). The Delivery Gate in the core remains the gate; the "Human Skill Checklist" at the end of this file is the supplement to run alongside it.
 - The contrast checker (formula + reference table + script) lives in this skill. Use it for every color pairing you cannot verify by eye.
-- For the layout mechanics behind mobile (breakpoints, grids, overflow, tap targets), load `antislop-layoutmobile` together with this skill. This skill keeps only the mobile details that exclude people: zooming, and the on-screen keyboard.
+- This skill keeps only the mobile details that exclude people: zooming, and the on-screen keyboard.
 
 ## Color & Contrast
 
@@ -63,14 +63,14 @@ The script exists so agents stop hallucinating AA. It takes two hex colors and p
 
 | Pairing (text on background) | Ratio | Normal text (4.5) | Large text (3.0) |
 |------------------------------|-------|-------------------|------------------|
-| Black on white | 21.0 | Pass | Pass |
-| White on black | 21.0 | Pass | Pass |
-| White on #333333 | 12.6 | Pass | Pass |
-| White on #666666 | 5.7 | Pass | Pass |
-| #777777 on white | 4.5 | Borderline, compute | Pass |
-| White on #888888 | 3.5 | Fail | Pass |
-| White on #999999 | 2.8 | Fail | Fail |
-| #555555 on black | 2.8 | Fail | Fail |
+| Black on white | 21.00 | Pass | Pass |
+| White on black | 21.00 | Pass | Pass |
+| White on #333333 | 12.63 | Pass | Pass |
+| White on #666666 | 5.74 | Pass | Pass |
+| #777777 on white | 4.48 | Fail | Pass |
+| White on #888888 | 3.54 | Fail | Pass |
+| White on #999999 | 2.85 | Fail | Fail |
+| #555555 on black | 2.82 | Fail | Fail |
 
 Read the table as a sanity check, not as a substitute. Any pairing not listed, or anything near a threshold, goes through the formula or the script.
 
@@ -116,7 +116,7 @@ Read the table as a sanity check, not as a substitute. Any pairing not listed, o
 
 ## Zoom & Mobile Use
 
-The layout mechanics behind mobile (breakpoints, grids, overflow, tap targets) live in `antislop-layoutmobile`. This section keeps only the mobile details that exclude people: zooming, and the on-screen keyboard.
+The layout mechanics behind mobile (breakpoints, grids, overflow, tap targets) are the concern of `antislop-layoutmobile` (planned for v2.5.0); until it ships, treat them as part of R-03 (Mobile Responsiveness). This section keeps only the mobile details that exclude people: zooming, and the on-screen keyboard.
 
 ### Text That Cannot Zoom
 
@@ -127,7 +127,7 @@ The layout mechanics behind mobile (breakpoints, grids, overflow, tap targets) l
 ### Mobile Keyboard Covers the Form
 
 - **Tell:** inputs at the bottom of the viewport hidden behind the on-screen keyboard, with no scroll-into-view and no room for the input.
-- **Why:** a form the user cannot see or reach is a form they cannot complete. It is a mobile-only exclusion (R-35).
+- **Why:** a form the user cannot see or reach is a form they cannot complete. It is a mobile-only exclusion (R-03).
 - **Fix:** when an input is focused, it scrolls into view above the keyboard, with enough bottom padding that the focused field is never covered. Test with a real device or an emulated keyboard.
 
 ## Human Skill Checklist

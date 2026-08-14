@@ -9,7 +9,9 @@
 
 # antislop
 
-> **Anti AI Slop: Design & Copy Rules.** A rules file for AI coding agents. It stops them from generating generic "AI slop" UI and copy, without letting the result turn sterile. It is a **filter, not a style guide**: no prescribed colors, fonts, or layouts.
+> **Anti AI Slop: Design & Copy Rules.** A rules file for AI coding agents. It stops them from generating generic "AI slop" UI and copy, without letting the result turn sterile. It is a **filter, not a style guide**: no prescribed colors, fonts, or layouts. It is not only for building pages: it also writes and audits copy, so AI text stops reading like AI. And it never beautifies on its own; `DESIGN.md` (yours) is where beauty and direction come from.
+
+> **New here? Start with the [guide](guide.md).** It explains what antislop is and how to install it, from zero.
 
 ## What it does
 
@@ -22,7 +24,7 @@ The core prevents slop but cannot invent direction. `DESIGN.md` (yours) supplies
 
 ## Install
 
-**The easy way (wizard).** Download the core once, tell your agent to read it, and the wizard does the rest: it asks which skills to install, downloads them into the same folder, and appends a managed pointer block to your entry file.
+**The easy way (wizard).** Download the core once and tell your agent to read it. The wizard installs the skills you pick and sets up the pointer for you.
 
 ```bash
 curl -o antislop.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/antislop.md
@@ -47,13 +49,21 @@ curl -o antislop.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/m
 
 `antislop.md` alone is a complete filter. Skills add depth for one concern at a time; the wizard installs them, or download any you want the same way (`curl -o <skill-name>.md`).
 
+`antislop-human` also runs `scripts/contrast-check.py` to verify color pairs you cannot judge by eye. Fetch it the same way, if you want it (optional — the skill falls back to the formula and reference table without it):
+
+```bash
+curl -o scripts/contrast-check.py https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/scripts/contrast-check.py
+```
+
 Then add a pointer block to your entry file, listing exactly the skills you installed:
 
 ```md
+<!-- antislop: auto-managed block, do not edit -->
 ## antislop
-For UI or copy work, read `antislop.md` (core) and then the skill for the task:
+For UI, copy, or people work, read `antislop.md` (core) and then the skill for the task:
 - UI / visual: `antislop-ui.md`
 - Copy & text: `antislop-copywriting.md`
+- People: `antislop-human.md`
 Before starting, ask the user when antislop applies: during the work, or after it is done.
 ```
 
@@ -65,12 +75,12 @@ You can optionally put a dial line in `DESIGN.md` (`Dial: ENERGY 2 / RHYTHM 3 / 
 |-------|----------------|----------|
 | `antislop-ui` | UI / visual: layout, color, components, decoration, motion, structure | v2.2.0 |
 | `antislop-copywriting` | Copy & text: headlines, CTAs, tone, fake stats, anti-AI-writing patterns, markdown hygiene | v2.3.0 |
-| `antislop-human` | Human: contrast, keyboard, focus, states | v2.4.0 (planned) |
+| `antislop-human` | Human: contrast, keyboard, focus, states | v2.4.0 |
 | `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets | v2.5.0 (planned) |
 | `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials | v2.6.0 (planned) |
 | `antislop-identity` | Identity & naming: product names, taglines, brand voice | v2.7.0 (planned) |
 
-Pick what matches the work: UI work → `antislop-ui`, copy work → `antislop-copywriting`, both → "All", or none (the core alone is a complete filter).
+Pick what matches the work: UI work → `antislop-ui`, copy work → `antislop-copywriting`, people work → `antislop-human`, more than one → "All", or none (the core alone is a complete filter).
 
 ## Usage Modes
 

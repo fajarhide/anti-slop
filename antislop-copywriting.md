@@ -216,6 +216,7 @@
 - **After:**
   > It blends OKRs, KPIs, and visual strategy tools for planning.
 - **Rule:** R-36.
+- **Carve-out:** the structural labels inside the antislop rules themselves (the `**FORBIDDEN**` / `**REQUIRED**` markers in `antislop.md`) are documentation conventions, not the mechanical bold-every-key-term pattern above, and are exempt.
 
 ### Inline-Header Lists
 
@@ -228,6 +229,7 @@
 - **After:**
   > The update improves the interface, speeds up load times, and encrypts data in transit.
 - **Rule:** R-36.
+- **Carve-out:** the `- **Tell:**` / `- **Why:**` / `- **Fix:**` headers that structure every antislop skill entry are a documentation convention, not the header-restates-the-item habit above, and are exempt.
 
 ### Emojis in Headings
 
