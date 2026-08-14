@@ -45,7 +45,7 @@ Target release: end of Q3 2026.
 - [x] v2.2.0 - core + First-Run Install Wizard + `antislop-ui` skill
 - [x] v2.3.0 - `antislop-copywriting` skill
 - [x] v2.4.0 - `antislop-human`
-- [ ] v2.4.1 - `guide.md`: plain-English guide for people new to antislop (not a skill); fixes for issues #1, #2, #3, #6, #7
+- [x] v2.4.1 - `guide.md`: plain-English guide for people new to antislop (not a skill); fixes for issues #1, #2, #3, #6, #7
 - [ ] v2.5.0 - `antislop-layoutmobile`
 - [ ] v2.6.0 - `antislop-docs`
 - [ ] v2.7.0 - `antislop-identity`
