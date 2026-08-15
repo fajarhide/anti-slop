@@ -132,7 +132,7 @@ The layout mechanics behind mobile (breakpoints, grids, overflow, tap targets) a
 
 ## Human Skill Checklist
 
-Run these alongside the core Delivery Gate when the task involves UI. Any **yes** on a must-be-no item, or **no** on a must-be-yes item, is a FAIL:
+Run these alongside the core Delivery Gate when the task involves UI. All answers must be **yes**:
 
 - [ ] Is every text and background pairing verified against the contrast checker (formula, table, or script), including text over images and gradients? (R-25)
 - [ ] Does every interactive component boundary and status indicator meet 3:1 against its background? (non-text contrast)

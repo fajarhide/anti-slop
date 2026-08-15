@@ -309,7 +309,7 @@ Run this loop before delivering copy:
 
 ## Copywriting Skill Checklist
 
-Run these alongside the core Delivery Gate when the task is copy work. Any **yes** on a must-be-no item, or **no** on a must-be-yes item, is a FAIL:
+Run these alongside the core Delivery Gate when the task is copy work. Every line below must be true:
 
 - [ ] No fabricated numbers, testimonials, names, dates, or claims; everything real or a labeled placeholder (R-17, R-18, R-36, R-38)
 - [ ] Buzzwords from R-16 and the Empty AI Vocabulary list replaced with specific, evidenced language
