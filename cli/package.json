@@ -1,6 +1,6 @@
 {
   "name": "antislop-ai",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Interactive installer for the antislop skills. Anti AI Slop: Design & Copy Rules.",
   "type": "module",
   "bin": {
@@ -9,7 +9,10 @@
   "license": "MIT",
   "author": "miqdadbadjuber",
   "homepage": "https://github.com/miqdadbadjuber/anti-slop",
-  "repository": "https://github.com/miqdadbadjuber/anti-slop",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miqdadbadjuber/anti-slop.git"
+  },
   "keywords": [
     "ai-slop",
     "design-rules",

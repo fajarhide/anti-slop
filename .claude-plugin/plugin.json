@@ -1,7 +1,7 @@
 {
   "name": "antislop",
   "displayName": "antislop",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Anti AI Slop: Design & Copy Rules. A rules filter for AI coding agents that stops generic AI slop UI and copy. Loads as five skills.",
   "author": {
     "name": "miqdadbadjuber"

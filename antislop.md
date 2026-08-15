@@ -35,11 +35,11 @@ If no antislop pointer exists and this file is being read for the first time, ru
 4. **Download the chosen skill(s)** into `skills/<name>/` subfolders next to this file, pinned to the release tag that matches this version so a newer skill never mixes with an older core. When `antislop-human` is chosen, also download its contrast-check script into the same skill folder:
    ```bash
    mkdir -p skills/antislop-ui skills/antislop-copywriting skills/antislop-human skills/antislop-layoutmobile
-   curl -o skills/antislop-ui/SKILL.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v3.0.0/skills/antislop-ui/SKILL.md
-   curl -o skills/antislop-copywriting/SKILL.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v3.0.0/skills/antislop-copywriting/SKILL.md
-   curl -o skills/antislop-human/SKILL.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v3.0.0/skills/antislop-human/SKILL.md
-   curl -o skills/antislop-layoutmobile/SKILL.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v3.0.0/skills/antislop-layoutmobile/SKILL.md
-   curl -o skills/antislop-human/contrast-check.py https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v3.0.0/skills/antislop-human/contrast-check.py
+   curl -o skills/antislop-ui/SKILL.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v3.0.1/skills/antislop-ui/SKILL.md
+   curl -o skills/antislop-copywriting/SKILL.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v3.0.1/skills/antislop-copywriting/SKILL.md
+   curl -o skills/antislop-human/SKILL.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v3.0.1/skills/antislop-human/SKILL.md
+   curl -o skills/antislop-layoutmobile/SKILL.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v3.0.1/skills/antislop-layoutmobile/SKILL.md
+   curl -o skills/antislop-human/contrast-check.py https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v3.0.1/skills/antislop-human/contrast-check.py
    ```
 5. **Append the pointer block at the END of the project's entry file** (the file the running tool reads at session start: `CLAUDE.md` for Claude Code, `AGENTS.md` for Codex, `GEMINI.md` for Gemini CLI, and so on). If that file does not exist, create it. Never modify existing content:
    ```md
