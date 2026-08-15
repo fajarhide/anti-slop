@@ -4,7 +4,7 @@
 
 ## Where we are
 
-The latest release is **v2.4.2**. antislop is now a **system**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus three **skills**: `antislop-ui` (UI / visual), `antislop-copywriting` (copy & text), and `antislop-human` (human / accessibility). v2.4.2 fixes the skill checklists' polarity so every verdict reads correctly (issue #9) and tidies the docs (PR #8), both merged from [@fajarhide](https://github.com/fajarhide).
+The latest release is **v2.5.0**. antislop is now a **system**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus four **skills**: `antislop-ui` (UI / visual), `antislop-copywriting` (copy & text), `antislop-human` (human / accessibility), and `antislop-layoutmobile` (mobile / responsive). v2.5.0 adds `antislop-layoutmobile`: a mobile layout must reflow into a distinct state, not stay a squeezed desktop. It covers breakpoints, scale, grids, overflow, and tap targets.
 
 The **First-Run Install Wizard** is still the install path: download `antislop.md` once, tell your agent to read it, and the agent walks you through choosing skills, downloads them into the same folder, and sets up the pointer for you. It is an offer, not a requirement: `antislop.md` alone remains a complete filter.
 
@@ -46,8 +46,8 @@ Target release: end of Q3 2026.
 - [x] v2.3.0 - `antislop-copywriting` skill
 - [x] v2.4.0 - `antislop-human`
 - [x] v2.4.1 - `guide.md`: plain-English guide for people new to antislop (not a skill); fixes for issues #1, #2, #3, #6, #7
-- [ ] v2.4.2 - skill checklist polarity fix (#9) and docs cleanup, merged from PRs #8 and #10
-- [ ] v2.5.0 - `antislop-layoutmobile`
+- [x] v2.4.2 - skill checklist polarity fix (#9) and docs cleanup, merged from PRs #8 and #10
+- [x] v2.5.0 - `antislop-layoutmobile`
 - [ ] v2.6.0 - `antislop-docs`
 - [ ] v2.7.0 - `antislop-identity`
 - [ ] v3.0.0 - skill/plugin packaging

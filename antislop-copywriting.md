@@ -95,6 +95,17 @@
   > Next.js caches data at multiple layers, including request memoization, the data cache, and the router cache.
 - **Rule:** R-36.
 
+### All-Caps Emphasis
+
+- **The pattern:** a whole sentence, clause, or phrase in ALL CAPS inside a paragraph to shout emphasis: "The launch is ready and WE NEED TO MOVE NOW before the window closes."
+- **Why it reads as AI:** caps-as-emphasis is a blunt instrument the model reaches for to manufacture urgency instead of writing emphasis into the sentence. In long text it reads as shouting, and it flattens the real peaks by making everything loud.
+- **Before:**
+  > This is our last chance to win this customer, and WE MUST ACT IMMEDIATELY before they choose a competitor.
+- **After:**
+  > This is our last chance to win this customer. If we do not respond today, they will choose a competitor.
+- **Rule:** R-36. (R-06 covers uppercase labels with wide tracking as a design choice; this pattern is the prose case: caps inside a paragraph doing the emphasis work.)
+- **Not a ban:** a genuine headline, a deliberately shouted line in a voice that shouts, or a single all-caps word used once as an accent can keep its caps. The tell is caps used sentence after sentence to do the emphasis the words should do. Minimize, do not strip every cap.
+
 ## Rhythm & Structure
 
 ### Rule of Three Overuse
@@ -218,6 +229,17 @@
 - **Rule:** R-36.
 - **Carve-out:** the structural labels inside the antislop rules themselves (the `**FORBIDDEN**` / `**REQUIRED**` markers in `antislop.md`) are documentation conventions, not the mechanical bold-every-key-term pattern above, and are exempt.
 
+### Excessive Quotation Marks
+
+- **The pattern:** long text studded with quotation marks: quoting words that do not need quoting, scare quotes around ordinary terms, and quotes used as a default for emphasis or hedging. The page reads quoted rather than written.
+- **Why it reads as AI:** models reach for quotation marks as a default way to add distance, irony, or emphasis without writing it into the sentence. Dense quoting is a reliable machine tell in longer text.
+- **Before:**
+  > The "solution" "streamlines" your "workflow" so you can "focus" on "what matters."
+- **After:**
+  > The solution streamlines your workflow so you can focus on what matters.
+- **Rule:** R-36.
+- **Not a ban:** dialogue, short stories, quoted real sources, and titles of works keep their quotes. The tell is quotes doing the work the sentence should do. One scare quote used once for a real reason is fine; a cluster of them is not. Minimize, do not strip quotes that carry meaning.
+
 ### Inline-Header Lists
 
 - **The pattern:** list items that start with a bolded header followed by a colon: "- **User Experience:** The UX has been improved".
@@ -314,6 +336,8 @@ Run these alongside the core Delivery Gate when the task is copy work. Every lin
 - [ ] No fabricated numbers, testimonials, names, dates, or claims; everything real or a labeled placeholder (R-17, R-18, R-36, R-38)
 - [ ] Buzzwords from R-16 and the Empty AI Vocabulary list replaced with specific, evidenced language
 - [ ] No em dashes in the output (R-02), unless the user's own sample voice uses them
+- [ ] No excessive quotation marks: quotes only where they carry meaning (dialogue, real citations, titles), not as default emphasis (R-36)
+- [ ] No all-caps emphasis clauses: emphasis written into the sentence, not shouted with caps (R-36)
 - [ ] CTAs specific to the action, not generic templates (R-15)
 - [ ] No AI-rhythm tells: no forced rule of three, no negative parallelism, no staccato drama, no aphorism formulas, no false ranges (R-36)
 - [ ] Voice present: the copy has a real voice (the user's sample or a clearly chosen tone), not a sterile default (R-37)

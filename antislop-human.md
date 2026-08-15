@@ -116,7 +116,7 @@ Read the table as a sanity check, not as a substitute. Any pairing not listed, o
 
 ## Zoom & Mobile Use
 
-The layout mechanics behind mobile (breakpoints, grids, overflow, tap targets) are the concern of `antislop-layoutmobile` (planned for v2.5.0); until it ships, treat them as part of R-03 (Mobile Responsiveness). This section keeps only the mobile details that exclude people: zooming, and the on-screen keyboard.
+The layout mechanics behind mobile (breakpoints, scale, grids, overflow, tap targets) are the concern of `antislop-layoutmobile`. This section keeps only the mobile details that exclude people: zooming, and the on-screen keyboard.
 
 ### Text That Cannot Zoom
 

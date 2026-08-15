@@ -43,7 +43,7 @@ A skill is an optional file that goes deeper into one concern. The core works al
 - `antislop-copywriting`: the text. Headlines, buttons, tone, made-up statistics.
 - `antislop-human`: the people. Readable colors, keyboard use, clear focus, and button states.
 
-Pick the one that matches your work. UI work means `antislop-ui`. Copy work means `antislop-copywriting`. People work means `antislop-human`. More than one? Ask for "All". None? The core alone is enough.
+Pick the one that matches your work. UI work means `antislop-ui`. Copy work means `antislop-copywriting`. People work means `antislop-human`. Mobile layout work means `antislop-layoutmobile`. More than one? Ask for "All". None? The core alone is enough.
 
 ## How to install
 
@@ -80,7 +80,7 @@ The main file holds everything: the rules and the wizard. Skills are optional de
 
 ## Where is this going?
 
-Every new version of antislop adds one skill. Next up: mobile layout, documentation, and identity. The end goal is v3.0.0, the whole system packaged as an installable plugin (an add-on you install once, like an app). See the roadmap, the page that lists what is coming next, [here](ROADMAP.md).
+Every new version of antislop adds one skill. So far: UI, copywriting, people, and mobile layout. Next up: documentation and identity. The end goal is v3.0.0, the whole system packaged as an installable plugin (an add-on you install once, like an app). See the roadmap, the page that lists what is coming next, [here](ROADMAP.md).
 
 ## Words used here
 

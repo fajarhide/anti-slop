@@ -60,10 +60,11 @@ Then add a pointer block to your entry file, listing exactly the skills you inst
 ```md
 <!-- antislop: auto-managed block, do not edit -->
 ## antislop
-For UI, copy, or people work, read `antislop.md` (core) and then the skill for the task:
+For UI, copy, people, or mobile layout work, read `antislop.md` (core) and then the skill for the task:
 - UI / visual: `antislop-ui.md`
 - Copy & text: `antislop-copywriting.md`
 - People: `antislop-human.md`
+- Mobile / responsive: `antislop-layoutmobile.md`
 Before starting, ask the user when antislop applies: during the work, or after it is done.
 ```
 
@@ -76,11 +77,11 @@ You can optionally put a dial line in `DESIGN.md` (`Dial: ENERGY 2 / RHYTHM 3 / 
 | `antislop-ui` | UI / visual: layout, color, components, decoration, motion, structure | v2.2.0 |
 | `antislop-copywriting` | Copy & text: headlines, CTAs, tone, fake stats, anti-AI-writing patterns, markdown hygiene | v2.3.0 |
 | `antislop-human` | Human: contrast, keyboard, focus, states | v2.4.0 |
-| `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets | v2.5.0 (planned) |
+| `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets | v2.5.0 |
 | `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials | v2.6.0 (planned) |
 | `antislop-identity` | Identity & naming: product names, taglines, brand voice | v2.7.0 (planned) |
 
-Pick what matches the work: UI work → `antislop-ui`, copy work → `antislop-copywriting`, people work → `antislop-human`, more than one → "All", or none (the core alone is a complete filter).
+Pick what matches the work: UI work → `antislop-ui`, copy work → `antislop-copywriting`, people work → `antislop-human`, mobile layout work → `antislop-layoutmobile`, more than one → "All", or none (the core alone is a complete filter).
 
 ## Usage Modes
 
