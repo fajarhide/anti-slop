@@ -49,7 +49,7 @@ curl -o antislop.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/m
 
 `antislop.md` alone is a complete filter. Skills add depth for one concern at a time; the wizard installs them, or download any you want the same way (`curl -o <skill-name>.md`).
 
-`antislop-human` also runs `scripts/contrast-check.py` to verify color pairs you cannot judge by eye. Fetch it the same way, if you want it (optional — the skill falls back to the formula and reference table without it):
+`antislop-human` also runs `scripts/contrast-check.py` to verify color pairs you cannot judge by eye. Fetch it the same way, if you want it (optional: the skill falls back to the formula and reference table without it):
 
 ```bash
 curl -o scripts/contrast-check.py https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/scripts/contrast-check.py
