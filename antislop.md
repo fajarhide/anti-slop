@@ -31,11 +31,11 @@ If no antislop pointer exists and this file is being read for the first time, ru
    - **3. The user skips direction for now.** Proceed without a `DESIGN.md`. Any UI built this way must be labeled *"draft without direction"* with dials ENERGY 1 / RHYTHM 1 / MOTION 1 (R-37), and is not a shippable deliverable.
 4. **Download the chosen skill file(s)** into the same folder as this file, level with it, pinned to the release tag that matches this version so a newer skill never mixes with an older core. When `antislop-human` is chosen, also download its contrast-check script into a `scripts/` subfolder:
    ```bash
-   curl -o antislop-ui.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.1/antislop-ui.md
-   curl -o antislop-copywriting.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.1/antislop-copywriting.md
-   curl -o antislop-human.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.1/antislop-human.md
+   curl -o antislop-ui.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.2/antislop-ui.md
+   curl -o antislop-copywriting.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.2/antislop-copywriting.md
+   curl -o antislop-human.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.2/antislop-human.md
    mkdir -p scripts
-   curl -o scripts/contrast-check.py https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.1/scripts/contrast-check.py
+   curl -o scripts/contrast-check.py https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/v2.4.2/scripts/contrast-check.py
    ```
 5. **Append the pointer block at the END of the project's entry file** (the file the running tool reads at session start: `CLAUDE.md` for Claude Code, `AGENTS.md` for Codex, `GEMINI.md` for Gemini CLI, and so on). If that file does not exist, create it. Never modify existing content:
    ```md
