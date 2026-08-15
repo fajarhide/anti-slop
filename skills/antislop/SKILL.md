@@ -1,3 +1,8 @@
+---
+name: antislop
+description: "Anti AI Slop: Design & Copy Rules. The core rules filter for AI coding agents. Load always to stop generic AI slop."
+allowed-tools: Bash(curl *) Bash(mkdir *) Read Write Edit Glob Grep
+---
 # antislop
 
 > Anti AI Slop: Design & Copy Rules

@@ -31,23 +31,53 @@ One thing antislop does not do: make things pretty. It removes slop. If you have
 
 ## What you need
 
-One file: `antislop.md`, and the AI assistant you already use.
+An AI assistant, and antislop itself. The easiest way in is one command in the terminal:
 
-The file holds all the rules the AI follows, plus the wizard that installs skills for you. Nothing else is required. Skills are optional add-ons; you do not need any to start.
+```bash
+npx antislop-ai
+```
+
+It shows you what antislop has, you pick the skills you want and where to put them, and it sets everything up. No terminal? There is a manual way below that only needs one file.
+
+The main file, `antislop.md`, holds all the rules and the wizard that installs skills manually. Skills are optional add-ons; you do not need any to start.
 
 ## What is a skill?
 
-A skill is an optional file that goes deeper into one concern. The core works alone; a skill adds depth for one topic.
+A skill is an optional folder (with a `SKILL.md` inside) that goes deeper into one concern. The core works alone; a skill adds depth for one topic.
 
 - `antislop-ui`: look and feel. Layout, color, parts of the page, animation.
 - `antislop-copywriting`: the text. Headlines, buttons, tone, made-up statistics.
 - `antislop-human`: the people. Readable colors, keyboard use, clear focus, and button states.
+- `antislop-layoutmobile`: the small screen. Layout that reflows on a phone, tap targets, navigation.
 
 Pick the one that matches your work. UI work means `antislop-ui`. Copy work means `antislop-copywriting`. People work means `antislop-human`. Mobile layout work means `antislop-layoutmobile`. More than one? Ask for "All". None? The core alone is enough.
 
 ## How to install
 
-Three steps.
+**The one-command way.** Run this in the terminal:
+
+```bash
+npx antislop-ai
+```
+
+Pick the skills you want, choose "this project" or "everywhere", and antislop installs itself. The core is always on; the skills load only for the work you do.
+
+Or install straight from the skills directory, the open directory for agent skills:
+
+```bash
+npx skills add miqdadbadjuber/anti-slop
+```
+
+Add `--all` for every skill, `-g` for a global install, or `--skill <name>` for a single one. Run `--list` first to see what is available. The skills directory reads the skills straight from the GitHub repository, so it works as soon as the repository is live; there is no separate setup step.
+
+**The plugin (Claude Code).** If you use Claude Code, add the marketplace once, then install the plugin:
+
+```text
+/plugin marketplace add https://github.com/miqdadbadjuber/anti-slop
+/plugin install antislop@anti-slop
+```
+
+**The manual way.** Three steps. Use this when you want no packaging at all, or a chat window you cannot run commands in.
 
 **1. Download `antislop.md` once.** Two ways:
 
@@ -72,7 +102,7 @@ If you pasted the contents instead of giving the file, say: "Follow the install 
 
 It confirms which skills you want and asks when antislop should apply: while the AI is working (during), or after the work is done, to check it (after). Pick "during" for new work.
 
-Done. Want to skip the wizard? There is a manual setup too; see the README, the product's main page, [here](README.md).
+Done. Want the one-command install instead? See the README, the product's main page, [here](README.md).
 
 ## Why is one file enough?
 
@@ -80,14 +110,14 @@ The main file holds everything: the rules and the wizard. Skills are optional de
 
 ## Where is this going?
 
-Every new version of antislop adds one skill. So far: UI, copywriting, people, and mobile layout. Next up: documentation and identity. The end goal is v3.0.0, the whole system packaged as an installable plugin (an add-on you install once, like an app). See the roadmap, the page that lists what is coming next, [here](ROADMAP.md).
+The skill plan is complete. antislop v3.0.0 is now packaged: installable as skills, installable as a plugin, and still available as one file. See the roadmap, the page that lists what is coming next, [here](ROADMAP.md).
 
 ## Words used here
 
 - **Slop**: output that looks or reads generic and AI-made.
 - **Agent**: another word for your AI assistant, like ChatGPT, Claude, or Gemini.
 - **Core**: `antislop.md`, the main file that holds all the rules and the wizard.
-- **Skill**: an optional file that goes deeper into one concern.
+- **Skill**: an optional folder (`<name>/SKILL.md`) that goes deeper into one concern. The core works alone; a skill adds depth for one topic.
 - **Copy**: the words on a page.
 - **Contrast**: how clearly text stands out from its background.
 - **Wizard**: the install instructions inside `antislop.md`. When you tell your AI to read the file, it follows them and asks you questions.

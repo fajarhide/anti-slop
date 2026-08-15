@@ -4,21 +4,29 @@
 
 ## Where we are
 
-The latest release is **v2.5.0**. antislop is now a **system**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus four **skills**: `antislop-ui` (UI / visual), `antislop-copywriting` (copy & text), `antislop-human` (human / accessibility), and `antislop-layoutmobile` (mobile / responsive). v2.5.0 adds `antislop-layoutmobile`: a mobile layout must reflow into a distinct state, not stay a squeezed desktop. It covers breakpoints, scale, grids, overflow, tap targets, and navigation (bottom nav, hamburger menus, and fixed nav bars that must not cover content).
+The latest release is **v3.0.0**. antislop is now a **packaged system**: a lean, always-loaded **core** plus four **skills**, each shipped as a standard agent skill folder (`skills/<name>/SKILL.md`):
 
-The **First-Run Install Wizard** is still the install path: download `antislop.md` once, tell your agent to read it, and the agent walks you through choosing skills, downloads them into the same folder, and sets up the pointer for you. It is an offer, not a requirement: `antislop.md` alone remains a complete filter.
+- `antislop`: the core rules filter (rules, tiers, Delivery Gate, liveliness)
+- `antislop-ui`: UI / visual
+- `antislop-copywriting`: copy & text
+- `antislop-human`: human / accessibility, home of the contrast checker
+- `antislop-layoutmobile`: mobile / responsive
+
+The system installs three ways from one repo: the interactive picker (`npx antislop-ai`), the skills directory (`npx skills add miqdadbadjuber/anti-slop`, listed on skills.sh), and the Claude Code plugin marketplace (`.claude-plugin/plugin.json`). The contrast checker is also exposed as an MCP tool inside the plugin.
+
+The **First-Run Install Wizard** still lives inside `antislop.md` as the manual path. The single-file core remains a complete filter you can paste into any chat window.
 
 The core still contains 38 rules across three tiers (Hard Gate, Purpose-Gate, Quality Locks), a Liveliness Toolkit, a mandatory Delivery Gate, and the two usage modes (During / After). None of that changed.
 
-## Where we are going
+## How we got here
 
-antislop grows toward v3.0.0 by adding one concern per version, each as a separate **skill**. The core stays lean; skills stay additive. Versioning follows a simple rule:
+v3.0.0 was reached by adding one concern per version, each as a separate **skill**:
 
 > Each +0.1 version ships exactly one new skill.
 
-This keeps the filter pull-only-what-you-need, and it makes the v3 packaging mechanical rather than a rewrite. Occasional +0.1 patches ship something that is not a skill, like v2.4.1's plain-English `guide.md`; those do not change the skill plan.
+That kept the filter pull-only-what-you-need and made the v3 packaging mechanical rather than a rewrite. Occasional +0.1 patches shipped something that is not a skill, like v2.4.1's plain-English `guide.md`; those did not change the skill plan.
 
-### The skill plan
+### The skill plan (complete)
 
 | Version | Skill | Concern |
 |---------|-------|---------|
@@ -26,17 +34,18 @@ This keeps the filter pull-only-what-you-need, and it makes the v3 packaging mec
 | v2.3.0 | `antislop-copywriting` | Copy and text: headlines, CTAs, tone, fake stats, markdown hygiene |
 | v2.4.0 | `antislop-human` | Human: contrast, keyboard, focus, states (home of the contrast checker) |
 | v2.5.0 | `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets, navigation |
-| v2.6.0 | `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials |
-| v2.7.0 | `antislop-identity` | Identity and naming: product names, taglines, brand voice |
 
-### v3.0.0: the skill/plugin
+`antislop-docs` and `antislop-identity` are candidates for after v3, not part of the shipped plan.
 
-- One `SKILL.md` per skill (open Agent Skills standard)
-- A `/antislop` router command that loads only the skill the task needs
-- Placement for Claude Code, Codex CLI, Antigravity CLI, Gemini CLI, and Cursor
-- An optional MCP server for mechanical checks (e.g. contrast)
+## v3.0.0: the skill/plugin
 
-Target release: end of Q3 2026.
+What v3.0.0 shipped:
+
+- One folder per skill, `skills/<name>/SKILL.md` (open Agent Skills standard)
+- Two distribution doors from one repo: `npx skills add miqdadbadjuber/anti-slop` (skills.sh) and the `.claude-plugin/plugin.json` marketplace
+- A custom picker CLI (`npx antislop-ai`): banner, skill list with the core locked on, project or global choice, installer that writes the skill folders and the pointer
+- The contrast checker as an MCP tool inside the plugin
+- MIT license
 
 ## Status
 
@@ -48,9 +57,12 @@ Target release: end of Q3 2026.
 - [x] v2.4.1 - `guide.md`: plain-English guide for people new to antislop (not a skill); fixes for issues #1, #2, #3, #6, #7
 - [x] v2.4.2 - skill checklist polarity fix (#9) and docs cleanup, merged from PRs #8 and #10
 - [x] v2.5.0 - `antislop-layoutmobile` (breakpoints, scale, grids, overflow, tap targets, navigation)
-- [ ] v2.6.0 - `antislop-docs`
-- [ ] v2.7.0 - `antislop-identity`
-- [ ] v3.0.0 - skill/plugin packaging
+- [x] v3.0.0 - skill/plugin packaging: `skills/` folders, two doors, picker CLI, MCP contrast tool, MIT license
+
+## After v3
+
+- [ ] `antislop-docs` (skill candidate)
+- [ ] `antislop-identity` (skill candidate)
 
 ## Not in scope
 

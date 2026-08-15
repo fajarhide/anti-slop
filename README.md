@@ -5,6 +5,7 @@
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f?style=for-the-badge" alt="License: MIT"></a>
   <a href="https://github.com/miqdadbadjuber/anti-slop/releases"><img src="https://img.shields.io/github/v/release/miqdadbadjuber/anti-slop?label=version&style=for-the-badge&color=1f6feb" alt="Version"></a>
+  <a href="https://skills.sh/miqdadbadjuber/anti-slop"><img src="https://skills.sh/b/miqdadbadjuber/anti-slop" alt="skills.sh"></a>
 </p>
 
 # antislop
@@ -24,64 +25,50 @@ The core prevents slop but cannot invent direction. `DESIGN.md` (yours) supplies
 
 ## Install
 
-**The easy way (wizard).** Download the core once and tell your agent to read it. The wizard installs the skills you pick and sets up the pointer for you.
+antislop is a set of **standard agent skills** (one folder per skill, `SKILL.md`) you can install as a package. The core is always loaded; the skills load only for the task at hand. Pick one of these three paths.
+
+**1. The picker (recommended).** One command, then choose. It shows the antislop banner, lists the skills with the core locked on, and asks for project or global:
+
+```bash
+npx antislop-ai
+```
+
+**2. The skills directory.** antislop is listed on [skills.sh](https://skills.sh/miqdadbadjuber/anti-slop), the open directory for agent skills:
+
+```bash
+npx skills add miqdadbadjuber/anti-slop
+```
+
+Add `--all` for every skill, `-g` for a global install, or `--skill <name>` for a single one. Run `--list` first to see what is available.
+
+skills.sh reads the skill folders straight from this repository, so the listing appears as soon as the repo is live; there is no separate setup step.
+
+**3. The plugin (Claude Code).** Add the marketplace once, then install the plugin:
+
+```text
+/plugin marketplace add https://github.com/miqdadbadjuber/anti-slop
+/plugin install antislop@anti-slop
+```
+
+Every skill is a folder of the open Agent Skills standard (`<name>/SKILL.md`), so it drops into Claude Code (`.claude/skills/`), Codex, Antigravity, and any other agent that reads the standard.
+
+**Manual (single file, no packaging).** The core `antislop.md` alone remains a complete filter you can paste into any chat window. Download it and tell your agent to read it; the First-Run wizard inside it installs skills the manual way:
 
 ```bash
 curl -o antislop.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/antislop.md
 ```
-
-> "Read `antislop.md` and follow its install instructions. I want the UI skill."
-
-That's it. The pointer block is the source of truth: every later session loads the core plus only the skills you installed. Say "core only" to skip skills entirely. For a permanent setup that needs no first-run chat, add one line to your entry file (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, etc.): "For UI or copy work, read `antislop.md`."
-
-**Manual (the 3-file system).**
-
-```
-Project root/
-├── AGENTS.md (or CLAUDE.md, GEMINI.md, etc.)    # router: tells the agent what to read
-├── DESIGN.md                                    # direction: the soul of your UI (yours)
-└── antislop.md                                  # filter: from this repo
-```
-
-```bash
-curl -o antislop.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/antislop.md
-```
-
-`antislop.md` alone is a complete filter. Skills add depth for one concern at a time; the wizard installs them, or download any you want the same way (`curl -o <skill-name>.md`).
-
-`antislop-human` also runs `scripts/contrast-check.py` to verify color pairs you cannot judge by eye. Fetch it the same way, if you want it (optional: the skill falls back to the formula and reference table without it):
-
-```bash
-curl -o scripts/contrast-check.py https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/main/scripts/contrast-check.py
-```
-
-Then add a pointer block to your entry file, listing exactly the skills you installed:
-
-```md
-<!-- antislop: auto-managed block, do not edit -->
-## antislop
-For UI, copy, people, or mobile layout work, read `antislop.md` (core) and then the skill for the task:
-- UI / visual: `antislop-ui.md`
-- Copy & text: `antislop-copywriting.md`
-- People: `antislop-human.md`
-- Mobile / responsive: `antislop-layoutmobile.md`
-Before starting, ask the user when antislop applies: during the work, or after it is done.
-```
-
-You can optionally put a dial line in `DESIGN.md` (`Dial: ENERGY 2 / RHYTHM 3 / MOTION 1`) to set the liveliness target directly. No `DESIGN.md`? The agent labels any output *"draft without direction"* instead of passing it off as a deliverable.
 
 ## Skills
 
 | Skill | What it covers | Ships in |
 |-------|----------------|----------|
+| `antislop` | The core filter: rules, tiers, Delivery Gate, liveliness | v3.0.0 |
 | `antislop-ui` | UI / visual: layout, color, components, decoration, motion, structure | v2.2.0 |
 | `antislop-copywriting` | Copy & text: headlines, CTAs, tone, fake stats, anti-AI-writing patterns, markdown hygiene | v2.3.0 |
-| `antislop-human` | Human: contrast, keyboard, focus, states | v2.4.0 |
+| `antislop-human` | Human: contrast (with the checker), keyboard, focus, states | v2.4.0 |
 | `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets, navigation | v2.5.0 |
-| `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials | v2.6.0 (planned) |
-| `antislop-identity` | Identity & naming: product names, taglines, brand voice | v2.7.0 (planned) |
 
-Pick what matches the work: UI work → `antislop-ui`, copy work → `antislop-copywriting`, people work → `antislop-human`, mobile layout work → `antislop-layoutmobile`, more than one → "All", or none (the core alone is a complete filter).
+Pick what matches the work: UI work → `antislop-ui`, copy work → `antislop-copywriting`, people work → `antislop-human`, mobile layout work → `antislop-layoutmobile`, more than one → install several, or none (the core alone is a complete filter).
 
 ## Usage Modes
 
@@ -92,7 +79,7 @@ antislop is used one of two ways, chosen at the start of a session:
 
 ## Roadmap
 
-Heading to **v3.0.0**: the whole system packaged as an installable skill/plugin (Claude Code, Codex, Cursor, etc.) with a `/antislop` router. One skill ships per version until then. See [ROADMAP.md](ROADMAP.md).
+**v3.0.0 shipped**: antislop is packaged as installable skills. See [ROADMAP.md](ROADMAP.md). The skill plan that built toward it (one skill per version) is complete; `antislop-docs` and `antislop-identity` are candidates for after v3.
 
 ## FAQ
 
@@ -100,10 +87,10 @@ Heading to **v3.0.0**: the whole system packaged as an installable skill/plugin 
 No, a filter. It does not prescribe colors, fonts, or layouts. It rejects technique without purpose and requires liveliness; direction is yours.
 
 **Which agents does it work with?**
-Any agent that reads plain Markdown: Claude Code, Codex, Cursor, Gemini CLI, and others. No plugin or special packaging is needed in v2.x; v3.0.0 adds installable packaging.
+Any agent that reads plain Markdown: Claude Code, Codex, Cursor, Gemini CLI, and others. The packaged install uses the open Agent Skills standard (folder per skill), so skills drop into any tool that reads it. The single-file `antislop.md` still works everywhere else.
 
 **What is a "skill"?**
-An additive file that goes deeper into one concern (UI, copywriting, accessibility, and so on). It references the core rules by number and never duplicates them, so adding a skill does not change the core.
+A folder that goes deeper into one concern (UI, copywriting, accessibility, and so on), holding a `SKILL.md` with its rules. It references the core rules by number and never duplicates them, so adding a skill does not change the core.
 
 **What are DURING and AFTER?**
 The two usage modes: DURING applies the rules while building, AFTER audits finished work. You pick one at the start of a session.

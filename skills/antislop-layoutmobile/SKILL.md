@@ -1,3 +1,8 @@
+---
+name: antislop-layoutmobile
+description: "Mobile layout skill for antislop. Use for layouts that reflow on small screens: grids, overflow, tap targets. Load with the core."
+allowed-tools: Read Write Edit Glob Grep
+---
 # antislop-layoutmobile
 
 > Anti AI Slop: Design & Copy Rules. Mobile Layout skill

@@ -1,3 +1,8 @@
+---
+name: antislop-ui
+description: "UI and visual skill for antislop. Use when building or editing any interface: color, layout, components, motion. Load with the core."
+allowed-tools: Read Write Edit Glob Grep
+---
 # antislop-ui
 
 > Anti AI Slop: Design & Copy Rules. UI & Visual skill

@@ -1,3 +1,8 @@
+---
+name: antislop-human
+description: "Human and accessibility skill for antislop. Contrast, keyboard, focus, and states for real people. Includes the contrast checker."
+allowed-tools: Bash(python *) Read Write Edit Glob Grep
+---
 # antislop-human
 
 > Anti AI Slop: Design & Copy Rules. Human skill
@@ -42,15 +47,15 @@
 
 The home of the contrast checker. Three layers, from most to least convenient:
 
-**The script.** When a script runtime is available and the file is present, run it instead of computing by hand:
+**The script.** When a script runtime is available and the file is present, run it instead of computing by hand. The script ships in this skill's folder (`contrast-check.py`, next to this `SKILL.md`):
 
 ```bash
-python scripts/contrast-check.py "#FFFFFF" "#777777"
+python "${CLAUDE_SKILL_DIR}/contrast-check.py" "#FFFFFF" "#777777"
 # normal text: FAIL (4.48 < 4.5)
 # large text:  PASS (4.48 >= 3.0)
 ```
 
-The script exists so agents stop hallucinating AA. It takes two hex colors and prints the ratio and the verdict for both text sizes. It ships with the skill; if it is missing from an older setup, the formula and table below are complete on their own. Never block on the script.
+If the `${CLAUDE_SKILL_DIR}` variable is not available in this agent, point the script path at this skill's folder directly. The script exists so agents stop hallucinating AA. It takes two hex colors and prints the ratio and the verdict for both text sizes. If the file is missing, the formula and table below are complete on their own. Never block on the script.
 
 **The formula (WCAG 2.x).**
 
