@@ -4,7 +4,7 @@
   "version": "3.0.0",
   "description": "Anti AI Slop: Design & Copy Rules. A rules filter for AI coding agents that stops generic AI slop UI and copy. Loads as five skills.",
   "author": {
-    "name": "antislop"
+    "name": "miqdadbadjuber"
   },
   "repository": "https://github.com/miqdadbadjuber/anti-slop",
   "license": "MIT",

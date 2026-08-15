@@ -3,8 +3,11 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f?style=for-the-badge" alt="License: MIT"></a>
-  <a href="https://github.com/miqdadbadjuber/anti-slop/releases"><img src="https://img.shields.io/github/v/release/miqdadbadjuber/anti-slop?label=version&style=for-the-badge&color=1f6feb" alt="Version"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea44f" alt="License: MIT"></a>
+  <a href="https://github.com/miqdadbadjuber/anti-slop/releases"><img src="https://img.shields.io/github/v/release/miqdadbadjuber/anti-slop?label=version&color=1f6feb" alt="Version"></a>
+</p>
+
+<p align="center">
   <a href="https://skills.sh/miqdadbadjuber/anti-slop"><img src="https://skills.sh/b/miqdadbadjuber/anti-slop" alt="skills.sh"></a>
 </p>
 
@@ -50,7 +53,7 @@ skills.sh reads the skill folders straight from this repository, so the listing 
 /plugin install antislop@anti-slop
 ```
 
-Every skill is a folder of the open Agent Skills standard (`<name>/SKILL.md`), so it drops into Claude Code (`.claude/skills/`), Codex, Antigravity, and any other agent that reads the standard.
+Every skill is a folder of the open Agent Skills standard (`<name>/SKILL.md`), so it drops into Claude Code (`.claude/skills/`), Codex (`.codex/skills/`), Antigravity (`.agents/skills/`), and any other agent that reads the standard. The picker (path 1) detects which of these agents exist in your project and installs into them; the skills directory (path 2) handles the same agents and more. The plugin (path 3) is the Claude Code door only.
 
 **Manual (single file, no packaging).** The core `antislop.md` alone remains a complete filter you can paste into any chat window. Download it and tell your agent to read it; the First-Run wizard inside it installs skills the manual way:
 
@@ -87,7 +90,13 @@ antislop is used one of two ways, chosen at the start of a session:
 No, a filter. It does not prescribe colors, fonts, or layouts. It rejects technique without purpose and requires liveliness; direction is yours.
 
 **Which agents does it work with?**
-Any agent that reads plain Markdown: Claude Code, Codex, Cursor, Gemini CLI, and others. The packaged install uses the open Agent Skills standard (folder per skill), so skills drop into any tool that reads it. The single-file `antislop.md` still works everywhere else.
+All of them, but the install paths differ:
+
+- **The picker and the skills directory** support Claude Code, Codex, and Antigravity (the picker detects each agent's skill folder; `npx skills add` handles the same agents and more). These are the recommended paths.
+- **The plugin** is Claude Code only. It is the Claude-specific door.
+- **The single file** (`antislop.md`) works with any agent that reads plain Markdown: Cursor, Gemini CLI, or a plain chat window.
+
+The packaged skills use the open Agent Skills standard (folder per skill), so they drop into any tool that reads the standard.
 
 **What is a "skill"?**
 A folder that goes deeper into one concern (UI, copywriting, accessibility, and so on), holding a `SKILL.md` with its rules. It references the core rules by number and never duplicates them, so adding a skill does not change the core.
@@ -97,7 +106,7 @@ The two usage modes: DURING applies the rules while building, AFTER audits finis
 
 ## Contributing
 
-PRs are welcome for new AI slop patterns, clarifications, or checklist items out of sync with their rule.
+Found a new AI slop pattern, a rule that missed something, or a bug in the installer? Open an [issue](https://github.com/miqdadbadjuber/anti-slop/issues). PRs are welcome for new AI slop patterns, clarifications, or checklist items out of sync with their rule.
 
 ## License
 

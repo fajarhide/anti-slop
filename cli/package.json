@@ -7,6 +7,7 @@
     "antislop-ai": "index.mjs"
   },
   "license": "MIT",
+  "author": "miqdadbadjuber",
   "homepage": "https://github.com/miqdadbadjuber/anti-slop",
   "repository": "https://github.com/miqdadbadjuber/anti-slop",
   "keywords": [

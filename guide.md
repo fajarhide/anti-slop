@@ -77,6 +77,14 @@ Add `--all` for every skill, `-g` for a global install, or `--skill <name>` for 
 /plugin install antislop@anti-slop
 ```
 
+**Which agents does it work with?**
+
+All of them, but the install path differs by agent:
+
+- **The one-command way and the skills directory** work with Claude Code, Codex, and Antigravity. The picker detects which of those agents exist in your project and installs into their skill folders. This is the recommended path.
+- **The plugin** is Claude Code only.
+- **The manual way** works with any agent that reads plain Markdown, including a plain chat window (ChatGPT, Gemini, and so on).
+
 **The manual way.** Three steps. Use this when you want no packaging at all, or a chat window you cannot run commands in.
 
 **1. Download `antislop.md` once.** Two ways:
@@ -111,6 +119,10 @@ The main file holds everything: the rules and the wizard. Skills are optional de
 ## Where is this going?
 
 The skill plan is complete. antislop v3.0.0 is now packaged: installable as skills, installable as a plugin, and still available as one file. See the roadmap, the page that lists what is coming next, [here](ROADMAP.md).
+
+## Feedback
+
+Found a new AI slop pattern, a rule that missed something, or an install that did not behave? Open an [issue](https://github.com/miqdadbadjuber/anti-slop/issues). It is the fastest way to make antislop sharper.
 
 ## Words used here
 
