@@ -111,6 +111,28 @@ allowed-tools: Read Write Edit Glob Grep
 - **Rule:** R-36. (R-06 covers uppercase labels with wide tracking as a design choice; this pattern is the prose case: caps inside a paragraph doing the emphasis work.)
 - **Not a ban:** a genuine headline, a deliberately shouted line in a voice that shouts, or a single all-caps word used once as an accent can keep its caps. The tell is caps used sentence after sentence to do the emphasis the words should do. Minimize, do not strip every cap.
 
+### Actorless Passive
+
+- **The pattern:** the passive voice with the actor deleted: "the decision was made to sunset the free tier", "the pricing page has been updated", "mistakes were made".
+- **Why it reads as AI:** the model does not know who acted, so it writes around it. The team that shipped the thing does know, and says so. Deleting the actor also quietly removes accountability from the sentence, which is why the shape survives in corporate copy and nowhere else.
+- **Before:**
+  > The pricing page was updated to reflect the new tiers.
+- **After:**
+  > We rewrote the pricing page to show the new tiers.
+- **Rule:** R-02 (text must feel natural and human).
+- **Not a ban:** passive is the right choice when the actor is unknown, irrelevant, or deliberately withheld ("the server was restarted at 03:00"), and when the object is the real subject of the paragraph. The tell is passive chosen by default, page after page, with an actor that was available the whole time.
+
+### Inanimate Subject, Human Verb
+
+- **The pattern:** an abstraction given agency: "the data tells us", "the design decides", "the complaint becomes a fix", "the roadmap wants to focus on retention".
+- **Why it reads as AI:** it sounds active while naming nobody, so it passes a passive-voice check and still hides the actor. It also flatters the product, since a dashboard that "understands" is doing something no dashboard does.
+- **Before:**
+  > The dashboard understands what your team needs and surfaces the right numbers.
+- **After:**
+  > The dashboard opens on the three metrics your team checks every morning.
+- **Rule:** R-02, R-16 (specific language over claims).
+- **Not a ban:** ordinary product verbs are fine, and so are established idioms. "The report shows", "the form submits", "the filter narrows the list" describe what the thing does. The tell is a verb that needs a mind behind it: understands, knows, decides, wants, believes, cares.
+
 ## Rhythm & Structure
 
 ### Rule of Three Overuse
@@ -343,6 +365,7 @@ Run these alongside the core Delivery Gate when the task is copy work. Every lin
 - [ ] No em dashes in the output (R-02), unless the user's own sample voice uses them
 - [ ] No excessive quotation marks: quotes only where they carry meaning (dialogue, real citations, titles), not as default emphasis (R-36)
 - [ ] No all-caps emphasis clauses: emphasis written into the sentence, not shouted with caps (R-36)
+- [ ] Every sentence names its actor: no actorless passive, no abstraction given a human verb, where a real subject was available (R-02, R-16)
 - [ ] CTAs specific to the action, not generic templates (R-15)
 - [ ] No AI-rhythm tells: no forced rule of three, no negative parallelism, no staccato drama, no aphorism formulas, no false ranges (R-36)
 - [ ] Voice present: the copy has a real voice (the user's sample or a clearly chosen tone), not a sterile default (R-37)
