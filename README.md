@@ -77,7 +77,7 @@ You can optionally put a dial line in `DESIGN.md` (`Dial: ENERGY 2 / RHYTHM 3 / 
 | `antislop-ui` | UI / visual: layout, color, components, decoration, motion, structure | v2.2.0 |
 | `antislop-copywriting` | Copy & text: headlines, CTAs, tone, fake stats, anti-AI-writing patterns, markdown hygiene | v2.3.0 |
 | `antislop-human` | Human: contrast, keyboard, focus, states | v2.4.0 |
-| `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets | v2.5.0 |
+| `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets, navigation | v2.5.0 |
 | `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials | v2.6.0 (planned) |
 | `antislop-identity` | Identity & naming: product names, taglines, brand voice | v2.7.0 (planned) |
 

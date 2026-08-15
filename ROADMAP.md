@@ -4,7 +4,7 @@
 
 ## Where we are
 
-The latest release is **v2.5.0**. antislop is now a **system**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus four **skills**: `antislop-ui` (UI / visual), `antislop-copywriting` (copy & text), `antislop-human` (human / accessibility), and `antislop-layoutmobile` (mobile / responsive). v2.5.0 adds `antislop-layoutmobile`: a mobile layout must reflow into a distinct state, not stay a squeezed desktop. It covers breakpoints, scale, grids, overflow, and tap targets.
+The latest release is **v2.5.0**. antislop is now a **system**: a lean, always-loaded **core** (`antislop.md`, the complete rules filter, unchanged and backward compatible) plus four **skills**: `antislop-ui` (UI / visual), `antislop-copywriting` (copy & text), `antislop-human` (human / accessibility), and `antislop-layoutmobile` (mobile / responsive). v2.5.0 adds `antislop-layoutmobile`: a mobile layout must reflow into a distinct state, not stay a squeezed desktop. It covers breakpoints, scale, grids, overflow, tap targets, and navigation (bottom nav, hamburger menus, and fixed nav bars that must not cover content).
 
 The **First-Run Install Wizard** is still the install path: download `antislop.md` once, tell your agent to read it, and the agent walks you through choosing skills, downloads them into the same folder, and sets up the pointer for you. It is an offer, not a requirement: `antislop.md` alone remains a complete filter.
 
@@ -25,7 +25,7 @@ This keeps the filter pull-only-what-you-need, and it makes the v3 packaging mec
 | v2.2.0 | `antislop-ui` | UI / visual: layout, color, components, decoration, motion, structure |
 | v2.3.0 | `antislop-copywriting` | Copy and text: headlines, CTAs, tone, fake stats, markdown hygiene |
 | v2.4.0 | `antislop-human` | Human: contrast, keyboard, focus, states (home of the contrast checker) |
-| v2.5.0 | `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets |
+| v2.5.0 | `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets, navigation |
 | v2.6.0 | `antislop-docs` | Documentation: READMEs, API references, changelogs, tutorials |
 | v2.7.0 | `antislop-identity` | Identity and naming: product names, taglines, brand voice |
 
@@ -47,7 +47,7 @@ Target release: end of Q3 2026.
 - [x] v2.4.0 - `antislop-human`
 - [x] v2.4.1 - `guide.md`: plain-English guide for people new to antislop (not a skill); fixes for issues #1, #2, #3, #6, #7
 - [x] v2.4.2 - skill checklist polarity fix (#9) and docs cleanup, merged from PRs #8 and #10
-- [x] v2.5.0 - `antislop-layoutmobile`
+- [x] v2.5.0 - `antislop-layoutmobile` (breakpoints, scale, grids, overflow, tap targets, navigation)
 - [ ] v2.6.0 - `antislop-docs`
 - [ ] v2.7.0 - `antislop-identity`
 - [ ] v3.0.0 - skill/plugin packaging

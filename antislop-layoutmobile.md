@@ -2,7 +2,7 @@
 
 > Anti AI Slop: Design & Copy Rules. Mobile Layout skill
 
-> Part of the antislop system. Read together with `antislop.md` (the core). This skill deep-dives the mobile layout concern: how a layout must reflow on small screens. Breakpoints, scale, grids, overflow, and tap targets. It references core rules by number and never duplicates or renumbers them. Load it when the task builds or edits a layout that has to hold up on a phone.
+> Part of the antislop system. Read together with `antislop.md` (the core). This skill deep-dives the mobile layout concern: how a layout must reflow on small screens. Breakpoints, scale, grids, overflow, tap targets, and navigation. It references core rules by number and never duplicates or renumbers them. Load it when the task builds or edits a layout that has to hold up on a phone.
 
 ## How to use this skill
 
@@ -117,6 +117,32 @@
 - **Why:** there is no hover on a touchscreen. An interaction that only responds to hover simply does not exist for mobile users, and any control that relies on it is a dead end (R-03).
 - **Fix:** give every hover-only interaction a tap equivalent: a menu that opens on hover also opens on tap, a reveal also shows on click, and interactive elements show visible `:active` feedback so a tap registers. Test by using the UI with touch alone (R-35).
 
+## Mobile Navigation
+
+### Nav That Stays Desktop
+
+- **Tell:** the desktop top bar with its row of links kept side by side on mobile, so the links crowd, wrap into two rows, or spill past the viewport.
+- **Why:** a desktop nav is sized for a wide canvas. Kept as a row on a phone it becomes a mess of cramped links, and it is the first thing a mobile user meets (R-03). Navigation is where reflow matters most: the user has to find where to go before they can go anywhere.
+- **Fix:** collapse the nav into a mobile pattern at the breakpoint: a bottom nav for the handful of primary destinations, or a menu for the rest. The links reflow out of the row, and the primary destinations stay one thumb tap away. Verify it holds at a narrow width (R-35).
+
+### The Bare Hamburger
+
+- **Tell:** everything hidden behind a hamburger icon with no label and no hint, so a user never realizes the menu exists or cannot tell what it opens.
+- **Why:** a bare hamburger assumes the user already knows what the icon means and that a menu hides behind it. That is knowledge the mobile user may not have, and on mobile the hidden menu can hold the only way around the app (R-03).
+- **Fix:** keep the menu discoverable: label the hamburger ("Menu"), or keep the primary destinations visible and hide only the secondary ones. If a menu is the only way to reach something important, that reachability has to be obvious.
+
+### Bottom Nav That Eats Content
+
+- **Tell:** a fixed bottom nav bar that sits over the content, covering the last list items, the final button, or the form the user was trying to finish.
+- **Why:** a fixed bar takes real space on a small screen. If nothing reserves that space, the content scrolls under it and the user cannot reach what is hidden, especially at the very bottom of the page (R-03).
+- **Fix:** reserve the bar's height for the content: scroll padding on the page and safe-area insets where the device needs them, so nothing important is ever hidden behind it. Verify at a narrow width that the last item is reachable (R-35).
+
+### Sticky Nav Steals the Screen
+
+- **Tell:** a sticky header or tall bottom bar that holds a large fixed height, so a big slice of the phone screen is always taken by navigation.
+- **Why:** on a small viewport every fixed pixel of chrome is a pixel of content lost. A tall sticky header turns the visible area into a letterbox and the content into a sliver (R-03).
+- **Fix:** keep fixed nav compact: small enough that the content stays dominant, and collapse or shrink it on scroll where appropriate. Navigation should be present, not the main occupant of the screen.
+
 ## Layoutmobile Skill Checklist
 
 Run these alongside the core Delivery Gate when the task is mobile or responsive layout work. All answers must be **yes**:
@@ -127,4 +153,6 @@ Run these alongside the core Delivery Gate when the task is mobile or responsive
 - [ ] Is there no horizontal overflow and nothing clipped? (R-03)
 - [ ] Are interactive targets at least 44 x 44 px with spacing between them? (R-03)
 - [ ] Do hover-only interactions have a tap equivalent with visible feedback? (R-03)
+- [ ] Does the navigation reflow into a mobile pattern (bottom nav or menu) instead of a squeezed desktop row? (R-03)
+- [ ] Do fixed nav bars (bottom nav, sticky headers) never cover content and respect safe areas? (R-03)
 - [ ] Is the layout verified at mobile breakpoints? (R-35)
