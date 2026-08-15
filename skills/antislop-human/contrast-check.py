@@ -2,9 +2,9 @@
 """WCAG 2.x contrast checker, home of the antislop-human contrast checker.
 
 Usage:
-    python contrast-check.py "#FFFFFF" "#777777"
-    python contrast-check.py FFFFFF 777777
-    python contrast-check.py --selftest
+    python3 contrast-check.py "#FFFFFF" "#777777"
+    python3 contrast-check.py FFFFFF 777777
+    python3 contrast-check.py --selftest
 
 Prints the contrast ratio and a PASS/FAIL verdict for normal text (4.5:1)
 and large text (3:1, 18px+ per antislop R-25). Exit code 0 only when both
@@ -142,7 +142,7 @@ def main(argv):
     if len(argv) == 1 and argv[0] == "--selftest":
         return selftest()
     if len(argv) != 2:
-        print("usage: python contrast-check.py <hex1> <hex2> | --selftest")
+        print("usage: python3 contrast-check.py <hex1> <hex2> | --selftest")
         return 2
     try:
         ratio = contrast_ratio(parse_hex(argv[0]), parse_hex(argv[1]))
