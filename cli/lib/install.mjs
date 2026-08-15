@@ -29,7 +29,6 @@ export function resolveTargets(location) {
   const base = resolveBase(location)
   return AGENTS.map((agent) => ({ agent, path: path.join(base, agent.dir) }))
     .filter((t) => {
-      if (location === 'global') return true
       if (t.agent.id === 'claude') return true
       const parent = path.join(base, t.agent.dir.split('/')[0])
       return fs.existsSync(parent)
@@ -79,34 +78,61 @@ export function installSkills({ skills, targets, overwrite = false }) {
 const POINTER_START = '<!-- antislop:start -->'
 const POINTER_END = '<!-- antislop:end -->'
 
-export function updatePointers({ targets }) {
-  const projectRoot = process.cwd()
-  const entry = path.join(projectRoot, 'AGENTS.md')
+// The entry file each agent reads at session start.
+const ENTRY_FILE = { claude: 'CLAUDE.md', codex: 'AGENTS.md', antigravity: 'AGENTS.md' }
 
-  const coreTarget = targets.find((t) => fs.existsSync(path.join(t.path, CORE)))
-  if (!coreTarget) return
+const SKILL_LINES = {
+  [CORE]: 'Core filter, always on: `antislop`',
+  'antislop-ui': 'UI / visual: `antislop-ui`',
+  'antislop-copywriting': 'Copy & text: `antislop-copywriting`',
+  'antislop-human': 'People: `antislop-human`',
+  'antislop-layoutmobile': 'Mobile / responsive: `antislop-layoutmobile`',
+}
 
-  const rel = path
-    .relative(projectRoot, path.join(coreTarget.path, CORE, 'SKILL.md'))
-    .split(path.sep)
-    .join('/')
+// Names the skills instead of importing the core. The skills sit in the agent's
+// own folder, so the agent already finds them; an `@` import would also pull all
+// 46 KB of the core into every session, including sessions that touch no UI.
+function pointerBlock(skills) {
+  return [
+    POINTER_START,
+    '## antislop',
+    'For UI, copy, people, or mobile layout work, load the antislop skill for the task:',
+    ...skills.filter((s) => SKILL_LINES[s]).map((s) => `- ${SKILL_LINES[s]}`),
+    'Before starting, ask the user when antislop applies: during the work, or after it is done.',
+    POINTER_END,
+  ]
+}
 
+function writeBlock(entry, block) {
   const existing = fs.existsSync(entry) ? fs.readFileSync(entry, 'utf8') : ''
   const lines = existing.split(/\r?\n/)
-  const startIdx = lines.findIndex((l) => l.trim() === POINTER_START)
-  const endIdx = lines.findIndex((l) => l.trim() === POINTER_END)
-  const head = startIdx !== -1 && endIdx !== -1 && startIdx < endIdx ? lines.slice(0, startIdx) : lines
-  const tail = startIdx !== -1 && endIdx !== -1 && startIdx < endIdx ? lines.slice(endIdx + 1) : []
+  const start = lines.findIndex((l) => l.trim() === POINTER_START)
+  const end = lines.findIndex((l) => l.trim() === POINTER_END)
+  const replacing = start !== -1 && end !== -1 && start < end
+  const head = replacing ? lines.slice(0, start) : lines
+  const tail = replacing ? lines.slice(end + 1) : []
 
-  const block = [POINTER_START, `@${rel}`, POINTER_END]
-  const body = [...head, ...block, ...tail]
-    .filter((l, i, arr) => {
-      if (l.trim() !== '') return true
-      const prev = arr[i - 1]
-      return !(prev === undefined || prev.trim() === '')
-    })
+  const body = [...head, '', ...block, '', ...tail]
     .join('\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .replace(/^\n+/, '')
     .trimEnd()
 
   fs.writeFileSync(entry, body + '\n')
+}
+
+export function updatePointers({ targets, skills }) {
+  const entries = new Set()
+  for (const t of targets) {
+    if (fs.existsSync(path.join(t.path, CORE))) entries.add(ENTRY_FILE[t.agent.id])
+  }
+
+  const block = pointerBlock(skills)
+  const written = []
+  for (const name of entries) {
+    const entry = path.join(process.cwd(), name)
+    writeBlock(entry, block)
+    written.push(entry)
+  }
+  return written
 }

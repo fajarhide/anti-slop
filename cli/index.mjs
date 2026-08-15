@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import path from 'node:path'
 import pc from 'picocolors'
 import { intro, outro, select, multiselect, confirm, isCancel, cancel, log, spinner } from '@clack/prompts'
 import { banner } from './lib/banner.mjs'
@@ -86,10 +87,12 @@ async function main() {
   const spin = spinner()
   spin.start('Installing skills...')
   const written = installSkills({ skills, targets, overwrite })
-  if (location === 'project') {
-    updatePointers({ targets })
-  }
+  const pointers = location === 'project' ? updatePointers({ targets, skills }) : []
   spin.stop('Done.')
+
+  if (pointers.length > 0) {
+    log.step('Pointer written to ' + pointers.map((p) => path.basename(p)).join(', '))
+  }
 
   const agentCount = new Set(written.map((w) => w.agent.id)).size
   if (written.length > 0) {
