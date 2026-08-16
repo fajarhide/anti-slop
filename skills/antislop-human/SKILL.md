@@ -1,7 +1,7 @@
 ---
 name: antislop-human
 description: "Human and accessibility skill for antislop. Contrast, keyboard, focus, and states for real people. Includes the contrast checker."
-allowed-tools: Bash(python *) Read Write Edit Glob Grep
+allowed-tools: Bash(python3 *) Read Write Edit Glob Grep
 ---
 # antislop-human
 
@@ -50,7 +50,7 @@ The home of the contrast checker. Three layers, from most to least convenient:
 **The script.** When a script runtime is available and the file is present, run it instead of computing by hand. The script ships in this skill's folder (`contrast-check.py`, next to this `SKILL.md`):
 
 ```bash
-python "${CLAUDE_SKILL_DIR}/contrast-check.py" "#FFFFFF" "#777777"
+python3 "${CLAUDE_SKILL_DIR}/contrast-check.py" "#FFFFFF" "#777777"
 # normal text: FAIL (4.48 < 4.5)
 # large text:  PASS (4.48 >= 3.0)
 ```
