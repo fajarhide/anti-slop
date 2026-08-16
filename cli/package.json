@@ -1,6 +1,6 @@
 {
   "name": "antislop-ai",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Interactive installer for the antislop skills. Anti AI Slop: Design & Copy Rules.",
   "type": "module",
   "bin": {
