@@ -179,6 +179,46 @@ allowed-tools: Read Write Edit Glob Grep
 - **Why:** template sections are content without purpose. They add length and remove focus.
 - **Fix:** every section earns its place from the product's content (C-3). Remove sections that only fill a template. A page with fewer, purposeful sections is stronger than a page with all the defaults.
 
+## App & Dashboard
+
+The patterns above are landing-page shapes. These are the app-side equivalents: the defaults an agent reaches for when the screen is a dashboard, an admin panel, or any signed-in view. The rules they break are the same ones; only the shape is new.
+
+### Default Dashboard Shell
+
+- **Tell:** left sidebar, top bar, four stat cards, a chart, a table. Chosen before anyone asked what the screen is for, and identical whether it manages invoices, patients, or servers.
+- **Why:** it is the landing-page template problem in an app: a layout picked from memory instead of from the work the screen supports. Swap the labels and it belongs to any product.
+- **Fix:** name the screen's job and the one decision the user makes on it, then build the hierarchy around that (C-3, R-20). If the job is "spot the failing job and retry it", the failing jobs are the page and the stat row is a footnote. Sections that survive only because dashboards usually have them get cut (C-3).
+
+### Stat Cards With Invented Numbers
+
+- **Tell:** a row of four cards reading 12,483 / 94.2% / $48.2K / 1,204, each with a green "+12% this week" delta.
+- **Why:** the numbers are decoration, and the deltas are worse: a trend claim with no series behind it. Real dashboards have metrics that matter and metrics that do not, so four equal cards is already a hierarchy failure.
+- **Fix:** show real numbers or none (R-17, R-38). Wire the cards to real data, or ship the one metric that is real. A delta appears only when the comparison period is real and named. If the screen is a prototype, label the values as placeholder where the user can see it (R-38).
+
+### Filler Activity Feed
+
+- **Tell:** "Sarah Chen updated a document, 2 hours ago", repeated with rotating names and avatars.
+- **Why:** invented people, invented events. It is the testimonial section wearing a different layout, and it makes an empty product look busy.
+- **Fix:** the feed shows real events or does not ship (R-18, R-38). An honest empty state beats a fabricated feed, and it tells the user what to do first (R-27).
+
+### Charts Without a Question
+
+- **Tell:** a line or donut chart placed because the space looked bare, with a generic title ("Overview", "Performance") and no axis the reader can act on.
+- **Why:** a chart is an answer. Without the question, it is texture, and it costs more attention than a sentence would.
+- **Fix:** write the question the chart answers before drawing it, and put that question in the title ("Failed jobs per hour, last 24h"). If a sentence answers it better, write the sentence (C-3). Chart segments still need 3:1 contrast against their neighbours (R-25).
+
+### Generic Table Columns
+
+- **Tell:** Name, Status, Date, Actions, whatever the rows actually are, with a three-dot menu on every row.
+- **Why:** the columns come from the table component, not from the data. The user scans for the field that decides their next move and it is not there.
+- **Fix:** pick columns from the decision the user makes in this table, and put the deciding field early. The row menu holds actions that exist; anything that does nothing comes out (R-26).
+
+### Placeholder Empty and Loading States
+
+- **Tell:** "No data available" with an illustration, a bare spinner, or a full-page skeleton that mimics a layout the real data never fills.
+- **Why:** R-27 requires the states, and these technically have them. They still tell the user nothing: no cause, no next action, no idea whether this is normal.
+- **Fix:** an empty state says why it is empty and gives the one action that fills it ("No jobs yet. Run a sync to see results here"). A loading state says what it is loading. An error state says what failed and what to do next (R-27). First run, filtered to nothing, and permission denied are different screens and read differently.
+
 ## Motion
 
 ### Endless Pulses and Loops
@@ -203,4 +243,7 @@ Run these alongside the core Delivery Gate when the task is UI work. All answers
 - [ ] Does every navigation item and interactive element have a real destination or behavior, or a visible "Coming soon" label? (R-24, R-26)
 - [ ] Does motion follow the declared MOTION dial and serve a written purpose, with no endless loops? (R-19)
 - [ ] Is glass, glow, shadow, and radius used at their dose caps, not as a page-wide default? (R-10, R-11, R-12, R-13)
+- [ ] On an app screen, is the layout built around the decision the user makes there, rather than the sidebar plus stat row plus chart plus table default? (C-3, R-20)
+- [ ] Is every number, delta, feed entry, and table row real or a labelled placeholder, with no invented metrics? (R-17, R-18, R-38)
+- [ ] Do the empty, loading, and error states name the cause and the next action instead of saying "No data"? (R-27)
 - [ ] Does the page hold up at every breakpoint, theme, and state, and pass keyboard-only use? (R-03, R-34, C-4)
