@@ -31,12 +31,11 @@ if (result.status !== 0) console.log('worker stderr:', result.stderr)
 console.log('\n--- files written to temp project ---')
 console.log(tree(tmp).join('\n'))
 
-const agentsPath = path.join(tmp, 'AGENTS.md')
-if (fs.existsSync(agentsPath)) {
-  console.log('\n--- AGENTS.md ---')
-  console.log(fs.readFileSync(agentsPath, 'utf8'))
-} else {
-  console.log('\nAGENTS.md was not created (pointer step skipped).')
+for (const name of ['CLAUDE.md', 'AGENTS.md']) {
+  const entry = path.join(tmp, name)
+  if (!fs.existsSync(entry)) continue
+  console.log(`\n--- ${name} ---`)
+  console.log(fs.readFileSync(entry, 'utf8'))
 }
 
 const coreSkill = path.join(tmp, '.claude', 'skills', 'antislop', 'SKILL.md')

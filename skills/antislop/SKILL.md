@@ -41,7 +41,7 @@ If no antislop pointer exists and this file is being read for the first time, ru
 
 5. **Append the pointer block at the END of the project's entry file** (the file the running tool reads at session start: `CLAUDE.md` for Claude Code, `AGENTS.md` for Codex, `GEMINI.md` for Gemini CLI, and so on). If that file does not exist, create it. Never modify existing content:
    ```md
-   <!-- antislop: auto-managed block, do not edit -->
+   <!-- antislop:start -->
    ## antislop
    For UI, copy, people, or mobile layout work, read `antislop.md` (core) and then the skill for the task:
    - UI / visual: `skills/antislop-ui/SKILL.md`
@@ -49,8 +49,9 @@ If no antislop pointer exists and this file is being read for the first time, ru
    - People: `skills/antislop-human/SKILL.md`
    - Mobile / responsive: `skills/antislop-layoutmobile/SKILL.md`
    Before starting, ask the user when antislop applies: during the work, or after it is done.
+   <!-- antislop:end -->
    ```
-   If an older antislop block exists (even without the marker), replace just that block instead of appending a duplicate.
+   The packaged installers write the same two markers, so whichever install path runs last replaces the block instead of adding a second one. If an older antislop block exists (even without the markers), replace just that block instead of appending a duplicate.
 6. **Ask the usage-mode question** (see "Two Usage Modes"), then proceed with the work.
 
 Notes:
