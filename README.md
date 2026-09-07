@@ -157,10 +157,6 @@ A folder that goes deeper into one concern (UI, copywriting, accessibility, and 
 **What are DURING and AFTER?**
 The two usage modes: DURING applies the rules while building, AFTER audits finished work. You pick one at the start of a session.
 
-## Contributing
-
-Found a new AI slop pattern, a rule that missed something, or a bug in the installer? Open an [issue](https://github.com/miqdadbadjuber/anti-slop/issues). PRs are welcome for new AI slop patterns, clarifications, or checklist items out of sync with their rule.
-
 ## Contributors
 
 Thanks to everyone who helps make antislop better.
@@ -170,6 +166,10 @@ Thanks to everyone who helps make antislop better.
     <img src="https://contrib.rocks/image?repo=miqdadbadjuber/anti-slop" alt="antislop contributors" />
   </a>
 </p>
+
+## Contributing
+
+Found a new AI slop pattern, a rule that missed something, or a bug in the installer? Open an [issue](https://github.com/miqdadbadjuber/anti-slop/issues). PRs are welcome for new AI slop patterns, clarifications, or checklist items out of sync with their rule.
 
 ## License
 
