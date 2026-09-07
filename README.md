@@ -160,6 +160,16 @@ The two usage modes: DURING applies the rules while building, AFTER audits finis
 
 Found a new AI slop pattern, a rule that missed something, or a bug in the installer? Open an [issue](https://github.com/miqdadbadjuber/anti-slop/issues). PRs are welcome for new AI slop patterns, clarifications, or checklist items out of sync with their rule.
 
+## Contributors
+
+Thanks to everyone who helps make antislop better.
+
+<p>
+  <a href="https://github.com/miqdadbadjuber/anti-slop/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=miqdadbadjuber/anti-slop" alt="antislop contributors" />
+  </a>
+</p>
+
 ## License
 
 MIT: [LICENSE](LICENSE)
