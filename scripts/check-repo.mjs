@@ -175,6 +175,106 @@ function registration() {
   return bad
 }
 
+/**
+ * A rule's tier decides which Delivery Gate block it belongs in: Hard Gate to
+ * Block 1, Purpose-Gate to Block 2, Quality Locks to Block 4. A rule cited from
+ * the wrong block is what #7 was, three gate items disagreeing with their rule.
+ */
+function tiers() {
+  const core = read('antislop.md')
+  const part2 = core.split('## Part 2:')[1]?.split('## Part 3:')[0] ?? ''
+
+  const group = {}
+  let current = null
+  for (const line of part2.split('\n')) {
+    const g = line.match(/^### Group \d: ([^(]+)/)
+    if (g) current = g[1].trim()
+    const r = line.match(/^#### (R-\d{2}) —/)
+    if (r && current) group[r[1]] = current
+  }
+
+  const block = {}
+  let currentBlock = null
+  for (const line of (core.split('## Delivery Gate (Mandatory)')[1] ?? '').split('\n')) {
+    const b = line.match(/^### (Block \d):/)
+    if (b) currentBlock = b[1]
+    for (const m of line.matchAll(/\((R-\d{2})\)/g)) {
+      if (!block[m[1]]) block[m[1]] = currentBlock
+    }
+  }
+
+  const wants = { 'Hard Gate': 'Block 1', 'Purpose-Gate': 'Block 2', 'Quality Locks': 'Block 4' }
+  const bad = []
+  for (const [rule, grp] of Object.entries(group).sort()) {
+    const want = wants[grp]
+    const got = block[rule]
+    if (want && got && want !== got) bad.push(`${rule} is a ${grp} rule but the gate cites it from ${got}`)
+  }
+  return bad
+}
+
+/** A manifest that points at a file that is gone breaks its install path quietly. */
+function manifestPaths() {
+  const bad = []
+  for (const file of MANIFESTS) {
+    let text
+    try {
+      text = read(file)
+    } catch {
+      continue
+    }
+    for (const m of text.matchAll(/"(\.\/[^"]+)"/g)) {
+      const target = m[1].replace(/^\.\//, '')
+      if (!existsExactly(target)) bad.push(`${file} points at ${m[1]}, which does not exist`)
+    }
+  }
+  return bad
+}
+
+/**
+ * A rename like guide.md to GUIDE.md in v3.2.4 is exactly when a doc link goes
+ * stale, and existsSync cannot see it: macOS is case-insensitive, so the old
+ * link keeps passing locally and only breaks for readers on github.com. Compare
+ * against the real directory entry instead.
+ */
+const existsExactly = (target) => {
+  const full = path.join(root, target)
+  const dir = path.dirname(full)
+  if (!fs.existsSync(dir)) return false
+  return fs.readdirSync(dir).includes(path.basename(full))
+}
+
+function docLinks() {
+  const bad = []
+  for (const file of ['README.md', 'GUIDE.md', 'ROADMAP.md', 'SECURITY.md']) {
+    for (const m of read(file).matchAll(/\]\(([^)\s]+)\)/g)) {
+      const target = m[1].split('#')[0]
+      if (!target || /^(https?:|mailto:)/.test(target)) continue
+      if (!existsExactly(target)) bad.push(`${file} links to ${target}, which does not exist`)
+    }
+  }
+  return bad
+}
+
+/**
+ * contrast-check.py and contrast-mcp.py each carry their own copy of the WCAG
+ * formula, and only the first has a selftest. The plugin exposes the second, so
+ * a drift between them would ship as a wrong answer with nothing to catch it.
+ */
+function contrastTwins() {
+  const check = read('skills/antislop-human/contrast-check.py')
+  const mcp = read('skills/antislop-human/contrast-mcp.py')
+  const constants = ['0.03928', '12.92', '1.055', '0.2126', '0.7152', '0.0722', '0.05']
+
+  const bad = []
+  for (const c of constants) {
+    if (check.includes(c) !== mcp.includes(c)) {
+      bad.push(`the WCAG constant ${c} appears in only one of contrast-check.py and contrast-mcp.py`)
+    }
+  }
+  return bad
+}
+
 const CHECKS = [
   // Manifests first: the later checks read them as data.
   ['every manifest is valid JSON', manifests],
@@ -184,6 +284,10 @@ const CHECKS = [
   ['the version agrees everywhere', versions],
   ['every skill has usable frontmatter', frontmatter],
   ['every skill is registered everywhere', registration],
+  ['each rule sits in the gate block its tier implies', tiers],
+  ['every manifest path resolves', manifestPaths],
+  ['every doc link resolves', docLinks],
+  ['both contrast implementations use the same formula', contrastTwins],
 ]
 
 let failed = 0
