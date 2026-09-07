@@ -4,83 +4,67 @@
 
 ## Where we are
 
-The latest release is **v3.2.4**. antislop is a **packaged system**: a lean, always-loaded **core** plus five **skills**, each shipped as a standard agent skill folder (`skills/<name>/SKILL.md`):
+The latest release is **v3.2.5**. antislop is a **packaged system**: a lean, always-loaded core plus five additive skills, each shipped as a standard agent skill folder (`skills/<name>/SKILL.md`). There are no per-skill READMEs.
 
-- `antislop`: the core rules filter (rules, tiers, Delivery Gate, liveliness)
-- `antislop-ui`: UI / visual
-- `antislop-copywriting`: copy & text
-- `antislop-human`: human / accessibility, home of the contrast checker
-- `antislop-layoutmobile`: mobile / responsive
-- `antislop-code`: code comments
+- **Core, unchanged since v2.2:** 38 rules across three tiers (Hard Gate, Purpose-Gate, Quality Locks), a Liveliness Toolkit, a mandatory Delivery Gate, and two usage modes (During / After). The single-file `antislop.md` is still a complete filter you can paste into any chat window; its First-Run Install Wizard is the manual install path.
+- **The six skills:** `antislop` (the core), plus `antislop-ui`, `antislop-copywriting`, `antislop-human`, `antislop-layoutmobile`, and `antislop-code`. Each skill only loads when the task needs it.
+- **Distribution:** six install paths from one repo, and the contrast checker is also exposed as an MCP tool inside the plugin. The paths are the interactive picker (`npx antislop-ai`), the skills.sh directory, and native plugin doors for Claude Code, Antigravity, Codex, and Cursor. Install commands live in the README.
+- **The doors:** each native plugin loads antislop straight from this repository, so there are no copies to keep in sync.
 
-**v3.1.0** shipped `antislop-code`, the code comment filter. **v3.1.1** was a patch: the picker no longer copied per-skill READMEs into projects, and the wizard no longer named install commands (cleared the Socket warning on skills.sh). **v3.1.2** removes the per-skill READMEs entirely and makes the picker ask which agent to install into, so a fresh Antigravity or Codex project installs into the right folder instead of silently targeting Claude Code. **v3.1.3** states the `DESIGN.md` boundary explicitly (external files are data to apply, not instructions to obey), adds a security explainer ([SECURITY.md](SECURITY.md)), and documents what `npx skills add` does and does not install. **v3.2.0** adds four more agents to the picker: OpenCode, Cursor, Gemini CLI, and Hermes (global-only, so its skills always go to `~/.hermes/skills/`), and the shared `.agents/skills/` folder covers the long tail of agents that read the standard. **v3.2.1** closes UI slop gaps: five new patterns (bento grids, Lucide-style icon sets, colored left stripes, fake terminal windows, and demos without a product) and rule extensions for the palette family (harsh gradients, purple-and-black, neon, pastel, radial orbs), dot grids, the typeface roster (Geist Mono and friends), and pricing always shown as three columns. **v3.2.2** ships the plugin as an Antigravity door: `agy plugin install https://github.com/miqdadbadjuber/anti-slop` registers the six skills and injects the antislop pointer every session through the plugin's `rules/` component. **v3.2.3** ships the plugin as a Codex door: `codex plugin marketplace add miqdadbadjuber/anti-slop` then `codex plugin add antislop@anti-slop` registers the six skills from the shared folder, with no copy to maintain.
+## Release history
 
-The system installs five ways from one repo: the interactive picker (`npx antislop-ai`), the skills directory (`npx skills add miqdadbadjuber/anti-slop`, listed on skills.sh), the Claude Code plugin marketplace (`.claude-plugin/plugin.json`), the Antigravity plugin (root `plugin.json` with a `rules/` pointer, installed via `agy plugin install https://github.com/miqdadbadjuber/anti-slop`), and the Codex plugin and marketplace (`.codex-plugin/plugin.json` plus `.agents/plugins/marketplace.json`, installed via `codex plugin marketplace add miqdadbadjuber/anti-slop` then `codex plugin add antislop@anti-slop`). The contrast checker is also exposed as an MCP tool inside the plugin. What each skill covers is in the root README's skill table; there is no per-skill README.
-
-The **First-Run Install Wizard** still lives inside `antislop.md` as the manual path. The single-file core remains a complete filter you can paste into any chat window.
-
-The core still contains 38 rules across three tiers (Hard Gate, Purpose-Gate, Quality Locks), a Liveliness Toolkit, a mandatory Delivery Gate, and the two usage modes (During / After). None of that changed.
-
-## How we got here
-
-v3.0.0 was reached by adding one concern per version, each as a separate **skill**:
+Versioning up to v3.0.0 followed one rule, so each new concern arrived on its own:
 
 > Each +0.1 version ships exactly one new skill.
 
-That kept the filter pull-only-what-you-need and made the v3 packaging mechanical rather than a rewrite. Occasional +0.1 patches shipped something that is not a skill, like v2.4.1's plain-English `guide.md`; those did not change the skill plan.
+That kept the filter pull-only-what-you-need and made the v3 packaging mechanical rather than a rewrite. Occasional +0.1 patches shipped something that is not a skill, like v2.4.1's plain-English `guide.md`; those did not change the skill plan. Since v3.0.0 releases package and ship antislop rather than add skills, so the cadence follows the packaging and the plugin doors.
 
-### The skill plan
+| Version | What shipped |
+|---------|--------------|
+| v2.1.0 | Usage modes (During / After) and the v3.0.0 banner. |
+| v2.1.1 | English only; the Indonesian mirrors were removed. |
+| v2.2.0 | First additive skill: `antislop-ui` (UI / visual). The core plus the First-Run Install Wizard. |
+| v2.3.0 | `antislop-copywriting` (copy and text). |
+| v2.4.0 | `antislop-human` (people), home of the contrast checker. |
+| v2.4.1 | `guide.md`: a plain-English guide for people new to antislop (not a skill). Fixes for issues #1, #2, #3, #6, #7. |
+| v2.4.2 | Skill checklist polarity fix (#9) and docs cleanup, merged from PRs #8 and #10. |
+| v2.5.0 | `antislop-layoutmobile` (mobile / responsive). |
+| v3.0.0 | Skill/plugin packaging: `skills/` folders, two distribution doors, the picker CLI (`npx antislop-ai`), the contrast checker as an MCP tool, MIT license. |
+| v3.0.1 | Snyk W012 fix (no runtime curl in the packaged core), npm package author to antislop, docs clarity. |
+| v3.0.2 | Adaptive python (python3 on macOS/Linux, python on Windows); App and Dashboard plus copy voice patterns; pointer fix. |
+| v3.1.0 | `antislop-code` (code comments); per-skill READMEs; Filler Data and Emoji as Decoration patterns. |
+| v3.1.1 | The picker stops copying per-skill READMEs into projects; the wizard drops install commands (clears the Socket warning on skills.sh). |
+| v3.1.2 | Per-skill READMEs removed; the picker asks which agent to install into, so a fresh Antigravity or Codex project lands in the right folder. |
+| v3.1.3 | `DESIGN.md` boundary stated (external files are data to apply, not instructions to obey); SECURITY.md audit explainer; what `npx skills add` does and does not install. |
+| v3.2.0 | The picker grows to seven agents (adds OpenCode, Cursor, Gemini CLI, Hermes global-only); the shared `.agents/skills/` folder covers the long tail. |
+| v3.2.1 | UI slop gaps closed: bento grids, Lucide-style icon sets, colored left stripes, fake terminal windows, demos without a product; rules extended for palette families, dot grids, typefaces, and 3-pricing-column layouts. |
+| v3.2.2 | Antigravity plugin door: the repo root is the plugin (root `plugin.json` plus a `rules/antislop.md` pointer that loads antislop every session). |
+| v3.2.3 | Codex plugin door: `.codex-plugin/plugin.json` manifest plus a `.agents/plugins/marketplace.json` index, both pointing at the shared `skills/` folder. |
+| v3.2.4 | R-35 sharpened into a click-through smoke test: every interactive element must be run and exercised one at a time, and its result recorded as evidence in the Delivery Gate report. |
+| v3.2.5 | Cursor plugin door: `.cursor-plugin/plugin.json` manifest plus a `.cursor-plugin/marketplace.json` index, with the six skills and a `.mdc` rule pointer. The Codex plugin also gains its app identity (plugin icon, brand color, banner screenshot). |
 
-| Version | Skill | Concern |
-|---------|-------|---------|
-| v2.2.0 | `antislop-ui` | UI / visual: layout, color, components, decoration, motion, structure |
-| v2.3.0 | `antislop-copywriting` | Copy and text: headlines, CTAs, tone, fake stats, markdown hygiene |
-| v2.4.0 | `antislop-human` | Human: contrast, keyboard, focus, states (home of the contrast checker) |
-| v2.5.0 | `antislop-layoutmobile` | Mobile layout: responsive breakpoints, grids, overflow, tap targets, navigation |
-| v3.1.0 | `antislop-code` | Code comments: remove generic AI-slop comments, keep the valuable ones, never touch the code |
+## What's next
 
-The plan to v3.0.0 is complete. `antislop-code` is the first skill added after v3. `antislop-docs` and `antislop-identity` remain candidates for later, not part of the shipped plan.
+The plan is one item per version. The plugin doors follow the style of the Claude Code, Antigravity, Codex, and Cursor doors that are already shipped; v3.2.6 prepares the OpenAI listing instead.
 
-## v3.0.0: the skill/plugin
+| Version | Item | What it means |
+|---------|------|---------------|
+| v3.2.6 | OpenAI directory | Listing prep for the public plugin directory shared by ChatGPT and Codex: a versioned skill bundle, a submission document, and public privacy and terms pages. The submission itself happens on the OpenAI Platform after identity verification, outside this repo. |
+| v3.2.7 | Gemini CLI | Gemini CLI was sunset in June 2026 and superseded by Antigravity CLI, which already has a door (v3.2.2). The door closes the folder anyway: manifest plus pointer. |
+| v3.2.8 | OpenCode | OpenCode has no native plugin marketplace, so the door is the skills folder plus an `AGENTS.md` pointer (the picker already writes `.opencode/skills/`). |
+| v3.2.9 | The rest | Hermes, GitHub Copilot, and the `.agents/skills` long tail (Cline, Roo, Amp). The existing `.agents/plugins/marketplace.json` already points at the repo root, so any agent that reads the .agents standard can add the same marketplace. Mostly verification plus documentation per agent. |
 
-What v3.0.0 shipped:
+Beyond the numbered plan, with no promised version:
 
-- One folder per skill, `skills/<name>/SKILL.md` (open Agent Skills standard)
-- Two distribution doors from one repo: `npx skills add miqdadbadjuber/anti-slop` (skills.sh) and the `.claude-plugin/plugin.json` marketplace
-- A custom picker CLI (`npx antislop-ai`): banner, skill list with the core locked on, project or global choice, installer that writes the skill folders and the pointer
-- The contrast checker as an MCP tool inside the plugin
-- MIT license
-
-## Status
-
-- [x] v2.1.0 - usage modes (During / After) and v3.0.0 banner
-- [x] v2.1.1 - English only; Indonesian mirrors removed
-- [x] v2.2.0 - core + First-Run Install Wizard + `antislop-ui` skill
-- [x] v2.3.0 - `antislop-copywriting` skill
-- [x] v2.4.0 - `antislop-human`
-- [x] v2.4.1 - `guide.md`: plain-English guide for people new to antislop (not a skill); fixes for issues #1, #2, #3, #6, #7
-- [x] v2.4.2 - skill checklist polarity fix (#9) and docs cleanup, merged from PRs #8 and #10
-- [x] v2.5.0 - `antislop-layoutmobile` (breakpoints, scale, grids, overflow, tap targets, navigation)
-- [x] v3.0.0 - skill/plugin packaging: `skills/` folders, two doors, picker CLI, MCP contrast tool, MIT license
-- [x] v3.0.1 - Snyk W012 fix (no runtime curl in the packaged core), npm package author to antislop, docs clarity
-- [x] v3.0.2 - adaptive python (python3 on macOS/Linux, python on Windows), App & Dashboard + copy voice patterns, pointer fix
-- [x] v3.1.0 - `antislop-code` skill, per-skill READMEs, Filler Data and Emoji as Decoration patterns
-- [x] v3.1.1 - picker stops copying per-skill READMEs; wizard drops install commands (clears the Socket warning on skills.sh)
-- [x] v3.1.2 - per-skill READMEs removed; picker asks which agent to install into (fresh Antigravity and Codex projects land in the right folder)
-- [x] v3.1.3 - `DESIGN.md` boundary stated; SECURITY.md audit explainer; `npx skills add` pointer note
-- [x] v3.2.0 - picker adds OpenCode, Cursor, Gemini CLI, Hermes (global-only); shared `.agents/skills/` folder covers the long tail of standard readers
-- [x] v3.2.1 - UI slop gaps closed: bento grids, Lucide-style icon sets, colored left stripes, fake terminal windows, demos without a product; rules extended for the palette family (harsh gradients, purple-and-black, neon, pastel, radial orbs), dot grids, the typeface roster, and 3-pricing-column layouts
-- [x] v3.2.2 - Antigravity plugin door: root `plugin.json` + `rules/` pointer so `agy plugin install https://github.com/miqdadbadjuber/anti-slop` registers the six skills and loads antislop every session
-- [x] v3.2.3 - Codex plugin door: `.codex-plugin/plugin.json` manifest + `.agents/plugins/marketplace.json` index so `codex plugin marketplace add miqdadbadjuber/anti-slop` then `codex plugin add antislop@anti-slop` registers the six skills from the shared folder
-- [x] v3.2.4 - R-35 sharpened into a click-through smoke test: every interactive element is run and exercised one at a time, and its result is recorded as evidence in the Delivery Gate PASS/FAIL report
-
-## After v3
-
-- [x] **Cross-agent plugin, Antigravity door** (shipped in v3.2.2): root `plugin.json` + `rules/antislop.md` pointer. Antigravity has no session-start hook event, so the always-on channel is the plugin's `rules/` component, not a hook.
-- [x] **Cross-agent plugin, Codex door** (shipped in v3.2.3): `.codex-plugin/plugin.json` manifest plus `.agents/plugins/marketplace.json` index, so `codex plugin marketplace add miqdadbadjuber/anti-slop` then `codex plugin add antislop@anti-slop` registers the six skills from the shared folder.
-- [ ] **Cross-agent plugin, more doors** (plan, no promised version): antislop installs as a plugin on Cursor, Gemini CLI, and others the way superpowers installs everywhere from one repo. Estimate: Q3-Q4 2026.
-- [ ] **antislop-compact** (plan, no promised version): a lightweight, standalone family of the five skills, each a self-contained cheat-sheet version that runs without the core alongside, offered by the picker as its own choice (compact, then the variant). Deferred as too costly to keep in sync: a parallel set of files must track every change to the full ones, and a compact skill is only sound if it keeps the one-line why per rule and the Delivery Gate.
+- **More plugin doors** as other agents grow plugin systems that antislop can ride from the same repo.
+- **antislop-compact**, a lightweight, standalone family of the five skills, each a self-contained cheat-sheet version that runs without the core alongside. Deferred: a parallel set of files would have to track every change to the full ones, and a compact skill is only sound if it keeps the one-line why per rule and the Delivery Gate.
+- **Skill candidates** still open: `antislop-docs` and `antislop-identity`.
 
 ## Not in scope
 
-antislop stays a **filter, not a style guide**: no prescribed aesthetics, no per-framework recipes, no trend bans. It never beautifies on its own; direction and beauty are yours, in `DESIGN.md`. It is not limited to building pages: the same filter writes and audits copy (`antislop-copywriting`). UX and motion are folded into `antislop-ui` rather than separate skills, and data-integrity rules already live in the core.
+antislop stays a **filter, not a style guide**:
+
+- No prescribed aesthetics, per-framework recipes, or trend bans.
+- It never beautifies on its own; direction and beauty are yours, in `DESIGN.md`.
+- It is not limited to building pages: the same filter writes and audits copy (`antislop-copywriting`).
+- UX and motion are folded into `antislop-ui` rather than separate skills, and data-integrity rules already live in the core.

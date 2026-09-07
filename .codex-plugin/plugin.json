@@ -1,6 +1,6 @@
 {
   "name": "antislop",
-  "version": "3.2.4",
+  "version": "3.2.5",
   "description": "Anti Slop: Rules for AI Coding Agents. Stops generic AI slop in generated UI, copy, and code. Loads as six skills.",
   "author": {
     "name": "miqdadbadjuber"
@@ -15,6 +15,10 @@
     "shortDescription": "Anti Slop: Rules for AI Coding Agents.",
     "longDescription": "Stops generic AI slop in generated UI, copy, and code. The core filter is always available; the UI, copywriting, human, mobile layout, and code comment skills load for the task at hand. A filter, not a style guide.",
     "developerName": "miqdadbadjuber",
-    "category": "Productivity"
+    "category": "Productivity",
+    "brandColor": "#000000",
+    "composerIcon": "./assets/profile.png",
+    "logo": "./assets/profile.png",
+    "screenshots": ["./assets/antislop-banner.png"]
   }
 }

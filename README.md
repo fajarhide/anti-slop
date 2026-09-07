@@ -28,7 +28,7 @@ The core prevents slop but cannot invent direction. `DESIGN.md` (yours) supplies
 
 ## Install
 
-antislop ships as a set of **standard agent skills** (one folder per skill, holding a `SKILL.md`). The core is always loaded; the other skills load only when the task needs them. Pick one of these five paths from this one repo.
+antislop ships as a set of **standard agent skills** (one folder per skill, holding a `SKILL.md`). The core is always loaded; the other skills load only when the task needs them. Pick one of these six paths from this one repo.
 
 **1. The picker (recommended).** One command, then answer the prompts. It asks where to install (this project or everywhere), which agents you use, and which extra skills you want, then copies the folders and writes the pointer that loads antislop every session. Path 2 does not write that pointer, so start here:
 
@@ -68,6 +68,12 @@ codex plugin marketplace add miqdadbadjuber/anti-slop
 codex plugin add antislop@anti-slop
 ```
 
+**6. The plugin (Cursor).** The same repo is a Cursor plugin: a `.cursor-plugin/plugin.json` manifest plus a `.cursor-plugin/marketplace.json` index, with the six skills and a `.mdc` rule that loads antislop into every session. Add the repo as a plugin marketplace in Cursor, then install the plugin:
+
+```text
+/add-plugin https://github.com/miqdadbadjuber/anti-slop
+```
+
 **Where the skills live.** Every skill is a folder of the open Agent Skills standard (`<name>/SKILL.md`), so it drops into any agent that reads the standard. The picker (path 1) installs into whichever of these you use, creating the folder if it is missing:
 
 | Agent | Reads antislop from |
@@ -80,7 +86,7 @@ codex plugin add antislop@anti-slop
 | Gemini CLI | `.gemini/skills/` |
 | Hermes | `~/.hermes/skills/` |
 
-The plugins (paths 3, 4, 5) are per-agent doors: they load antislop straight from this repo, so there are no skill folders to keep in sync.
+The plugins (paths 3 to 6) are per-agent doors: they load antislop straight from this repo, so there are no skill folders to keep in sync.
 
 **Manual (single file, no packaging).** The core `antislop.md` alone is a complete filter you can paste into any chat window. Download it and tell your agent to read it; the First-Run wizard inside it installs skills the manual way:
 
@@ -128,6 +134,7 @@ What changed in each release. The full tracker, including the cross-agent plugin
 - **v3.2.2** opened the Antigravity door: `agy plugin install https://github.com/miqdadbadjuber/anti-slop` registers the six skills and loads antislop every session.
 - **v3.2.3** opened the Codex door: `codex plugin marketplace add miqdadbadjuber/anti-slop`, then `codex plugin add antislop@anti-slop`.
 - **v3.2.4** turned R-35 into a click-through smoke test: every interactive element must be run and exercised one at a time, and its result recorded as evidence in the Delivery Gate report.
+- **v3.2.5** opened the Cursor door: `.cursor-plugin/plugin.json` plus a `.cursor-plugin/marketplace.json` index, skills with a `.mdc` rule pointer. The Codex plugin also gains its app identity: an icon, a brand color, and a banner screenshot.
 
 ## FAQ
 
@@ -138,7 +145,7 @@ No, a filter. It does not prescribe colors, fonts, or layouts. It rejects techni
 All of them, but the install paths differ:
 
 - **The picker and the skills directory** support Claude Code, Codex, Antigravity, OpenCode, Cursor, Gemini CLI, and Hermes (the picker detects each agent's skill folder; Hermes installs globally only). These are the recommended paths.
-- **The plugins** are per-agent doors: the Claude Code marketplace plugin (path 3), the Antigravity plugin (path 4), and the Codex plugin (path 5), all installed from the same repo.
+- **The plugins** are per-agent doors: the Claude Code marketplace plugin (path 3), the Antigravity plugin (path 4), the Codex plugin (path 5), and the Cursor plugin (path 6), all installed from the same repo.
 - **The single file** (`antislop.md`) works with any agent that reads plain Markdown, including a plain chat window.
 
 The packaged skills use the open Agent Skills standard (folder per skill), so they drop into any tool that reads the standard.

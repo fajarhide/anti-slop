@@ -31,7 +31,7 @@ The core file covers all of it. Skills (see [What is a skill?](#what-is-a-skill)
 Pick the path that fits the tool you use. Three cases, three answers:
 
 1. **I use a coding agent** (Claude Code, Codex, Antigravity, Cursor, OpenCode, Gemini CLI, or Hermes). Run one command. See [The one-command way](#the-one-command-way).
-2. **I want the native plugin** on Claude Code, Antigravity, or Codex. See [The plugin doors](#the-plugin-doors).
+2. **I want the native plugin** on Claude Code, Antigravity, Codex, or Cursor. See [The plugin doors](#the-plugin-doors).
 3. **I only have a chat window** (ChatGPT on the web, plain Gemini, and so on) or no terminal. See [The manual way](#the-manual-way).
 
 ### The one-command way
@@ -52,7 +52,7 @@ That is the whole install. No agent entry file to write by hand, nothing else to
 
 ### The plugin doors
 
-Claude Code, Antigravity, and Codex can also load antislop as a native plugin straight from this repository. The plugin points at the same shared skills, so there are no copies to keep in sync. Use one of these if you already run plugins on that agent.
+Claude Code, Antigravity, Codex, and Cursor can also load antislop as a native plugin straight from this repository. The plugin points at the same shared skills, so there are no copies to keep in sync. Use one of these if you already run plugins on that agent.
 
 **Claude Code.** Add the marketplace once, then install the plugin:
 
@@ -73,6 +73,14 @@ agy plugin install https://github.com/miqdadbadjuber/anti-slop
 codex plugin marketplace add miqdadbadjuber/anti-slop
 codex plugin add antislop@anti-slop
 ```
+
+**Cursor.** Add the repo as a plugin marketplace in Cursor, then install the plugin from the Plugins panel. In an Agent chat, run:
+
+```text
+/add-plugin https://github.com/miqdadbadjuber/anti-slop
+```
+
+Its `rules/` component (a `.mdc` rule) loads antislop in every session.
 
 Which should you use, the one-command way or the plugin? Both load the same rules. The one-command way copies skill folders into your project and works on all seven agents. The plugin doors load straight from the repository and are per-agent, so if you switch projects there is nothing to reinstall. Start with the one-command way; add a plugin door later if you want the project-free setup.
 
@@ -141,7 +149,7 @@ It never beautifies on its own. antislop removes slop; it does not invent direct
 
 ## Where is this going?
 
-antislop is packaged three ways at once: standard skill folders, native plugins for Claude Code, Antigravity, and Codex, and the single-file core that works anywhere. Agent support grows over time. For the current release and what comes next, see the [roadmap](ROADMAP.md). For the full picture of every skill, see the [README](README.md).
+antislop is packaged three ways at once: standard skill folders, native plugins for Claude Code, Antigravity, Codex, and Cursor, and the single-file core that works anywhere. Agent support grows over time. For the current release and what comes next, see the [roadmap](ROADMAP.md). For the full picture of every skill, see the [README](README.md).
 
 ## Feedback
 
