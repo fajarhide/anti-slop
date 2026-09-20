@@ -15,7 +15,10 @@ export const AGENTS = [
   { id: 'claude', label: 'Claude Code', dir: '.claude/skills', entry: 'CLAUDE.md' },
   // Antigravity reads a project's .agents/skills, but not the one under the home dir.
   { id: 'antigravity', label: 'Antigravity', dir: '.agents/skills', globalDir: '.gemini/config/skills', entry: 'AGENTS.md' },
-  { id: 'codex', label: 'Codex', dir: '.codex/skills', entry: 'AGENTS.md' },
+  // Codex reads $HOME/.agents/skills at user scope and calls its own $CODEX_HOME/skills
+  // the deprecated user location, so a global install belongs in the shared folder. In a
+  // project it reads .codex/skills and walks .agents/skills up from the working directory.
+  { id: 'codex', label: 'Codex', dir: '.codex/skills', globalDir: '.agents/skills', readsAlso: ['.agents/skills'], entry: 'AGENTS.md' },
   // OpenCode documents ~/.config/opencode for global skills; ~/.opencode is undocumented.
   { id: 'opencode', label: 'OpenCode', dir: '.opencode/skills', globalDir: '.config/opencode/skills', readsAlso: ['.claude/skills', '.agents/skills'], entry: 'AGENTS.md' },
   { id: 'cursor', label: 'Cursor', dir: '.cursor/skills', entry: 'AGENTS.md' },

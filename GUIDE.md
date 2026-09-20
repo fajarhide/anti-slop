@@ -361,7 +361,7 @@ The installer writes into the folder your agent reads. This is what it writes an
 | Hermes | `.hermes/skills/` |
 | GitHub Copilot | `.agents/skills/` |
 
-A global install writes the same folder under your home directory, with two exceptions. OpenCode documents its global skills folder as `~/.config/opencode/skills/`, so the installer writes there rather than to `~/.opencode/skills/`, which OpenCode still reads but does not document. Antigravity reads a project's `.agents/skills/`, but under your home directory it reads `~/.gemini/config/skills/` and not `~/.agents/skills/`, so the installer writes there on a global install. Copilot is the one agent that does read the home-level `.agents/skills/`, so a global install reaches it through the folder name a project install uses.
+A global install writes the same folder under your home directory, with three exceptions. OpenCode documents its global skills folder as `~/.config/opencode/skills/`, so the installer writes there rather than to `~/.opencode/skills/`, which OpenCode still reads but does not document. Antigravity reads a project's `.agents/skills/`, but under your home directory it reads `~/.gemini/config/skills/` and not `~/.agents/skills/`, so the installer writes there on a global install. Codex goes the other way: it marks its own `~/.codex/skills/` as the deprecated user location and documents `~/.agents/skills/` in its place, so a global Codex install writes the shared folder. Copilot reads that same home-level folder, so a global install reaches it through the folder name a project install uses.
 
 Antigravity and Copilot share `.agents/skills/`. Copilot also reads `.github/skills/` and `.claude/skills/`, but there is no reason to write a second copy, so picking both installs once.
 

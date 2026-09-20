@@ -147,7 +147,7 @@ The Gemini CLI row is legacy support: Antigravity replaced it, but the installer
 
 Antigravity and Copilot share one folder. Copilot also reads `.github/skills/` and `.claude/skills/`, but the installer writes the folder they have in common, so picking both installs antislop once.
 
-Those are the project paths. A global install writes the same folder under your home directory, with two exceptions: OpenCode writes to `~/.config/opencode/skills/`, and Antigravity to `~/.gemini/config/skills/`. Copilot is the one agent that also reads the home-level `.agents/skills/`.
+Those are the project paths. A global install writes the same folder under your home directory, with three exceptions: OpenCode writes to `~/.config/opencode/skills/`, Antigravity to `~/.gemini/config/skills/`, and Codex to `~/.agents/skills/`, the user-level folder Codex documents in place of its own `~/.codex/skills/`. Copilot and OpenCode read that home-level folder too.
 
 Hermes needs one extra step after a project install: it will not load skills out of a cloned repository until you run `hermes skills trust` once in that project.
 

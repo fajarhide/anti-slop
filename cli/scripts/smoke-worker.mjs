@@ -105,8 +105,12 @@ check('E duplicate read named', dupReads.map((d) => [d.agent.id, d.paths.length]
 check('E one folder alone is not a duplicate', detectDuplicateReads({ targets: resolveTargets('project', ['opencode']), location: 'project' }), [])
 check('E global scope is not checked', detectDuplicateReads({ targets: resolveTargets('global', ['claude', 'opencode']), location: 'global' }), [])
 
+// Codex's global scope is the shared folder, not ~/.codex/skills, which Codex calls deprecated.
 const globalTargets = resolveTargets('global', ['claude', 'codex'])
-console.log('F global targets:', globalTargets.map((t) => `${t.agents.map((a) => a.id).join('+')}@${t.path}`).join(' | '))
+check('F global targets', globalTargets.map((t) => `${t.agents.map((a) => a.id).join('+')}@${t.path}`), [
+  `claude@${path.join(os.homedir(), '.claude', 'skills')}`,
+  `codex@${path.join(os.homedir(), '.agents', 'skills')}`,
+])
 
 // Copies are identical and the pointer block dedupes.
 const src = fs.readFileSync(path.join(skillSourceDir(), 'antislop-ui', 'SKILL.md'), 'utf8')
