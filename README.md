@@ -220,6 +220,10 @@ The packaged skills use the open Agent Skills standard (folder per skill), so th
 
 A folder that goes deeper into one concern (UI, copywriting, accessibility, and so on), holding a `SKILL.md` with its rules. It references the core rules by number and never duplicates them, so adding a skill does not change the core.
 
+## Star History
+
+[![Star History Chart](https://star-history.dera.page/svg?repos=miqdadbadjuber/anti-slop)](https://star-history.dera.page/miqdadbadjuber/anti-slop)
+
 ## Contributors
 
 Thanks to everyone who helps make antislop better.
