@@ -30,9 +30,9 @@ const fresh = detectAgents('project')
 check('A detected (fresh project)', fresh, [])
 const defaultTargets = resolveTargets('project')
 console.log('A default targets:', defaultTargets.map((t) => `${t.agents.map((a) => a.id).join('+')}@${t.path} exists=${t.exists}`).join(' | '))
-// Copilot shares Antigravity's folder, so eight agents resolve to seven folders.
-check('A eight agents over seven folders', [AGENTS.length, defaultTargets.length], [8, 7])
-check('A copilot shares the antigravity folder', resolveTargets('project', ['antigravity', 'copilot']).length, 1)
+// Copilot and Kimi Code share Antigravity's folder, so nine agents resolve to seven folders.
+check('A nine agents over seven folders', [AGENTS.length, defaultTargets.length], [9, 7])
+check('A copilot and kimi share the antigravity folder', resolveTargets('project', ['antigravity', 'copilot', 'kimi']).length, 1)
 
 // Claude Code only, via explicit selection (old behavior preserved).
 const targets = resolveTargets('project', ['claude'])
@@ -88,6 +88,9 @@ const agGlobal = resolveTargets('global', ['antigravity'])
 check('D5 antigravity project target', resolveTargets('project', ['antigravity'])[0].path, path.join(process.cwd(), '.agents', 'skills'))
 check('D5 antigravity global target', agGlobal[0].path, path.join(os.homedir(), '.gemini', 'config', 'skills'))
 
+// Kimi Code has no folder of its own here: both scopes are the shared .agents/skills.
+check('D7 kimi project target', resolveTargets('project', ['kimi'])[0].path, path.join(process.cwd(), '.agents', 'skills'))
+
 // updatePointers has no other source for the entry file, so no row may omit it.
 check('D6 every agent names an entry file', AGENTS.filter((a) => !a.entry).map((a) => a.id), [])
 
@@ -96,7 +99,7 @@ check('D6 hermes writes a project pointer', updatePointers({ targets: hermesProj
 
 // Detection now sees the agents that were installed.
 const after = detectAgents('project')
-check('E detected after installs', [...after].sort(), ['antigravity', 'claude', 'copilot', 'cursor', 'gemini', 'hermes', 'opencode'])
+check('E detected after installs', [...after].sort(), ['antigravity', 'claude', 'copilot', 'cursor', 'gemini', 'hermes', 'kimi', 'opencode'])
 
 // OpenCode reads .claude/skills and .agents/skills too, so a project that installs into
 // two of them holds the same names twice and OpenCode picks between them unpredictably.
@@ -106,10 +109,11 @@ check('E one folder alone is not a duplicate', detectDuplicateReads({ targets: r
 check('E global scope is not checked', detectDuplicateReads({ targets: resolveTargets('global', ['claude', 'opencode']), location: 'global' }), [])
 
 // Codex's global scope is the shared folder, not ~/.codex/skills, which Codex calls deprecated.
-const globalTargets = resolveTargets('global', ['claude', 'codex'])
+// Kimi Code lands there too, so the grouping has to hold at global scope as well.
+const globalTargets = resolveTargets('global', ['claude', 'codex', 'kimi'])
 check('F global targets', globalTargets.map((t) => `${t.agents.map((a) => a.id).join('+')}@${t.path}`), [
   `claude@${path.join(os.homedir(), '.claude', 'skills')}`,
-  `codex@${path.join(os.homedir(), '.agents', 'skills')}`,
+  `codex+kimi@${path.join(os.homedir(), '.agents', 'skills')}`,
 ])
 
 // Copies are identical and the pointer block dedupes.

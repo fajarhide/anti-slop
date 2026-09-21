@@ -128,6 +128,16 @@ agent plugin marketplace add https://github.com/miqdadbadjuber/anti-slop
 
 Then open **Customize** in Cursor, find **antislop**, and select **Install**, choosing project or user scope.
 
+### 7. The plugin (Kimi Code)
+
+The same repo is a Kimi Code plugin. Install it in a Kimi Code session, then start a new one:
+
+```text
+/plugins install https://github.com/miqdadbadjuber/anti-slop
+```
+
+The URL resolves to the latest release. Kimi Code installs plugins per user, so this covers every project.
+
 ### Where the skills live
 
 Every skill is a folder of the open Agent Skills standard (`<name>/SKILL.md`), so it drops into any agent that reads the standard. The installer (path 1) installs into whichever of these you use, creating the folder if it is missing:
@@ -142,12 +152,13 @@ Every skill is a folder of the open Agent Skills standard (`<name>/SKILL.md`), s
 | Gemini CLI | `.gemini/skills/` |
 | Hermes | `.hermes/skills/` |
 | GitHub Copilot | `.agents/skills/` |
+| Kimi Code | `.agents/skills/` |
 
 The Gemini CLI row is legacy support: Antigravity replaced it, but the installer still writes there for existing setups.
 
-Antigravity and Copilot share one folder. Copilot also reads `.github/skills/` and `.claude/skills/`, but the installer writes the folder they have in common, so picking both installs antislop once.
+Antigravity, Copilot, and Kimi Code share one folder. Copilot also reads `.github/skills/` and `.claude/skills/`, and Kimi Code also reads `.kimi-code/skills/`, but the installer writes the folder they have in common, so picking them together installs antislop once.
 
-Those are the project paths. A global install writes the same folder under your home directory, with three exceptions: OpenCode writes to `~/.config/opencode/skills/`, Antigravity to `~/.gemini/config/skills/`, and Codex to `~/.agents/skills/`, the user-level folder Codex documents in place of its own `~/.codex/skills/`. Copilot and OpenCode read that home-level folder too.
+Those are the project paths. A global install writes the same folder under your home directory, with three exceptions: OpenCode writes to `~/.config/opencode/skills/`, Antigravity to `~/.gemini/config/skills/`, and Codex to `~/.agents/skills/`, the user-level folder Codex documents in place of its own `~/.codex/skills/`. Copilot, OpenCode, and Kimi Code read that home-level folder too, so it is where a global install reaches them.
 
 Hermes needs one extra step after a project install: it will not load skills out of a cloned repository until you run `hermes skills trust` once in that project.
 
@@ -208,8 +219,8 @@ No, a filter. It does not prescribe colors, fonts, or layouts. It rejects techni
 
 All of them, but the install paths differ:
 
-- **The installer and the skills directory** support Claude Code, Codex, Antigravity, OpenCode, Cursor, Gemini CLI, Hermes, and GitHub Copilot (the installer detects each agent's skill folder). These are the recommended paths.
-- **The plugins** are per-agent doors: the Claude Code marketplace plugin (path 3), the Antigravity plugin (path 4), the Codex plugin (path 5), and the Cursor plugin (path 6), all installed from the same repo.
+- **The installer and the skills directory** support Claude Code, Codex, Antigravity, OpenCode, Cursor, Gemini CLI, Hermes, GitHub Copilot, and Kimi Code (the installer detects each agent's skill folder). These are the recommended paths.
+- **The plugins** are per-agent doors: the Claude Code marketplace plugin (path 3), the Antigravity plugin (path 4), the Codex plugin (path 5), the Cursor plugin (path 6), and the Kimi Code plugin (path 7), all installed from the same repo.
 - **The single file** (`antislop.md`) works with any agent that reads plain Markdown, including a plain chat window.
 
 The packaged skills use the open Agent Skills standard (folder per skill), so they drop into any tool that reads the standard.

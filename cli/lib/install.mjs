@@ -27,6 +27,9 @@ export const AGENTS = [
   { id: 'hermes', label: 'Hermes', dir: '.hermes/skills', readsAlso: ['.agents/skills'], entry: 'AGENTS.md' },
   // Copilot reads the shared .agents/skills folder, so it shares Antigravity's target.
   { id: 'copilot', label: 'GitHub Copilot', dir: '.agents/skills', entry: 'AGENTS.md' },
+  // Kimi Code reads the shared folder at both scopes. Its own .kimi-code/skills is never
+  // written here, and $KIMI_CODE_HOME/skills moves with an env var the installer cannot see.
+  { id: 'kimi', label: 'Kimi Code', dir: '.agents/skills', entry: 'AGENTS.md' },
 ]
 
 export function skillSourceDir() {
