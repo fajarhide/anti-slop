@@ -11,6 +11,14 @@
   <a href="https://skills.sh/miqdadbadjuber/anti-slop"><img src="https://skills.sh/b/miqdadbadjuber/anti-slop" alt="skills.sh"></a>
 </p>
 
+<p align="center">
+  <a href="https://github.com/miqdadbadjuber/anti-slop/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=miqdadbadjuber/anti-slop" alt="antislop contributors" />
+  </a>
+</p>
+
+<p align="center"><sub>Thanks to everyone who helps make antislop better</sub></p>
+
 # antislop
 
 > **Anti Slop: Rules for AI Coding Agents.** It stops them from generating generic "AI slop" UI and copy, without letting the result turn sterile. It is a **filter, not a style guide**: no prescribed colors, fonts, or layouts. It is not only for building pages: it also writes and audits copy, so AI text stops reading like AI. And it never beautifies on its own; `DESIGN.md` (yours) is where beauty and direction come from.
@@ -194,7 +202,7 @@ antislop is used one of two ways, chosen at the start of a session:
 - **A global Codex install moves to the folder Codex documents.** It wrote `~/.codex/skills`, which Codex's own source calls its deprecated user location, and now writes `$HOME/.agents/skills`. The old path still loads, so an existing install keeps working.
 - **Codex learns about the shared-folder collision.** Codex walks `.agents/skills` up from the working directory, so installing Codex and Copilot into one project leaves two copies of the same skill names. The installer now names that, where it used to stay silent.
 - **The shared-folder claim is corrected.** This page said Copilot was the one agent that reads the home-level `.agents/skills/`. Codex reads it at user scope and OpenCode lists it beside its own global folder, so it is three agents, and README, GUIDE and ROADMAP now say which agents do.
-- **A star history chart** sits between the FAQ and the contributors.
+- **A star history chart** sits below the FAQ.
 
 Every earlier release, and what comes next, is in [ROADMAP.md](ROADMAP.md).
 
@@ -222,15 +230,7 @@ A folder that goes deeper into one concern (UI, copywriting, accessibility, and 
 
 [![Star History Chart](https://star-history.dera.page/svg?repos=miqdadbadjuber/anti-slop)](https://star-history.dera.page/miqdadbadjuber/anti-slop)
 
-## Contributors
-
-Thanks to everyone who helps make antislop better.
-
-<p align="center">
-  <a href="https://github.com/miqdadbadjuber/anti-slop/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=miqdadbadjuber/anti-slop" alt="antislop contributors" />
-  </a>
-</p>
+## Contributing
 
 Found a new AI slop pattern, a rule that missed something, or a bug in the installer? Open an [issue](https://github.com/miqdadbadjuber/anti-slop/issues). PRs are welcome for new AI slop patterns, clarifications, or checklist items out of sync with their rule.
 
