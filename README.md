@@ -206,6 +206,12 @@ antislop is used one of two ways, chosen at the start of a session:
 
 Every earlier release, and what comes next, is in [ROADMAP.md](ROADMAP.md).
 
+## In motion
+
+![The same brief, before and after the filter](assets/compare/antislop-compare.gif)
+
+The same four images from See the difference, in motion.
+
 ## FAQ
 
 ### Is antislop a style guide?
