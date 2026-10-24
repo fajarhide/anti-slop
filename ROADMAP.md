@@ -11,7 +11,7 @@
 
 ## Where we are
 
-The latest release is **v3.2.22**. antislop is a packaged system: a lean, always-loaded core plus five additive skills, each a standard agent skill folder at `skills/<name>/SKILL.md`.
+The latest release is **v3.2.23**. antislop is a packaged system: a lean, always-loaded core plus five additive skills, each a standard agent skill folder at `skills/<name>/SKILL.md`.
 
 - **The core.** 38 rules in three tiers (Hard Gate, Purpose-Gate, Quality Locks), a Liveliness Toolkit, a mandatory Delivery Gate, and two usage modes (During / After). The single-file `antislop.md` is the same filter, pasteable into any chat window.
 - **Usage-mode preferences.** Saving a global mode is opt-in. Without a settings file, every session still asks during or after. Saved modes announce their source, explicit session choices take precedence, and `--mode ask` restores the question.
@@ -63,6 +63,7 @@ Up to v3.0.0 each +0.1 shipped exactly one new skill, which kept the filter pull
 | v3.2.20 | Usage modes become a saved preference, opt-in and announced with its source, with a session choice still winning. From community PR #29. |
 | v3.2.21 | The contrast checker reads the threshold from the unrounded ratio, so a pairing between 4.495 and 4.5 no longer reports 4.50 and passes 4.5:1. From community PR #43. |
 | v3.2.22 | Maintenance round. The installer names all seven plugin doors, adding Kimi Code, Cline, and Oh My Pi, and CI runs on macOS alongside Linux and Windows. |
+| v3.2.23 | The plugin-door probes report the newest copy when a store holds more than one, Codex versions compare as numbers, and `--update` run from the home folder no longer writes a pointer there. |
 
 ## What's next
 
@@ -76,9 +77,9 @@ Every door is verified against the vendor's current documentation before its ver
 
 | Version | Item | What it means |
 |---------|------|---------------|
-| v3.2.23 | Community PR | One new slop pattern, added to the core with its Delivery Gate item. |
-| v3.2.24 | Community PR | Additional copywriting rules in antislop-copywriting. |
-| v3.2.25 | DeepSeek harness plugin | The harness becomes the eighth plugin door once its documentation is confirmed. |
+| v3.2.24 | Community PR | One new slop pattern, added to the core with its Delivery Gate item. |
+| v3.2.25 | Community PR | Additional copywriting rules in antislop-copywriting. |
+| v3.2.26 | DeepSeek harness plugin | The harness becomes the eighth plugin door once its documentation is confirmed. |
 
 Beyond the numbered plan, with no promised version:
 

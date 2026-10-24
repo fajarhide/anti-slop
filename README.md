@@ -212,7 +212,7 @@ A folder that goes deeper into one concern, holding a `SKILL.md` with its rules.
 
 ## Roadmap
 
-**v3.2.22** is a maintenance round. The installer can now see all seven plugin doors, so a Kimi Code, Cline, or Oh My Pi plugin copy is named with its own update command instead of going unmentioned. CI also runs on macOS, alongside Linux and Windows, so a report from that platform can be split into what the installer got wrong and what the agent's own configuration explains.
+**v3.2.23** fixes the version the installer reports for a plugin copy. A Kimi Code, Cline, or Oh My Pi store that kept an old copy beside the new one could report the old version, and Codex ranked 3.2.9 above 3.2.22. `npx antislop-ai --update` run from the home folder also stops writing a pointer into `~/CLAUDE.md`, `~/AGENTS.md`, and `~/GEMINI.md`.
 
 Every earlier release, and what comes next, is in [ROADMAP.md](ROADMAP.md).
 
@@ -226,7 +226,7 @@ Thanks to everyone who helps make antislop better.
 
 <p align="center">
   <a href="https://github.com/miqdadbadjuber/anti-slop/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=miqdadbadjuber/anti-slop&v=3.2.22" alt="antislop contributors" />
+    <img src="https://contrib.rocks/image?repo=miqdadbadjuber/anti-slop&v=3.2.23" alt="antislop contributors" />
   </a>
 </p>
 
