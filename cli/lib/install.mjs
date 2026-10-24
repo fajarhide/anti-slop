@@ -139,40 +139,47 @@ function findClone(dir) {
   return fs.existsSync(dir) ? { path: dir, version: cloneVersion(dir) } : null
 }
 
+// A store can keep an old copy beside the new one, and folder order then decided which
+// version was reported. The highest version wins; an unknown one sorts below any known.
+function newest(copies) {
+  copies.sort((a, b) => (a.version ?? '').localeCompare(b.version ?? '', undefined, { numeric: true }))
+  return copies.length ? copies[copies.length - 1] : null
+}
+
 // Kimi and Oh My Pi name the installed copy after the plugin or the marketplace,
 // so the copy is found by what it contains, not by its folder name.
 function findCopyUnder(dir) {
+  const copies = []
   for (const name of listDirs(dir)) {
     const candidate = path.join(dir, name)
     if (fs.existsSync(path.join(candidate, 'skills', CORE))) {
-      return { path: candidate, version: cloneVersion(candidate) }
+      copies.push({ path: candidate, version: cloneVersion(candidate) })
+      continue
     }
     // A store can nest an install one level deeper, so check that too.
     for (const inner of listDirs(candidate)) {
       const nested = path.join(candidate, inner)
       if (fs.existsSync(path.join(nested, 'skills', CORE))) {
-        return { path: nested, version: cloneVersion(nested) }
+        copies.push({ path: nested, version: cloneVersion(nested) })
       }
     }
   }
-  return null
+  return newest(copies)
 }
 
 // Cline stores each install under a hashed path that varies by source type, so
 // the copy is found by walking the store instead, skipping dependency folders.
-function findNestedCopy(dir, depth) {
+function findNestedCopy(dir, depth, copies = []) {
   for (const name of listDirs(dir)) {
     if (name === 'node_modules' || name === '.git' || name.startsWith('.replace-')) continue
     const candidate = path.join(dir, name)
     if (fs.existsSync(path.join(candidate, 'skills', CORE))) {
-      return { path: candidate, version: cloneVersion(candidate) }
-    }
-    if (depth > 0) {
-      const found = findNestedCopy(candidate, depth - 1)
-      if (found) return found
+      copies.push({ path: candidate, version: cloneVersion(candidate) })
+    } else if (depth > 0) {
+      findNestedCopy(candidate, depth - 1, copies)
     }
   }
-  return null
+  return newest(copies)
 }
 
 // Oh My Pi moves plugin state to $XDG_DATA_HOME once that root is initialized,
@@ -190,16 +197,13 @@ function findOmp() {
   for (const home of ompHomes()) {
     const plugins = path.join(home, 'plugins')
     const cache = path.join(plugins, 'cache', 'plugins')
-    const matches = listDirs(cache)
-      .map((name) => ({ name, parts: name.split('___') }))
-      .filter((m) => m.parts.length === 3 && m.parts[1] === CORE)
-      .map((m) => ({ dir: path.join(cache, m.name), version: m.parts[2] }))
-      .sort((a, b) => a.version.localeCompare(b.version, undefined, { numeric: true }))
-
-    if (matches.length > 0) {
-      const newest = matches[matches.length - 1]
-      return { path: newest.dir, version: newest.version }
-    }
+    const cached = newest(
+      listDirs(cache)
+        .map((name) => ({ name, parts: name.split('___') }))
+        .filter((m) => m.parts.length === 3 && m.parts[1] === CORE)
+        .map((m) => ({ path: path.join(cache, m.name), version: m.parts[2] })),
+    )
+    if (cached) return cached
     const copy = findCopyUnder(plugins)
     if (copy) return copy
   }
