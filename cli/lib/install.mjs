@@ -460,7 +460,12 @@ export function updateAll({ locations = ['project', 'global'] } = {}) {
   const projectTargets = []
   const projectSkills = new Set()
 
+  // Run from the home folder, the project scope is the global one: each folder was updated
+  // twice and a pointer landed in ~/CLAUDE.md, which agents then load in every project.
+  const atHome = fs.realpathSync(process.cwd()) === fs.realpathSync(os.homedir())
+
   for (const location of locations) {
+    if (location === 'project' && atHome) continue
     for (const target of resolveTargets(location)) {
       if (!fs.existsSync(path.join(target.path, CORE))) continue
       const skills = SKILL_NAMES.filter((s) => fs.existsSync(path.join(target.path, s)))

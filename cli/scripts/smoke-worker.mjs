@@ -389,7 +389,14 @@ try {
     detectPluginDoors().map((d) => `${d.door.id} ${d.version}`).sort(),
     ['cline 3.2.22', 'codex 3.2.22', 'kimi 3.2.22', 'omp 3.2.22']
   )
+
+  // Run from home, --update must treat it as the global scope only.
+  installSkills({ skills: [CORE], targets: resolveTargets('global', ['claude']), overwrite: false })
+  process.chdir(fakeHome)
+  check('L update from home touches each folder once', updateAll().results.map((r) => r.location), ['global'])
+  check('L update from home writes no pointer', fs.existsSync(path.join(fakeHome, 'CLAUDE.md')), false)
 } finally {
+  process.chdir(here)
   process.env = savedEnv
   fs.rmSync(fakeHome, { recursive: true, force: true })
 }
