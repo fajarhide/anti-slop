@@ -234,8 +234,7 @@ export const PLUGIN_DOORS = [
     update: 'codex plugin marketplace upgrade anti-slop',
     find() {
       const cache = path.join(os.homedir(), '.codex', 'plugins', 'cache', 'anti-slop', CORE)
-      const versions = listDirs(cache).sort()
-      return versions.length ? { path: cache, version: versions[versions.length - 1] } : null
+      return newest(listDirs(cache).map((version) => ({ path: cache, version })))
     },
   },
   {

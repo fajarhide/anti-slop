@@ -382,11 +382,12 @@ try {
     copy(path.join('.kimi-code', 'plugins', 'managed', name), version)
     copy(path.join('.cline', 'plugins', '_installed', name, 'hash'), version)
     copy(path.join('.omp', 'plugins', name), version)
+    fs.mkdirSync(path.join(fakeHome, '.codex', 'plugins', 'cache', 'anti-slop', CORE, version), { recursive: true })
   }
   check(
     'L plugin doors report the newest copy in a store',
     detectPluginDoors().map((d) => `${d.door.id} ${d.version}`).sort(),
-    ['cline 3.2.22', 'kimi 3.2.22', 'omp 3.2.22']
+    ['cline 3.2.22', 'codex 3.2.22', 'kimi 3.2.22', 'omp 3.2.22']
   )
 } finally {
   process.env = savedEnv
