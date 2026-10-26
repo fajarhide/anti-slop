@@ -426,7 +426,18 @@ function writeBlock(entry, block) {
   fs.writeFileSync(entry, body + eol)
 }
 
+// From the home folder the project scope is the global one, and an entry file written
+// there (~/CLAUDE.md, ~/AGENTS.md) is loaded by agents in every project under it.
+export function atHome() {
+  try {
+    return fs.realpathSync(process.cwd()) === fs.realpathSync(os.homedir())
+  } catch {
+    return false // a HOME that does not exist, as in some CI containers
+  }
+}
+
 export function updatePointers({ targets, skills }) {
+  if (atHome()) return []
   const entries = new Map()
   for (const t of targets) {
     if (fs.existsSync(path.join(t.path, CORE))) {
@@ -460,12 +471,11 @@ export function updateAll({ locations = ['project', 'global'] } = {}) {
   const projectTargets = []
   const projectSkills = new Set()
 
-  // Run from the home folder, the project scope is the global one: each folder was updated
-  // twice and a pointer landed in ~/CLAUDE.md, which agents then load in every project.
-  const atHome = fs.realpathSync(process.cwd()) === fs.realpathSync(os.homedir())
+  // From home, each folder would be updated a second time as a project folder.
+  const home = atHome()
 
   for (const location of locations) {
-    if (location === 'project' && atHome) continue
+    if (location === 'project' && home) continue
     for (const target of resolveTargets(location)) {
       if (!fs.existsSync(path.join(target.path, CORE))) continue
       const skills = SKILL_NAMES.filter((s) => fs.existsSync(path.join(target.path, s)))

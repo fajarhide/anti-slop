@@ -395,6 +395,7 @@ try {
   process.chdir(fakeHome)
   check('L update from home touches each folder once', updateAll().results.map((r) => r.location), ['global'])
   check('L update from home writes no pointer', fs.existsSync(path.join(fakeHome, 'CLAUDE.md')), false)
+  check('L install from home writes no pointer', updatePointers({ targets: resolveTargets('project', ['claude']), skills: [CORE] }), [])
 } finally {
   process.chdir(here)
   process.env = savedEnv

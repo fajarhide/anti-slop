@@ -7,6 +7,7 @@ import { configureMode } from './lib/settings.mjs'
 import {
   CORE,
   AGENTS,
+  atHome,
   skillSourceDir,
   resolveTargets,
   detectAgents,
@@ -178,6 +179,8 @@ async function main() {
 
   if (pointers.length > 0) {
     log.step('Pointer written to ' + pointers.map((p) => path.basename(p)).join(', '))
+  } else if (location === 'project' && atHome()) {
+    log.warn('This is your home folder, so no pointer was written: one here would load in every project. Run it inside a project for a pointer.')
   }
 
   const folderCount = new Set(written.map((w) => path.dirname(w.path))).size
