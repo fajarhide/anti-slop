@@ -40,6 +40,16 @@ fs.cpSync(repoSkills, cliSkills, {
   filter: (src) => path.basename(src) !== '__pycache__',
 })
 
+// npm only ships a README and LICENSE found in cli/, so the package page and Socket saw none.
+// Relative links point at files that are not in the tarball, so aim them at the repo.
+const REPO = 'https://github.com/miqdadbadjuber/anti-slop'
+const readme = fs.readFileSync(path.join(repoRoot, 'README.md'), 'utf8')
+  .replace(/src="(?:\.\/)?(?!https?:|#)([^"]+)"/g, `src="${REPO}/raw/main/$1"`)
+  .replace(/href="(?:\.\/)?(?!https?:|#|mailto:)([^"]+)"/g, `href="${REPO}/blob/main/$1"`)
+  .replace(/\]\((?:\.\/)?(?!https?:|#|mailto:)([^)]+)\)/g, `](${REPO}/blob/main/$1)`)
+fs.writeFileSync(path.join(__dirname, '..', 'README.md'), readme)
+fs.copyFileSync(path.join(repoRoot, 'LICENSE'), path.join(__dirname, '..', 'LICENSE'))
+
 // A Windows checkout hands back CRLF, and a shipped skill would then carry "name: x\r"
 // into any registry that splits on \n alone. Ship LF whatever the checkout did.
 const TEXT = new Set(['.md', '.py', '.json', '.txt', '.mjs'])

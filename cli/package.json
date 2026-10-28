@@ -13,6 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/miqdadbadjuber/anti-slop.git"
   },
+  "bugs": "https://github.com/miqdadbadjuber/anti-slop/issues",
   "keywords": [
     "ai-slop",
     "design-rules",
